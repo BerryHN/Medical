@@ -968,7 +968,10 @@ label sadman:
             Bont "I need to labs before calling Dr. Zomb.."
             Alice "Understood!"
             show text "AN HOUR LATER"
-            Alice "The labs are ready"
+            Alice "The labs are ready..."
+            Bont "Hmm"
+            #Screen labs...
+            Bont ""
         $persistent.Slow_Girl=True
         return
 label slowGirl:
