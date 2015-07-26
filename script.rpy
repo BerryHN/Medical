@@ -584,7 +584,13 @@ label hangman:
             "Request X-Rays":
                 $dr.life_loss()
             "Request urgent consult to eye specialist":
-                $dr.life_loss()
+                python:
+                    if "eyes_consult" in vars():
+                        dr.life_loss()
+                    else:
+                        Inner "Indeed, he need an eye specialist"
+                        Inner "However, he there is NO hurry to "
+                    
     label hang_q13:
         $ dr.current='hang_q13'
         scene w
@@ -912,7 +918,9 @@ label sadman:
             Inner "T: Time to call..."
             Inner "The latter is not needed, because he is already in the hospital"
             Inner "Hmm... I think we need to go deeper here..."
-            
+            menu:
+		'How can we go "deeper"?':
+s
         $persistent.Slow_Girl=True
         return
 label slowGirl:
