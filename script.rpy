@@ -1,5 +1,6 @@
 ﻿#Hangman        
 init python:
+   #s import random from random
     import renpy.store as store
     import renpy.exports as renpy # we need this so Ren'Py properly handles rollback with classes
     from operator import attrgetter # we need this for sorting items
@@ -39,6 +40,18 @@ init python:
     def ticker():
         global freq
         ui.timer(0.9,press,repeat=True)
+    
+    overriding_on = None
+        
+   # def overriding_overlay():
+        #if not overriding_on:
+        #    return
+       # ui.keymap(mousedown_1=ui.returns(None))
+      #  ui.keymap(mouseup_1=ui.returns(None))
+     #   ui.keymap(I=ui.returns('False'))
+        
+
+    #config.overlay_functions.append(overriding_overlay) 
 
     class Player:
         def __init__(self, current, music=''):
@@ -57,12 +70,16 @@ init python:
                 renpy.jump('death')
     
     class Item(store.object):
-        def __init__(self, name, description, image,action):
+        def __init__(self, name, description, image, submitted, symptom=True,  imageneology=False):
             self.name         = name
             self.description  = description
-            self.imageActive  = image
-            self.action       = action
-            
+            self.image        = image
+            self.symptom      = symptom
+            self.submitted    = submitted
+            self.imageneology = imageneology
+        def imageneology(self):
+            if self.imageneology:
+                renpy.show_screen(self.imageneology)
             
                
 #Images
@@ -101,6 +118,7 @@ define Layzee = Character("Dr. Lazy", color="#aaff55")
 define Bolt = Character("Mr. Bolt", color="#ffffff")
 define Bad_m = Character("Mr. Bad", color="#ffffff")
 define Bad_f = Character("Mrs. Bad", color="#ffffff")
+define vlad = Character("Dr. Vladd", color="#ffffff")
 define Hedley = Character("Dr. Hedley Quintana", color="#ffffff")
 transform rotatelong:
     xpos 0.5
@@ -114,7 +132,6 @@ transform x:
     ypos 0.3
     xalign 0.5
     yalign 0.5
-    
 label start:
     $ freq=renpy.random.randint(6,8)*10.0
     $renpy.pause(0)
@@ -151,7 +168,7 @@ label death:
 
 label hangman:
     $ chart= []
-  #  show screen chart_button
+    show screen chart_button
     stop music
     $ death_1='{color=#fff}So Mr. Bolt refused your help.{/color}'
     $ death_2= '{color=#fff}6 hours later, you learned that Mr. Bolt jumped thru the window on the 9th floor of the ward.{/color}'
@@ -179,7 +196,7 @@ label hangman:
     show text 'Case 1\nThe Sadman' with Pause(2.5)
     show text "Location: ?????\nDate: ????" with Pause(3.5)
     scene black with dissolve
-    scene city
+    scene city 
    
     
     play music 'Grillo.mp3'
@@ -541,10 +558,9 @@ label hangman:
     label hang_q12:
         $ dr.current='hang_q12'
         $ dr.music = 'conga.mp3'
-        
+        scene w
         show bont
         Inner "So this poor fella is indeed blind!"
-        scene w
         Bont "Alice! Quick!"
         show alice
         hide bont
@@ -890,12 +906,12 @@ label sadman:
                     $dr.life_loss()
         label sadman_q7:
             Bont "Well the sudden lack of movement belong to the FAST mnemonics"
-            Bont "F: Face"
-            Bont "A: Arms"
-            Bont "S: Speech"
-            Bont "T: Time to call..."
-            Bont "The latter is not needed, because he is already in the hospital"
-            Bont "Before "
+            Inner "F: Face"
+            Inner "A: Arms"
+            Inner "S: Speech"
+            Inner "T: Time to call..."
+            Inner "The latter is not needed, because he is already in the hospital"
+            Inner "Hmm... I think we need to go deeper here..."
             
         $persistent.Slow_Girl=True
         return
@@ -1107,59 +1123,63 @@ label madman_1:
         else:
             $ dr.life_loss()
     #$persistent.Damsel_Distress =  True
-    label dev:
+ label dev:
+    scene happy dev
+    Hedley "Hello! my name is Hedley Quintana"
+    Hedley "I am the main developer of this game"
+    Hedley "I am a medical doctor and I currently a PhD Student in Karolinska Institute"
+    Hedley "The case you saw... actually happened"
+    Hedley "..."
+    Hedley "It has a happy ending!"
+    Hedley "If you haven't killed the patient... "
+    Hedley "..."
+    Hedley "The patient I attended was admitted in a ground floor..."
+    Hedley "To be honest, the band ending is just a hypothetical scenario that didn't happened!"
+    Hedley "However, the patient spent less than 12 hours in the ward"
+    Hedley 'I call that "record" time'
+    Hedley "Hey! did you like the game?"
+    menu:
+        'I love it!':
+            jump dev_1
+        "No, I didn't like it...":
+            jump dev_2
+        "I like it but it can be improved!":
+            jump dev_3
+    label dev_1:
         scene happy dev
-        Hedley "Hello! my name is Hedley Quintana"
-        Hedley "I am the main developer of this game"
-        Hedley "I am a medical doctor and I currently a PhD Student in Karolinska Institute"
-        Hedley "The case you saw... actually happened"
-        Hedley "..."
-        Hedley "It has a happy ending!"
-        Hedley "If you haven't killed the patient... "
-        Hedley "..."
-        Hedley "The patient I attended was admitted in a ground floor..."
-        Hedley "To be honest, the bad ending is just a hypothetical scenario that didn't happened!"
-        Hedley "However, the patient spent less than 12 hours in the ward"
-        Hedley 'I call that "record" time'
-        Hedley "Hey! did you like the game?"
-        menu:
-            'I love it!':
-                jump dev_1
-            "No, I didn't like it...":
-                jump dev_2
-            "I like it but it can be improved!":
-                jump dev_3
-        label dev_1:
-            scene happy dev
-            Hedley "I am very happy you liked it!"
-            Hedley "These are few cases I've dealt with a couple of years ago"
-            Hedley "Well, if you plan to study medicine..."
-            Hedley "This is the sort of things that you'll be doing to take care of patients."
-            Hedley "It's kinda a detective work..."
-            Hedley "asking questions, looking for evidence"
-            Hedley "and IRL click and point"
-            Hedley "Well, I don't think you'll see a case like this one"
-            Hedley "But you never know!"
-            jump dev_3
-        label dev_2:
-            scene sad dev
-            Hedley "I am sorry you didn't like it"
-            Hedley '...'
-            Hedley ':('
-            jump dev_3
-        label dev_3:
-            scene happy dev
-            Hedley "My intention was to use this language to teach medicine to students"
-            Hedley "BTW, do not play doctor, get a license and work!"
-            Hedley "It's no so expensive as you think..."
-            Hedley "The tuition cost me less than US$ 500.00"
-            Hedley "But it takes a lot of time (it took me six years and a half),"
-            Hedley "and Spanish is my native language (I studied medicine in Spanish)"
-            Hedley "BTW... sorry for any misspelling or grammar error"
-            Hedley "Regardless if you like it or not, I do think you can help me to improve this game"
-            Hedley "Let me know how it can be improved"
-            Hedley "You can contact me at Twitter"
-            Hedley "Twitter @hedleyquintana"
-            Hedley "Or if you download it from lemmaforum.com, you can reply to the forum"
-            Hedley "Many thanks for playing this game!"
+        Hedley "I am very happy you liked it!"
+        Hedley "These are few cases I've dealt with a couple of years ago"
+        Hedley "Well, if you plan to study medicine..."
+        Hedley "This is the sort of things that you'll be doing to take care of patients."
+        Hedley "It's kinda a detective work..."
+        Hedley "asking questions, looking for evidence"
+        Hedley "and IRL click and point"
+        Hedley "Well, I don't think you'll see a case like this one"
+        Hedley "But you never know!"
+        jump dev_3
+    label dev_2:
+        scene sad dev
+        Hedley "I am sorry you didn't like it"
+        Hedley '...'
+        Hedley ':('
+        jump dev_3
+    label dev_3:
+        scene happy dev
+        Hedley "My intention was to use this language to teach medicine to students"
+        Hedley "BTW, do not play doctor, get a license and work!"
+        Hedley "It's no so expensive as you think..."
+        Hedley "The tuition cost me less than US$ 500.00"
+        Hedley "But it takes a lot of time (it took me six years and a half),"
+        Hedley "and Spanish is my native language (I studied medicine in Spanish)"
+        Hedley "BTW... sorry for any misspelling or grammar error"
+        Hedley "Regardless if you like it or not, I do think you can help me to improve this game"
+        Hedley "Let me know how it can be improved"
+        Hedley "You can contact me at Twitter"
+        Hedley "Twitter @hedleyquintana"
+        Hedley "Or if you download it from lemmaforum.com, you can reply to the forum"
+        Hedley "Many thanks for playing this game!"
+        return
+
+        return
+        return
         return
