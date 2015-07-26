@@ -584,12 +584,17 @@ label hangman:
             "Request X-Rays":
                 $dr.life_loss()
             "Request urgent consult to eye specialist":
-                python:
-                    if "eyes_consult" in vars():
-                        dr.life_loss()
-                    else:
-                        Inner "Indeed, he need an eye specialist"
-                        Inner "However, he there is NO hurry to "
+#                python:
+                if "eyes_consult" in vars():
+                    Inner "Doing an eye specialist consult makes no sense!"
+                    $dr.life_loss()
+                else:
+                    Inner "Indeed, he need an eye specialist"
+                    Inner "However, he there is NO hurry to fix his problem"
+                    Inner "However, he will not get worse in short lapse of time"
+                    Inner "There is no need for an \"urgent\" consultation!"
+                    $ eyes_consult = True
+                    $renpy.jump(dr.current)
                     
     label hang_q13:
         $ dr.current='hang_q13'
@@ -919,8 +924,51 @@ label sadman:
             Inner "The latter is not needed, because he is already in the hospital"
             Inner "Hmm... I think we need to go deeper here..."
             menu:
-		'How can we go "deeper"?':
-s
+                'How can we go "deeper"?'
+                "Order a craneal tomography (CT) with contrast":
+                    if 'ct_scan' in vars():
+                        Inner "You should not insist in CT with contrast"
+                        $dr.life_loss()
+                    else:
+                        Inner "It looks like a good idea..."
+                        Inner "but the problem of using CT with contrast is that such study doesn't allow us to identify bleeding"
+                        jump sadman_q7
+                "Order a craneal tomography (CT) with contrast":
+                    $dr.current='sadman_q7'
+                    $renpy.jump(dr.current)
+                'Order a complete blood count (CBC)':
+                    Bont "Are you c-rious?"
+                    Inner "I don't get your strategy!"
+                    $dr.life_loss()
+                'Order potassium levels':
+                    Bont "Are you c-rious?"
+                    Inner "I really don't get it!"
+                    $dr.life_loss()
+        label sadman_q7:
+            Inner "We need to distinguish if Mr. Bad is bleeding or not!"
+            Inner "We need to know if surgery is needed or not"
+            Inner "At this age, bleeding is not so common, but we need to discard it"
+            Bont "Alice, please can you prepare Mr. Bad for a CT scan without contrast"
+            Bad_m ".... I want to die!"
+            Alice "I'll be quick!"
+            show text "THIRTY MINUTES LATER"
+            Alice "The CT scan is ready"
+            Inner "Poor Mr. Bad, he is not able to move!"
+            #Screen CT scan
+            Alice "What have happened"
+            Bont "Alice, Mr. Bad has bled!"
+            Bont "It's a subtle bleeding..."
+            Alice "Do I need to prepare him for surgery?"
+            Bont "I think it's a good idea"
+            Bont "Please take some blood test: CBC, electrolytes and a urine test"
+            Alice "Understood, Dr. Bont"
+            Alice "Should I call Dr. Zomb?"
+            Bont "No, I don't want to..."
+            Alice "But didn't you said that you want him prepare for surgery..."
+            Bont "I need to labs before calling Dr. Zomb.."
+            Alice "Understood!"
+            show text "AN HOUR LATER"
+            Alice "The labs are ready"
         $persistent.Slow_Girl=True
         return
 label slowGirl:
@@ -1131,7 +1179,7 @@ label madman_1:
         else:
             $ dr.life_loss()
     #$persistent.Damsel_Distress =  True
- label dev:
+label dev:
     scene happy dev
     Hedley "Hello! my name is Hedley Quintana"
     Hedley "I am the main developer of this game"
