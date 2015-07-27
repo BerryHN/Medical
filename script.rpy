@@ -971,7 +971,14 @@ label sadman:
             Alice "The labs are ready..."
             Bont "Hmm"
             #Screen labs...
-            Bont ""
+            Bont "It means that he has bled due to low platelets..."
+            Alice "What do you think we can do?"
+            Bont "Nothing... we need to call the hematologist..."
+            Alice "So we transfuse..."
+            Bont "Don't say that, Mr. Bad need further studies"
+            Alice "So, should I call Dr. Vladd?"
+            
+            
         $persistent.Slow_Girl=True
         return
 label slowGirl:
