@@ -930,10 +930,11 @@ label sadman:
                         Inner "You should not insist in CT with contrast"
                         $dr.life_loss()
                     else:
+                        $ct_scan=True
                         Inner "It looks like a good idea..."
                         Inner "but the problem of using CT with contrast is that such study doesn't allow us to identify bleeding"
                         jump sadman_q7
-                "Order a craneal tomography (CT) with contrast":
+                "Order a craneal tomography (CT) without contrast":
                     $dr.current='sadman_q7'
                     $renpy.jump(dr.current)
                 'Order a complete blood count (CBC)':
