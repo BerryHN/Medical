@@ -133,7 +133,7 @@ transform x:
     xalign 0.5
     yalign 0.5
 label start:
-    $ freq=renpy.random.randint(6,8)*10.0
+    $ freq=renpy.random.randint(60,80)
     $renpy.pause(0)
     scene black
     with Pause(0.1)
@@ -978,8 +978,17 @@ label sadman:
             Alice "So we transfuse..."
             Bont "Don't say that, Mr. Bad need further studies"
             Alice "So, should I call Dr. Vladd?"
-            
-            
+            Bont "Please, do that"
+            Alice "As your wish"
+            "..."
+            Alice "Take the phone..."
+            Bont "Hello, Dr Vladd"
+            vlad "I am very sleepy..."
+            vlad "If you need some units of blood, you just take it from the bank"
+            vlad "I'll sign the forms tomorrow and let me back to slee.."
+            Bont "#HoldIt!\nI have no transactions to be done in the bank... but I have a deposit!"
+            vlad "A deposit?"
+            Inner "This is the only bank that prefer withdraws but not deposits... in special "
         $persistent.Slow_Girl=True
         return
 label slowGirl:
@@ -1247,6 +1256,4 @@ label dev:
         Hedley "Many thanks for playing this game!"
         return
 
-        return
-        return
-        return
+        
