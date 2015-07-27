@@ -988,7 +988,10 @@ label sadman:
             vlad "I'll sign the forms tomorrow and let me back to slee.."
             Bont "#HoldIt!\nI have no transactions to be done in the bank... but I have a deposit!"
             vlad "A deposit?"
-            Inner "This is the only bank that prefer withdraws but not deposits... in special "
+            Inner "This is the only bank that prefer withdraws, but not deposits... especially during night time"
+            Bont "I need to admit a patient!"
+            vlad "What?"
+            Bont "Yes, I this i"
         $persistent.Slow_Girl=True
         return
 label slowGirl:
