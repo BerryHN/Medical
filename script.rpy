@@ -991,7 +991,47 @@ label sadman:
             Inner "This is the only bank that prefer withdraws, but not deposits... especially during night time"
             Bont "I need to admit a patient!"
             vlad "What?"
-            Bont "Yes, I this i"
+            Bont "Yes, I this the case... I have a case"
+            menu:
+            vlad "Ok that is the chief complaint?\nWhy he requested for medical attention?"
+            "He was deeply depressed":
+                $dr.current="sadman_q8"
+                $renpy.jump(dr.current)
+            "He has a bleeding in the head":
+                vlad "Was he really bleeding?"
+                Bont "ooops, I don't think so"
+                $dr.life_loss()
+            "He has low platelets":
+                vlad "I don't think it was the chief complaint"
+                Bont "no... not really"
+                $dr.life_loss()
+        label sandman_q8:
+            vlad "Ha ha ha, but I am not a psychiatrist!"
+            Bont "I know, but Mr. Bad came with his sister and she said"
+            Bont "he had being attended by a psychiatrist for a month without success."
+            vlad "And?"
+            Bont "In addition, she said something weird"
+            Bont "something {b}unexpected{/b} for a person with depression"
+            #menu:
+            vlad "What did she said?"
+            menu:
+            "she said:"
+            '"His brother has no financial issues"':
+                vlad "nah! that's is expected in a major depression"
+                Bont "You are right!"
+                $dr.life_loss()
+            '"His brother has fever"':
+                $dr.current="sandman_q9"
+                $renpy.jump(dr.current)
+            '"His brother was unable to stand up"':
+                vlad "nah! that's is expected in a major depression"
+                Bont "You are right!"
+                if 'depression_vlad' in vars():
+                    $dr.life_loss()
+                else:
+                    Inner "Not really, but i need a stronger argument!!"
+                    $ depression_vlad=True
+            
         $persistent.Slow_Girl=True
         return
 label slowGirl:
