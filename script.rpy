@@ -755,7 +755,7 @@ label hangman:
             $ persistent.Sadman=True
             return
 label sadman:
-    if check==False and persistent.checkpoint_2 != None:
+    if 'persistent.check' in vars() and persistent.checkpoint_2 != None:
         "Where do you want to start?"
         menu:
             "From the beginning of the chapter":
@@ -972,6 +972,12 @@ label sadman:
             Alice "The labs are ready..."
             Bont "Hmm"
             #Screen labs...
+            menu:
+                "Do you want to save your progress?"
+                "Yes":
+                    $persistent.checkpoint_2=True
+                "No":
+                    pass
             Bont "It means that he has bled due to low platelets..."
             Alice "What do you think we can do?"
             Bont "Nothing... we need to call the hematologist..."
@@ -993,18 +999,18 @@ label sadman:
             vlad "What?"
             Bont "Yes, I this the case... I have a case"
             menu:
-            vlad "Ok that is the chief complaint?\nWhy he requested for medical attention?"
-            "He was deeply depressed":
-                $dr.current="sadman_q8"
-                $renpy.jump(dr.current)
-            "He has a bleeding in the head":
-                vlad "Was he really bleeding?"
-                Bont "ooops, I don't think so"
-                $dr.life_loss()
-            "He has low platelets":
-                vlad "I don't think it was the chief complaint"
-                Bont "no... not really"
-                $dr.life_loss()
+                vlad "Ok that is the chief complaint?\nWhy he requested for medical attention?"
+                "He was deeply depressed":
+                    $dr.current="sadman_q8"
+                    $renpy.jump(dr.current)
+                "He has a bleeding in the head":
+                    vlad "Was he really bleeding?"
+                    Bont "ooops, I don't think so"
+                    $dr.life_loss()
+                "He has low platelets":
+                    vlad "I don't think it was the chief complaint"
+                    Bont "no... not really"
+                    $dr.life_loss()
         label sandman_q8:
             vlad "Ha ha ha, but I am not a psychiatrist!"
             Bont "I know, but Mr. Bad came with his sister and she said"
@@ -1015,23 +1021,26 @@ label sadman:
             #menu:
             vlad "What did she said?"
             menu:
-            "she said:"
-            '"His brother has no financial issues"':
-                vlad "nah! that's is expected in a major depression"
-                Bont "You are right!"
-                $dr.life_loss()
-            '"His brother has fever"':
-                $dr.current="sandman_q9"
-                $renpy.jump(dr.current)
-            '"His brother was unable to stand up"':
-                vlad "nah! that's is expected in a major depression"
-                Bont "You are right!"
-                if 'depression_vlad' in vars():
+                "she said:"
+                '"His brother has no financial issues"':
+                    vlad "nah! that's is expected in a major depression"
+                    Bont "You are right!"
                     $dr.life_loss()
-                else:
-                    Inner "Not really, but i need a stronger argument!!"
-                    $ depression_vlad=True
-            
+                '"His brother has fever"':
+                    $dr.current="sandman_q9"
+                    $renpy.jump(dr.current)
+                '"His brother was unable to stand up"':
+                    vlad "nah! that's is expected in a major depression"
+                    Bont "You are right!"
+                    if 'depression_vlad' in vars():
+                        $dr.life_loss()
+                    else:
+                        Inner "Not really, but i need a stronger argument!!"
+                        $ depression_vlad=True
+                        jump sandman_q8
+        label sandman_q9:
+            vlad "Fever... What it has to do..."
+            Bont "I"
         $persistent.Slow_Girl=True
         return
 label slowGirl:

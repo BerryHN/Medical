@@ -243,11 +243,11 @@ init -2 python:
 # navigation and background.
 # http://www.renpy.org/doc/html/screen_special.html#navigation
 screen navigation():
-
     # The background of the game menu.
+    modal False
     window:
         style "gm_root"
-
+    
     # The various buttons.
     frame:
         style_group "gm_nav"
