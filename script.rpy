@@ -1040,7 +1040,41 @@ label sadman:
                         jump sandman_q8
         label sandman_q9:
             vlad "Fever... What it has to do..."
-            Bont "I"
+            Bont "I was pondering the same..."
+            Bont "So I decided to do deeper analysis"
+            menu:
+                "How did Bont handle the problem"
+                "He did a brain scan":
+                    vlad "Why did you requested that?"
+                    Bont "I don't remember"
+                    $dr.life_loss()
+                "He was asked to raise his both hands":
+                    $dr.current="sadman_q10"
+                    $renpy.jump(dr.current)
+                "He took a CBC":
+                    vlad "Why did you requested that?"
+                    Bont "I don't remember"
+                    $dr.life_loss()
+        label sadman_q10:
+            vlad "and?"
+            Bont "He could do that!"
+            menu:
+                "Why did Mr. Bad could not raise his arms?"
+                "Mr. Bad had a myocardial infarction":
+                    Bont "Are you c-rious?"
+                    $dr.life_loss()
+                "Mr. Bad had Miquineto Syndrome":
+                    vlad "I never heard about that"
+                    vlad "Where can I read more about that zebra"
+                    $dr.life_loss()
+                "Mr. Bad had a stroke":
+                    $dr.current="sadman_q11"
+                    jump sadman_q11
+                "Mr. Bad had a stomach ulcer":
+                    Bont "Are you c-rious?"
+                    $dr.life_loss()
+        label sadman_q11:
+            
         $persistent.Slow_Girl=True
         return
 label slowGirl:
