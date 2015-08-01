@@ -1061,7 +1061,7 @@ label sadman:
             menu:
                 "Why did Mr. Bad could not raise his arms?"
                 "Mr. Bad had a myocardial infarction":
-                    Bont "Are you c-rious?"
+                    vlad "Are you c-rious?"
                     $dr.life_loss()
                 "Mr. Bad had Miquineto Syndrome":
                     vlad "I never heard about that"
@@ -1074,7 +1074,32 @@ label sadman:
                     Bont "Are you c-rious?"
                     $dr.life_loss()
         label sadman_q11:
-            
+            vlad "A stroke"
+            Bont "Yes, Mr. Bad had a stroke"
+            vlad "So, what does the CT scan revelead?"
+            menu:
+                #Screen 
+                "What do you see in the CAT"
+                "Blood":
+                    $dr.current="sadman_q11"
+                    jump sadman_q12
+                "Cerebal mass":
+                    vlad "Are you c-rious?"
+                    $dr.life_loss()
+                "Non-hemorragic stroke":
+                    vlad "Are you c-rious?"
+                    $dr.life_loss()
+        label sadman_q12:
+            vlad "Interesting"
+            vlad "Why didn't you call a neurosurgeon instead?"
+            menu:
+                Bont "I didn't do that because..."
+                "The need to sleep":
+                    vlad "Me too!"
+                    $dr.life_loss()
+                ""
+                ""
+                ""
         $persistent.Slow_Girl=True
         return
 label slowGirl:
