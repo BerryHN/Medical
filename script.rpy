@@ -1081,7 +1081,7 @@ label sadman:
                 #Screen 
                 "What do you see in the CAT"
                 "Blood":
-                    $dr.current="sadman_q11"
+                    $dr.current="sadman_q12"
                     jump sadman_q12
                 "Cerebal mass":
                     vlad "Are you c-rious?"
@@ -1094,12 +1094,45 @@ label sadman:
             vlad "Why didn't you call a neurosurgeon instead?"
             menu:
                 Bont "I didn't do that because..."
-                "The need to sleep":
+                "Dr. Zomb needs to sleep":
                     vlad "Me too!"
                     $dr.life_loss()
-                ""
-                ""
-                ""
+                "The patient has platelets too low":
+                    $dr.current="sadman_q13"
+                    jump sadman_q13
+                "The hemoglobin levels were too low":
+                    vlad "Brain surgery usually doesn't bleed so much"
+                    Bont "Oops!"
+                    $dr.life_loss()
+        label sadman_q13:
+            vlad "Interesting"
+            menu:
+                vlad "Why was platelet levels too low?"
+                "Because he has leukemia":
+                    $dr.current="sadman_q14"
+                    jump sadman_q14
+                "Because he has dengue fever":
+                    vlad "Really?"
+                    Bont "Not really!"
+                    $dr.life_loss()
+                "Because he has solid tumor":
+                    vlad "Really?"
+                    Bont "Not really!"
+                    $dr.life_loss()
+        label sadman_q14:
+            vlad "I'll take the case"
+            Bont "I have no idea which kind of leukemia he has..."
+            vlad "I see, I have to do a bone marrow biopsy and take a look of the blood smear"
+            Bont "Nice, see your there"
+            "..."
+            Bont "Mrs. Bad, the hematologist, Dr. Vlad will take the case of your brother"
+            Bad_f "What now?"
+            Bont "He told me that he will admit the patient under in the hematology ward"
+            Bont "He will take the case."
+            Bad_f "Will he be OK?"
+            Bont "I don't know... He has to speak with you and he will treatment"
+            
+            
         $persistent.Slow_Girl=True
         return
 label slowGirl:
