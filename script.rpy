@@ -1130,8 +1130,22 @@ label sadman:
             Bont "He told me that he will admit the patient under in the hematology ward"
             Bont "He will take the case."
             Bad_f "Will he be OK?"
-            Bont "I don't know... He has to speak with you and he will treatment"
+            Bont "I don't know... He has to speak with you and he will treat him if he can..."
+            Bad_f "Thanks"
+            Bad_m "Thanks! I feel better..."
+            '3 hours later'
+            vlad "He has a acute myeloid leukemia (AML)"
+            Inner "So the blood line responsible corresponds to a myeloid type..."
+            Inner "The myeloid precursor kinda get rise to almost all blood cells, except lymphocytes, those that produce antibodies"
             
+            Bont "Really? which type"
+            vlad "It looks like an M2 type"
+            vlad "I think we can deal with it!"
+            vlad "You've done a good job"
+            Inner "Damned! that's not good!"
+            Inner "An M3 type had the worse prognosis, but now it has a very good prognosis..."
+            Inner "Any other type of AML have a bad prognosis"
+            Inner "I feel sad... but that's life!"
             
         $persistent.Slow_Girl=True
         return
