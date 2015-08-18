@@ -1179,11 +1179,11 @@ label slowGirl:
         alice "I took my temperature"
         $temp_init= 38.5
         if International:
-            temp=str(temp_init)+"ºC"
+            $temp=str(temp_init)+"ºC"
         else:
-            temp_int=32+temp_init*5/9
-            temp_init=round(temp_init, 1)
-            temp=str(temp_init)+"ºF"
+            $temp_int=32+temp_init*5/9
+            $temp_init=round(temp_init, 1)
+            $temp=str(temp_init)+"ºF"
         alice "It was [temp]"
         Inner "What? she have fever!"
         Bont "Don't worry Alice... I'll do my best"
@@ -1216,7 +1216,7 @@ label slowGirl:
                 renpy.jump('eval')
         
     label eval:
-        dr.current="eval"
+        $dr.current="eval"
         menu:
             "How many times did you felt the pulsewave?"
             "1":
