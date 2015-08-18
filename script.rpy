@@ -888,11 +888,11 @@ label sadman:
         Inner "Really? that's sound interesting..."
         Bont "Mr. Bad, can you raise your left arm?"
         Bad_m "..."
-        Bad_m "I cann't!"
+        Bad_m "I can't!"
         Bont "Mr. Bad, can you raise your right arm?"
         Bad_m "..."
-        Bad_m "I cann't!"
-        Inner "Inner"
+        Bad_m "I can't!"
+        #Inner "Inner"
         Bont "Alice... come here now!"
         Alice "Yes, dr. Bont"
         Bont "Could you give the temperature"
@@ -911,11 +911,11 @@ label sadman:
                     $dr.life_loss()
                 "Stroke":
                     $dr.current="sadman_q7"
-                    jump sadman_q7
+                    jump sadman_q7a
                 "Stomach ulcer":
                     Bont "Are you c-rious?"
                     $dr.life_loss()
-        label sadman_q7:
+        label sadman_q7a:
             Bont "Well the sudden lack of movement belong to the FAST mnemonics"
             Inner "F: Face"
             Inner "A: Arms"
@@ -1143,9 +1143,11 @@ label sadman:
             vlad "I think we can deal with it!"
             vlad "You've done a good job"
             Inner "Damned! that's not good!"
-            Inner "An M3 type had the worse prognosis, but now it has a very good prognosis..."
+            Inner "An M3 type had the worse prognosis before, but now it has a very good prognosis..."
             Inner "Any other type of AML have a bad prognosis"
             Inner "I feel sad... but that's life!"
+            Bont "The life of the doctor is hard, decisions to be made..."
+            Bont "We are not gods..."
             
         $persistent.Slow_Girl=True
         return
@@ -1162,6 +1164,18 @@ label slowGirl:
                 $ renpy.jump(persistent.checkpoint_3)
     else:
         $ dr=Player('slowGirl')
+    label slow1:
+        alice "heeeeelp!"
+        Bont "Alice?"
+        alice "help me!"
+        Inner "Alice?"
+        Inner "What is going on?"
+        alice "Doctor, I am weak"
+        Inner "Weakness!!"
+        alice "I cannot stand... I feel so weak..."
+        Bont "Can I take your pulse"
+        alice "I have not thought about that"
+        $dr.current="first"
     $ input_value = "x"
     label first:
         scene black
@@ -1179,7 +1193,22 @@ label slowGirl:
                 renpy.jump('eval')
         
     label eval:
-        "wait"
+        dr.current="eval"
+        menu:
+            "How many times did you felt the pulsewave?"
+            "1":
+                dr.life_loss()
+            "2":
+                dr.life_loss()
+            "3":
+                dr.life_loss()
+            "4":
+                dr.current="slow2"
+                jump slow2
+            "5":
+                dr.life_loss()
+    label slow2:
+        
         #$ overriding_on = None
      #   $ persistent.Question = "How many waves have you counted?"
         #$ success = 'cont'
