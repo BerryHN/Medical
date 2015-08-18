@@ -1175,7 +1175,29 @@ label slowGirl:
         alice "I cannot stand... I feel so weak..."
         Bont "Can I take your pulse"
         alice "I have not thought about that"
+        Bont "Don't worry"
+        alice "I took my temperature"
+        $temp_init= 38.5
+        if International:
+            temp=str(temp_init)+"ºC"
+        else:
+            temp_int=32+temp_init*5/9
+            temp_init=round(temp_init, 1)
+            temp=str(temp_init)+"ºF"
+        alice "It was [temp]"
+        Inner "What? she have fever!"
+        Bont "Don't worry Alice... I'll do my best"
+        alice "ah... ah.."
+        alice "cha que horooo!"
+        Inner "She is sneezing, and her nose looks red!"
+        Inner "Alice also has runny nose..."
+        Inner "This is so weird!"
+        alice "Cannot speak Dr. Bont"
+        Bont "Be brave Alice"
+        Bont "Hold my hand Alice"
+        Inner "What the heck is this?"
         $dr.current="first"
+        $renpy.jump(dr.current)
     $ input_value = "x"
     label first:
         scene black
@@ -1185,6 +1207,7 @@ label slowGirl:
         $ duration = float(6.0/times)
         
         label pulse1:
+            Inner "Count the number of pulsewaves (vibrations) in 6 seconds"
             python:
                 while counter < times:
                     renpy.vibrate(0.2)
@@ -1197,17 +1220,53 @@ label slowGirl:
         menu:
             "How many times did you felt the pulsewave?"
             "1":
-                dr.life_loss()
+                $dr.life_loss()
             "2":
-                dr.life_loss()
+                $dr.life_loss()
             "3":
-                dr.life_loss()
+                $dr.life_loss()
             "4":
-                dr.current="slow2"
+                $dr.current="slow2"
                 jump slow2
             "5":
-                dr.life_loss()
+                $dr.life_loss()
     label slow2:
+        Inner "She has 4 pulsewaves 6 seconds"
+        
+        menu:
+            Inner "which means that:"
+            "She has a myocardial infarction":
+                $dr.life_loss()
+            "She has 40 pulsewaves per minute":
+                $dr.current='slow3'
+                $renpy.jump(dr.current)
+            "She has a severe anemia":
+                $dr.life_loss()
+            "She is just faking a problem":
+                $dr.life_loss()
+    label slow3:
+        alice "Are you going to take my blood pressure"
+        Bont "Sorry, but we can wait for that"
+        Bont "I need to put a cardiac monitor"
+        alice "But I am a litte tired, that's nothing serious..."
+        Bont "You have pulse frequency of 40 per minute..."
+        alice "What? that's too slow!"
+    label slow4:
+        $dr.current
+        alice "What does it mean?"
+        menu:
+            Inner "Given the current data what will you answer"
+            "You have a myocardial infarction":
+                $dr.life_loss()
+            "I don't know":
+                $dr.current='slow4'
+                $renpy.jump(dr.current)
+            "You have a severe anemia":
+                $dr.life_loss()
+            "You caught a cold":
+                Inner "Indeed we have evidence that Alice caught a cold"
+                Inner "But it doesn't explain why she has so low pulse!"
+                $dr.life_loss()
         
         #$ overriding_on = None
      #   $ persistent.Question = "How many waves have you counted?"
