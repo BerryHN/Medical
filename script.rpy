@@ -108,6 +108,7 @@ image sad dev = 'sad dev.jpg'
 define u1 = Character('?????', color="#0000ff")
 define u2 = Character('?????', color="#00ff00")
 define u3 = Character('?????', color="#00ffa5")
+define u4 = Character('?????', color="#12ffa5")
 define l = Character("Liutenant", color="#0000ff")
 define s = Character("Sargent", color="#00ff00")
 define Layzee = Character("Dr Layzee", color="#de64da")
@@ -119,6 +120,7 @@ define Bolt = Character("Mr. Bolt", color="#ffffff")
 define Bad_m = Character("Mr. Bad", color="#ffffff")
 define Bad_f = Character("Mrs. Bad", color="#ffffff")
 define vlad = Character("Dr. Vladd", color="#ffffff")
+define manolo = Character("Sr. Manolo", color="#ffffff")
 define Hedley = Character("Dr. Hedley Quintana", color="#ffffff")
 transform rotatelong:
     xpos 0.5
@@ -987,6 +989,12 @@ label sadman:
             Bont "Please, do that"
             Alice "As your wish"
             "..."
+            menu:
+                "Do you want to save?"
+                "yes":
+                    $persistent.checkpoint_2=True
+                "No":
+                    pass
             Alice "Take the phone..."
             Bont "Hello, Dr Vladd"
             vlad "I am very sleepy..."
@@ -1165,6 +1173,32 @@ label slowGirl:
     else:
         $ dr=Player('slowGirl')
     label slow1:
+        u4 "Hola! is there someone there?"
+        Bont "Excuse me..."
+        u4 "Yes..."
+        Bont "Who are you?"
+        manolo "Sorry, I am Manuel Alfredo De Los Angeles Pérez Rodríguez"
+        Bont "So... who are you?"
+        manolo "I am the one who steal the hearts of the women!"
+        manolo "I am the new medicine student assigned to Emergency Department..."
+        Bont "Ahh ok! I like your attitude..."
+        Bont "A real freshman... nice to hear..."
+        manolo "Yes... I am a tabula rasa... eager to know and learn!"
+        Bont "Well, there are no patients! I wonder where Ms Alice is..."
+        manolo "a linda ..."
+        Bont "...Don't even think about that!"
+        manolo "So it means that I can go home"
+        Bont "Not really! I love a man who \"steals the hearts of the women\""
+        manolo "What do you mean?"
+        Bont "Let's talk about the heart..."
+        manolo "No way! my heart is only for the ladies"
+        Bont "Nop! I mean the ECG, the {color=#ff0000}\"heart\"{/color} of the Emergency Department"
+        manolo "WHAT!"
+        Bont "You look a bit pale"
+        manolo "But I haven't studied that..."
+        Bont "What are you doing in an Emergency Department if you don't know what about ECG!"
+        manolo "But today it's my first day!"
+        
         alice "heeeeelp!"
         Bont "Alice?"
         alice "help me!"
@@ -1188,7 +1222,7 @@ label slowGirl:
         Inner "What? she have fever!"
         Bont "Don't worry Alice... I'll do my best"
         alice "ah... ah.."
-        alice "cha que horooo!"
+        alice "achorooo!"
         Inner "She is sneezing, and her nose looks red!"
         Inner "Alice also has runny nose..."
         Inner "This is so weird!"
