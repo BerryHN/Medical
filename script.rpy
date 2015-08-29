@@ -92,8 +92,8 @@ image layzee = 'layzee0001.png'
 image bontw = "oslor0001t.png"
 image bolt ='bolt closed0001.png'
 image bolt_f ='bolt open0001.png'
-image alice = 'alice_normal0001.png'
-image alice angry = 'alice_angry.png'
+image Alice = 'Alice_normal0001.png'
+image Alice angry = 'Alice_angry.png'
 image er_img = "ER_medium.jpg"
 image ending = 'end.jpeg'
 image eye_n ='eye1.jpg'
@@ -236,24 +236,24 @@ label hangman:
     show bont
     u3 "Miss Alice, a week here and I have nothing to do"
     hide bont
-    show alice
+    show Alice
     Alice "Tell me your orders Dr. Bont"
-    hide alice
+    hide Alice
     show bont
     Bont "Orders?"
     hide bont
-    show alice
+    show Alice
     Alice "We have a new patient!"
-    hide alice
+    hide Alice
     show bont
     Bont "A new patient?"
     hide bont
-    show alice
+    show Alice
     Alice "Yes this is the chart"
-    hide alice
+    hide Alice
     show bont
     Bont "What?"
-    hide alice
+    hide Alice
     show bont
     Bont "Let me read that..."
     hide w
@@ -385,9 +385,9 @@ label hangman:
         $ dr.current = 'hang_q6'
         Bont "It seems that as usual, we need a long talk with Mr. Bolt, don't you think so Alice?" 
         hide bont
-        show alice
+        show Alice
         Alice "The patient is ready, what are your orders?" 
-        hide alice
+        hide Alice
         show bont
         Bont "No Alice, I need to speak with patient first... no injection needed (c)" 
         Bolt "..."
@@ -409,10 +409,10 @@ label hangman:
         scene w
         hide bont
         hide bolt
-        show alice
+        show Alice
         Alice "Have you requested a shot"
         show bont
-        hide alice
+        hide Alice
         Bont "No! get back to your business, Alice"
         jump hang_q8
     label hang_q8:
@@ -564,18 +564,18 @@ label hangman:
         show bont
         Inner "So this poor fella is indeed blind!"
         Bont "Alice! Quick!"
-        show alice
+        show Alice
         hide bont
         Alice "Gimme your orders, Dr. Bont!"
-        hide alice
+        hide Alice
         show bont
         Bont "Could you give the form BA-27F"
-        show alice
+        show Alice
         hide bont
         Alice "What kind of order is that?"
         Alice "The patient has just been admitted due to suicide attempt!"
         Alice "Do you know what does the form does?"
-        hide alice
+        hide Alice
         show bont
         Bont "I am ordering it! I know what it does!"
         'What do you think the form BA-27F does?'
@@ -601,15 +601,15 @@ label hangman:
     label hang_q13:
         $ dr.current='hang_q13'
         scene w
-        hide alice
+        hide Alice
         show bont
         Bont "This ward has nothing to offer to this patient"
-        show alice
+        show Alice
         hide bont
         Alice "I cannot obey such order"
         Alice "We are responsible for his safety"
         Alice "I can be sued if he tries to kill himself"
-        hide alice
+        hide Alice
         show bont
         Bont "He cannot kill himself if he listen to me first"
         Bont "If he listen what to what I say!"
@@ -625,7 +625,7 @@ label hangman:
     label hang_q14:
         $ dr.current='hang_q14'
         scene w
-        #hide alice
+        #hide Alice
         show bont
         Bont "The reason he could not do such activities is because ..."
         hide bont
@@ -674,23 +674,23 @@ label hangman:
     label hang_q17:
         $ dr.current='hang_q17'
         scene w
-        show alice
+        show Alice
         hide bont
         Alice "Really!"
-        hide alice
+        hide Alice
         show bolt
         Bolt "Is as the doctor says"
         Bolt "I am too old and my blindness is incurable"
         show bont
         hide bolt
         Bont "He he he"
-        show alice
+        show Alice
         hide bont
         Alice "Why are you laughing to that poor soul?"
         
         Alice "You are so mean"
         show bont
-        hide alice
+        hide Alice
         
         Bont "And you are so naïve, Miss Alice!"
         stop music 
@@ -729,15 +729,15 @@ label hangman:
         Bont "you were going to kill yourself for a problem"
         Bont "That can be easily cured with a simple surgery"
         hide bont
-        show alice
+        show Alice
         Alice "So..."
-        hide alice
+        hide Alice
         show bont
         Bont "So Alice, can I have the forms?"
         hide bont
-        show alice
+        show Alice
         Alice "You are a very good doctor!"
-        hide alice
+        hide Alice
         
         scene garage
         show bolt_f at right
@@ -1198,19 +1198,50 @@ label slowGirl:
         manolo "But I haven't studied that..."
         Bont "What are you doing in an Emergency Department if you don't know what about ECG!"
         manolo "But today it's my first day!"
-        
-        alice "heeeeelp!"
+        Bont "A cheap excuse!"
+        Bont "Let's begin!"
+        manolo "OK"
+        label heart1:
+            $dr.current="heart1"
+            
+            Bont "The heart is a special organ"
+            Bont "The heart has {color=#ffff00}automatism{/color}"
+            manolo "What is that?"
+            Bont "{color=#ffff00}Automatism{/color} is a instrisic property of the cardiac muscle that allow depolarization without external stimulus"
+            manolo "OK"
+            Bont "The heart also has {color=#ffff00}rhythmicity{/color}"
+            manolo "What is that?"
+            Bont "Manolo, it's also an instrisic property of the heart muscle that related to automatism."
+            manolo "ah?"
+            Bont "It's a cycle of despolarization of heart cells in a regular fashion"
+            manolo "So, it means that the heart cells depolarize like a the tic tac of a clock"
+            Bont "Indeed, Sr. Manolo..."
+            menu:
+                Bont "Sr. Manolo, which parts of the heart are related to {color=#ffff00}automatism{/color} and  {color=#ffff00}rhythmicity{/color}?"
+                "SA node":
+                    $dr.life_loss()
+                "AV node":
+                    $dr.life_loss()
+                "Purkinje system":
+                    $dr.life_loss()
+                "The whole heart":
+                    $dr.current="heart2"
+                    $renpy.jump(dr.current)
+        label heart2:
+            Bont "Indeed, the automatism and the rhythmicity occur in the whole heart"
+            manolo ""
+        Alice "heeeeelp!"
         Bont "Alice?"
-        alice "help me!"
+        Alice "help me!"
         Inner "Alice?"
         Inner "What is going on?"
-        alice "Doctor, I am weak"
+        Alice "Doctor, I am weak"
         Inner "Weakness!!"
-        alice "I cannot stand... I feel so weak..."
+        Alice "I cannot stand... I feel so weak..."
         Bont "Can I take your pulse"
-        alice "I have not thought about that"
+        Alice "I have not thought about that"
         Bont "Don't worry"
-        alice "I took my temperature"
+        Alice "I took my temperature"
         $temp_init= 38.5
         if International:
             $temp=str(temp_init)+"ºC"
@@ -1218,15 +1249,15 @@ label slowGirl:
             $temp_int=32+temp_init*5/9
             $temp_init=round(temp_init, 1)
             $temp=str(temp_init)+"ºF"
-        alice "It was [temp]"
+        Alice "It was [temp]"
         Inner "What? she have fever!"
         Bont "Don't worry Alice... I'll do my best"
-        alice "ah... ah.."
-        alice "achorooo!"
+        Alice "ah... ah.."
+        Alice "achorooo!"
         Inner "She is sneezing, and her nose looks red!"
         Inner "Alice also has runny nose..."
         Inner "This is so weird!"
-        alice "Cannot speak Dr. Bont"
+        Alice "Cannot speak Dr. Bont"
         Bont "Be brave Alice"
         Bont "Hold my hand Alice"
         Inner "What the heck is this?"
@@ -1279,15 +1310,15 @@ label slowGirl:
             "She is just faking a problem":
                 $dr.life_loss()
     label slow3:
-        alice "Are you going to take my blood pressure"
+        Alice "Are you going to take my blood pressure"
         Bont "Sorry, but we can wait for that"
         Bont "I need to put a cardiac monitor"
-        alice "But I am a litte tired, that's nothing serious..."
+        Alice "But I am a litte tired, that's nothing serious..."
         Bont "You have pulse frequency of 40 per minute..."
-        alice "What? that's too slow!"
+        Alice "What? that's too slow!"
     label slow4:
         $dr.current
-        alice "What does it mean?"
+        Alice "What does it mean?"
         menu:
             Inner "Given the current data what will you answer"
             "You have a myocardial infarction":
