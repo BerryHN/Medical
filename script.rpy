@@ -310,7 +310,6 @@ label hangman:
             "Mr Bolt tried to kill himself by hanging":
                 jump hang_q2
     label hang_q2:
-        
         scene w
         show bont
         $ dr.current = 'hang_q2'
@@ -1229,7 +1228,17 @@ label slowGirl:
                     $renpy.jump(dr.current)
         label heart2:
             Bont "Indeed, the automatism and the rhythmicity occur in the whole heart"
-            manolo ""
+            manolo "Indeed, it means that in normal conditions, the heart will discharge in a regular fashion"
+            Bont "Yes! the heart normally dies so"
+            manolo 'However, there a problem with that statement! '
+            Bont " A bloody damned genius! "
+            menu:
+                manolo "If all heary cell are able to discharge in a regular fashion..."
+                "Why does it beat irregularly way in normal people?":
+                    Bont "It doesn't happen!"
+                    $dr.life_loss()
+                "All cells in the heart may beat in a regular fashion, but it doesn't mean that they have to do in a orderly fashion":
+                    $dr.current='heart3'                    
         Alice "heeeeelp!"
         Bont "Alice?"
         Alice "help me!"
