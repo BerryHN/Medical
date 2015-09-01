@@ -1364,8 +1364,11 @@ label slowGirl:
         Alice "Monitor? I am a bit tired..."
         Bont "Manolo, did you measure a pulse of 40 per minute..."
         manolo "Yes, Doctor Bont..."
-        Bont "Indeed, we need a monitor, I think we need to continue our talk we go interrupted!"
-        manolo "Damned a monitor..."
+        Alice "Do you believe to this noobie?"
+        Bont "Doctor Manuel is a very proficient colleague"
+        manolo "Indeed, I am!"
+        Bont "Ok, dear colleague need a monitor, I think we need to continue our talk we go interrupted!"
+        manolo "Damned a monitor... but I am a vulgar med student!"
         
     return
 label fat1:
