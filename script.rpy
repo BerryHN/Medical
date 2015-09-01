@@ -1238,41 +1238,59 @@ label slowGirl:
                     Bont "It doesn't happen!"
                     $dr.life_loss()
                 "All cells in the heart may beat in a regular fashion, but it doesn't mean that they have to do in a orderly fashion":
-                    $dr.current='heart3'                    
-        Alice "heeeeelp!"
-        Bont "Alice?"
-        Alice "help me!"
-        Inner "Alice?"
-        Inner "What is going on?"
-        Alice "Doctor, I am weak"
-        Inner "Weakness!!"
-        Alice "I cannot stand... I feel so weak..."
-        Bont "Can I take your pulse"
-        Alice "I have not thought about that"
-        Bont "Don't worry"
-        Alice "I took my temperature"
-        $temp_init= 38.5
-        if International:
-            $temp=str(temp_init)+"ºC"
-        else:
-            $temp_int=32+temp_init*5/9
-            $temp_init=round(temp_init, 1)
-            $temp=str(temp_init)+"ºF"
-        Alice "It was [temp]"
-        Inner "What? she have fever!"
-        Bont "Don't worry Alice... I'll do my best"
-        Alice "ah... ah.."
-        Alice "achorooo!"
-        Inner "She is sneezing, and her nose looks red!"
-        Inner "Alice also has runny nose..."
-        Inner "This is so weird!"
-        Alice "Cannot speak Dr. Bont"
-        Bont "Be brave Alice"
-        Bont "Hold my hand Alice"
-        Inner "What the heck is this?"
-        $dr.current="first"
-        $renpy.jump(dr.current)
-    $ input_value = "x"
+                    $dr.current='heart3'                         
+        label heart3:
+            Bont "Oh! you are correct!"
+            manolo "Really? derp... I mean... Of course"
+            manolo "I mean... You are a great {color=#ffff00}maestro{/color}"
+        
+            Alice "heeeeelp!"
+            Bont "Alice?"
+            Alice "help me!"
+            Inner "Alice? a patient"
+            manolo "What is going on?... She looks like a nurse"
+            Alice "Doctor, I am weak"
+            Bont "Indeed Mr. Manuel... She plays two roles, yesterday a nurse, but today a patient"
+            Alice "Stop kidding and help me... By the way who is this young guy"
+            Bont "Ah... since we are in a hurry, I did not introduce you..."
+            Bont "He is my personalized Padawan"
+            manolo "Pada.."
+            Alice "Padaw...?"
+            Alice "Stop the money business, I cannot stand... I feel so weak..."
+            Bont "Padawan... forget about that"
+            manolo "I am a new med student"
+            Bont "So you can take her the pulse and the temperature"
+            Alice "I have taken the temperature myself"
+            Alice "I have {color=#ff0000}fever{/color}"
+            $temp_init= 38.5
+            if International:
+                $temp=str(temp_init)+"ºC"
+            else:
+                $temp_int=32+temp_init*5/9
+                $temp_init=round(temp_init, 1)
+                $temp=str(temp_init)+"ºF"
+            Alice "It was [temp]"
+            Inner "What? she have fever!"
+            Bont "Don't worry Alice... we'll do my best"
+            manolo "Do you mean we...derp... I mean..."
+            manolo "Everything for a bella jovencita"
+            Bont "I carry these masks... Quick Mr. Manuel..."
+            Alice "ah... ah.."
+            Alice "achorooo!"
+            Inner "She is sneezing, and her nose looks red!"
+            Inner "Alice also has runny nose..."
+            Inner "This is so weird!"
+            Alice "Cannot speak Dr. Bont"
+            Bont "Be brave Alice"
+            Bont "Hold my hand Alice"
+            Inner "What the heck is this?"
+            Bont "Go Manolo!"
+            manolo "Ah?"
+            Bont "Be a hero and save the damsel"
+            manolo "Take her the pulse"
+            $dr.current="first"
+            $renpy.jump(dr.current)
+            $ input_value = "x"
     label first:
         scene black
         $ overriding_on=True
@@ -1305,7 +1323,7 @@ label slowGirl:
             "5":
                 $dr.life_loss()
     label slow2:
-        Inner "She has 4 pulsewaves 6 seconds"
+       manolo "She has 4 pulsewaves 6 seconds"
         
         menu:
             Inner "which means that:"
