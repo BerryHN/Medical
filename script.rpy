@@ -1352,22 +1352,22 @@ label slowGirl:
                 $dr.life_loss()
             "I don't know":
                 $dr.current='slow4'
-                $renpy.jump(dr.current)
+                #$renpy.jump(dr.current)
             "You have a severe anemia":
                 $dr.life_loss()
             "You caught a cold":
-                Inner "Indeed we have evidence that Alice caught a cold"
-                Inner "But it doesn't explain why she has so low pulse!"
+                Bont "Indeed we have evidence that Alice caught a cold"
+                Bont "But it doesn't explain why she has so low pulse!"
                 $dr.life_loss()
+    label slow5:
+        Bont "I already have the monitor..."
+        Alice "Monitor? I am a bit tired..."
+        Bont "Manolo, did you measure a pulse of 40 per minute..."
+        manolo "Yes, Doctor Bont..."
+        Bont "Indeed, we need a monitor, I think we need to continue our talk we go interrupted!"
+        manolo "Damned a monitor..."
         
-        #$ overriding_on = None
-     #   $ persistent.Question = "How many waves have you counted?"
-        #$ success = 'cont'
-      #  $ fail = 'first'
-       # $ answer = '0'
-        #call screen input_softkeyboard
-        
-        return
+    return
 label fat1:
     if check==False and persistent.checkpoint_7 != None:
         "Where do you want to start?"
