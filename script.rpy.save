@@ -1269,8 +1269,8 @@ label slowGirl:
                 $temp_int=32+temp_init*5/9
                 $temp_init=round(temp_init, 1)
                 $temp=str(temp_init)+"ºF"
-            Alice "It was [temp]"
-            Inner "What? she have fever!"
+            Alice "The temperature is [temp]"
+            Inner "What? Why dors she have fever!"
             Bont "Don't worry Alice... we'll do my best"
             manolo "Do you mean we...derp... I mean..."
             manolo "Everything for a bella jovencita"
@@ -1326,13 +1326,16 @@ label slowGirl:
        manolo "She has 4 pulsewaves 6 seconds"
         
         menu:
-            Inner "which means that:"
+            Bont "which means that:"
             "She has a myocardial infarction":
+                Bont "That's coild be ..."
+                Bont "There is not enough evidence to support such diagnosis"
                 $dr.life_loss()
             "She has 40 pulsewaves per minute":
                 $dr.current='slow3'
                 $renpy.jump(dr.current)
             "She has a severe anemia":
+                Bont "What are you talking about?"
                 $dr.life_loss()
             "She is just faking a problem":
                 $dr.life_loss()
@@ -1360,18 +1363,6 @@ label slowGirl:
                 Bont "But it doesn't explain why she has so low pulse!"
                 $dr.life_loss()
     label slow5:
-        menu:
-            Bont "How can we know what is going on?"
-            "Using a cardiac monitor":
-                $dr.current ="slow6"
-            "Taking a throat culture for bacteria"
-                Bont "It maybe a good idea, but we have more important business"
-                manolo "You are right maestro"
-                $dr.life_loss()
-            "Taking sodium blood levels":
-                Bont "This is pointless"
-                $dr.life_loss()
-    label slow6:
         Bont "I already have the monitor..."
         Alice "Monitor? I am a bit tired..."
         Bont "Manolo, did you measure a pulse of 40 per minute..."
@@ -1381,25 +1372,7 @@ label slowGirl:
         manolo "Indeed, I am!"
         Bont "Ok, dear colleague need a monitor, I think we need to continue our talk we go interrupted!"
         manolo "Damned a monitor... but I am a vulgar med student!"
-        Bont "Once you finish... You'll become a real doctor to my eyes"
-        manolo "Really?..."
-        manolo "I mean, of course maestro"
-        Bont "Let's see the strip"
-        manolo "Let's do this"
-        menu:
-            Bont "What is the diagnosis"
-            "I see two sets of hearts":
-                $dr.current="slow7"
-            "Myocardial infarction":
-                Bont "Not at all!"
-                $dr.life_loss()
-            "Ectopic beats":
-                Bont "Close.. but not at all!"
-                $dr.life_loss()
-       label slow7:
-           Alice "What kind of silly answer is that?"
-           Alice "Hey! I feel better!"
-           manolo "Indeed... It's silly..."
+        
     return
 label fat1:
     if check==False and persistent.checkpoint_7 != None:
