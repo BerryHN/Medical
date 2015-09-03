@@ -1402,6 +1402,23 @@ label slowGirl:
            manolo "Indeed... It's silly..."
            Bont "But... you have revealed the beautiful and silly {color=#ffff00}gem of the truth{/color}"
            Bont "Could you elaborate... what do you mean?"
+           Bont "When you said there were {color=#ffff00}2 hearts{/color}"
+           manolo "It looks to me like {color=#ffff00}2 sets of waves{/color}"
+           Bont "There are {color=#ffff00}2 sets of waves{/color}..."
+           Bont "Before someone interrupt us"
+           Alice "Hey! I am here!"
+           Bont "Sorry! I continue..."
+           Bont "You ponder how if each cell in the heart has {color=#ffff00}automatism{/color} and {color=#ffff00}rhythmicity{/color}"
+           Bont "How the heart doesn't enter in chaos"
+           manolo "It's true... it's like a orchestra with each musician playing whatever they want..."
+           Bont "It doesn't matter how good is each musician..."
+           ""
+           manolo "I think there is some kind of \"director\" who organize ..."
+           Bont "...everything"
+           Bont "Each heart cell has its own speed of discharge..."
+           Bont "However with a {color=#ffff00}natural pacemaker{/color}" 
+           Bont "Therefore the natural pacemaker..."
+           manolo "Coordinates and the fastest cells direct the whole heart"
     return
 label fat1:
     if check==False and persistent.checkpoint_7 != None:
