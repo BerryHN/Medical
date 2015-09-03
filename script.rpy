@@ -1383,7 +1383,7 @@ label slowGirl:
         manolo "Damned a monitor... but I am a vulgar med student!"
         Bont "Once you finish... You'll become a real doctor to my eyes"
         manolo "Really?..."
-        manolo "I mean, of course maestro"
+        manolo "...I mean, of course maestro"
         Bont "Let's see the strip"
         manolo "Let's do this"
         menu:
@@ -1400,6 +1400,8 @@ label slowGirl:
            Alice "What kind of silly answer is that?"
            Alice "Hey! I feel better!"
            manolo "Indeed... It's silly..."
+           Bont "But... you have revealed the beautiful and silly {color=#ffff00}gem of the truth{/color}"
+           Bont "Could you elaborate... what do you mean?"
     return
 label fat1:
     if check==False and persistent.checkpoint_7 != None:
