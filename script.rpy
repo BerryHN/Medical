@@ -1418,7 +1418,18 @@ label slowGirl:
            Bont "Each heart cell has its own speed of discharge..."
            Bont "However with a {color=#ffff00}natural pacemaker{/color}" 
            Bont "Therefore the natural pacemaker..."
-           manolo "Coordinates and the fastest cells direct the whole heart"
+           manolo "...coordinates and the fastest cells direct the whole heart"
+           Bont "Exactly"
+           Alice "I feel way better, but what are these cables?"
+           Bont "They a temporary pacemaker..."
+           manolo "I get it!"
+           Bont "She has a complete AV block!"
+           manolo "A new \"director\" has taken "
+           manolo "Should you want me to present the case to a surgeon?"
+           Alice "A surgeon?"
+           Alice "There is no way I allow a surgery!"
+           Bont "I am not talking about surgery at all"
+           manolo "but she has a probl"
     return
 label fat1:
     if check==False and persistent.checkpoint_7 != None:
