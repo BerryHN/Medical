@@ -112,6 +112,7 @@ define u4 = Character('?????', color="#12ffa5")
 define l = Character("Liutenant", color="#0000ff")
 define s = Character("Sargent", color="#00ff00")
 define Layzee = Character("Dr Layzee", color="#de64da")
+define InnerL= Character("Dr. Layzee Inner",color="#5f9ea0")
 define Bont = Character("Dr. John Bont", color="#ffffff")
 define Inner = Character("Dr. John Bont -thoughts-", color="#999666")
 define Alice = Character("Ms. Alice", color="#00ffa5")
@@ -122,7 +123,8 @@ define Bad_f = Character("Mrs. Bad", color="#ffffff")
 define vlad = Character("Dr. Vladd", color="#ffffff")
 define manolo = Character("Sr. Manolo", color="#ffffff")
 define Hedley = Character("Dr. Hedley Quintana", color="#ffffff")
-define Gloria =Character ('Mrs. Gloria', color="#ffff00")
+define Gloria = Character ('Mrs. Gloria', color="#ffff00")
+define FatLady = Character('Mrs. Wahlee', color='#f0e68c')
 transform rotatelong:
     xpos 0.5
     ypos 0.3
@@ -145,7 +147,7 @@ label start:
     return
 label splashscreen:
     #python:
-    play music 'Splash.mp3'
+    play music 'sound/George Street Shuffle.mp3'
     
     jump main_menu
     return
@@ -160,7 +162,7 @@ label fail:
     return
     
 label death:
-    play music 'bad ending.mp3'
+    play music 'music/Penumbra.mp3'
     scene ending with dissolve
     show text '[death_1]'  with Pause(4.5)
     if death_2 != "":
@@ -738,7 +740,6 @@ label hangman:
         show Alice
         Alice "You are a very good doctor!"
         hide Alice
-        
         scene garage
         show bolt_f at right
         "So a couple of week later the patient was operated"
@@ -749,8 +750,6 @@ label hangman:
         hide bolt_f 
         scene w
         "Final diagnosis:\n1-Suicide attempt\n2-Secondary to blindness\n3-Secondary to bilateral pterigion"
-
-        
         if persistent.promo:
             jump dev
         else:    
@@ -1581,6 +1580,78 @@ label fat1:
                 $ renpy.jump(persistent.checkpoint_7)
     else:
         $ dr=Player('fat1')
+    Alice "Hello Grace"
+    Layzee "Hello Alice, where the patient?"
+    Alice "Here is the chart, Grace"
+    Layzee "Thanks..."
+    InnerL "Hmmm, these Obgyns are crazy!"
+    InnerL "A wedge resection of the ovary to fix a polycyst ovarian syndrome {color=#ffff00}(PCOS){/color}"
+    Layzee "Alice, can I see the patient?"
+    Alice "Do you have any order, Grace?"
+    Layzee "Of course not!"
+    Alice "You are right, Grace..."
+    Alice "You need to see the patient... here it is..."
+    Layzee "Thank you! Alice"
+    Alice "Be my guest, Grace"
+    Alice "Good morning, Mrs. Wahlee"
+    Alice "She is Dr. Grace Layzee"
+    Alice "She is the anesthesiologist"
+    Layzee "Nice to meet you, Mrs. Wahlee"
+    FatLady "So, you are..."
+    Layzee "I am the doctor responsible for anesthesia while you are operated..."
+    Layzee "Could you leave us alone, Alice"
+    Alice "I leave you alone Mrs. Wahlee and Grace..."
+    Layzee "Bye, Alice"
+    FatLady "Hmm... Why does the nurse speaks so \"casually\" to you"
+    Layzee "ha ha ha, we were are very closely related, but I prefer to go back to our business..."
+    FatLady "Sorry, I didn't want to be rude..."
+    Layzee "Don't worry... Tell me a bit about you..."
+    FatLady "Well, Dr. Gyn told me ..."
+    Layzee "Sorry, but I would like to know why do you consulted Dr. Gyn"
+    FatLady "Well, my husband and I have tried to get a child, but we have tried for two years..."
+    FatLady "...but we were not being successfull"
+    InnerL "I think in a follow-up question... what it could be more appropriate?"
+    menu:
+        "How did you met Dr. Gyn?":
+            $ dr.life_loss()
+        "How did you met your husband?":
+            $ dr.life_loss()
+        "Is there any fertily problem with your husband?":
+            $dr.current='fat2'
+    label fat2:
+        FatLady "Dr. Gyn requested help from an urologist"
+        FatLady "The urologist found no problems with him"
+        InnerL "Interesting"
+        InnerL "So it means..."
+        InnerL "That the infertility problem is due a problem ..."
+        menu:
+            '...Mr. Wahlee':
+                $dr.life_loss()
+            '...Mrs. Wahlee':
+                $dr.current="fat3"
+            '...Mr. and Mrs. Wahlee':
+                $dr.life_loss()
+            '...there is no enough information!':
+                $dr.life_loss()
+    label fat3:
+        Layzee "So, it means that you must have a problem"
+        FatLady "Indeed, Dr. Gyn found a {color=#ffff00}PCOS{/color} while he did an {color=#ffff00}ultrasound test{/color}"
+        Layzee "I see!"
+        Layzee "Could you tell if you have any other disease?"
+        FatLady "No, as far as I know"
+        Layzee "Have you noticed some new symptoms, besides your infertility problem?"
+        FatLady "Well, I have noticed that I have become a bit hungrier in the last week"
+        FatLady "Also I have peed a lot amount of water and I drink a lot of water"
+        InnerL "Interesting..."
+        Layzee "Alice! come quick!"
+        Alice "Here I am, Grace!"
+        Layzee "Are the lab test of Mrs. Wahlee ready?"
+        Alice "Not yet, Grace"
+        FatLady "I have an ECG and x-rays requested by Dr. Gyn"
+        Layzee "Could I see them? is there any other lab that can I see?"
+        FatLady "No I just have these"
+        #x-ray and #ECG
+        
     $persistent.Fat_Lady_2=True
     return
 label fat2:
@@ -1793,5 +1864,3 @@ label dev:
         Hedley "Or if you download it from lemmaforum.com, you can reply to the forum"
         Hedley "Many thanks for playing this game!"
         return
-
-        
