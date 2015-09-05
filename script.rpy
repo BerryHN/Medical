@@ -1472,13 +1472,84 @@ label slowGirl:
            Alice "Wait... I... I... I have something else to say..."
            Bont "I think... my ears suddenly opened!"
            manolo "My ears are also opened"
-           Alice "I took some acetaminophen pills from the medications banks..."
+           Alice "I bought some acetaminophen pills"
            Bont "Can I see one of these pills"
            Bont "What is your opinion colleage Manuel?"
            #Screen on pills
            manolo "100 mg?"
-           Bont "indeed... 100 sounds very rare!"
-           manuel 
+           Bont "Indeed... 100mg sounds very weird!"
+           manolo "Can we see the labels where the pills come from?"
+           manolo "That's weird the ECG looks fine..."
+           label palish:
+               $dr.current('palish')
+               manolo "Alice looks pale..."
+               Bont "I don't think it's ECG, it looks like a juicy secrets... "
+               Alice "Nooo!"
+               Alice "I confess..." 
+               Alice "I took some acetamiphonen pills from the medications banks..."
+               Bont "Sorry, but we beg to differ!"
+               menu:
+                   Bont "My colleague and I think that..."
+                   "...you have not done taken any pill from the bank":
+                       $dr.life_loss()
+                   "...you have not taken acetaminophen pills from the bank":
+                       $dr.current('final1')
+                   "...it's irrelevant if you have taken any pills from the bank":
+                       $dr.life_loss()
+           label final1:
+               manolo "You took something else from the bank"
+               Alice "What is this rookie taking about?"
+               Bont "He is taking about something some pills causing a heart block!"
+               Bont "Mrs Gloria!"
+               Alice "Wait stop that!" 
+               manolo "Don't worry..."
+               manolo "It's a secret among us..."
+               Gloria "Sorry Dr. Bont but I am a bit busy..."
+               Bont "Don't worry! I just want to see the bank of pills"
+               Gloria "Why do you want to do so?"
+               Bont "It's something we have some business to do"
+               Gloria "You are not authorized to..."
+               Bont "... take any medications"
+               Bont "We just want to see take a peek! it's a life or death issue"
+               Gloria "A what?"
+               Bont "just business as usual..."
+               Gloria "OK, but not take anything"
+               Bont "promise Lady Gloria"
+               Gloria "Hummf, do that!"
+              #Screen pill bank!
+               Bont "Miss Gloria, we want to read what this label says"
+               Gloria "It says \"atenolol\""
+               Bont "{color=#ffff00}Atenolol{/color}... so, Dr. De Los Angeles"
+               manolo "are you talking to... sorry, yes sir!"
+               label final2:
+                   menu:
+                   Bont "What do you think is relevant about {color=#ffff00}atelolol{/color}"
+                       "It has a starting dose of 100mg":
+                          $dr.life_loss()
+                       "The pills are white":
+                          $dr.life_loss()
+                       "Mrs. Gloria has a poor handwriting":
+                          $dr.life_loss()
+                       "It may cause complete AV blocks":
+                          $dr.current('final3')
+               label final 3:
+                   Bont "Thank you Mrs. Gloria..."
+                   Gloria "What a waste of time"
+                   Bont "Your cooperation has been more valuable"
+                   Gloria "Go back to see my patients"
+                   Alice "So I took..."
+                   manolo "{color=#ffff00}atenolol{/color} in a very high dose"
+                   Bont "And you naturally developed a complete heart block"
+                   manolo "So you will not need any permanent pacemaker!"
+                   Bont "Because once the body get rid of the drug, you'll be fine"
+                   Bont "So thank you mr... sorry Dr. Manuel De Los Angeles"
+                   Alice "Thanks, Dr. De Los Angeles"
+                   manolo "No! don't call me like that! There is a lot to learn..."
+                   manolo "I need to study more and become a real doctor, like Dr. Bont"
+                   Bont "So be it..."
+                   Bont "I hope we see more patients together!"
+                   manolo "I'll study hard and do my best!"
+                   text "To be continued!"
     return
 label fat1:
     if check==False and persistent.checkpoint_7 != None:
