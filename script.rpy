@@ -1,5 +1,4 @@
-﻿#Hangman        
-init python:
+﻿init python:
    #s import random from random
     import renpy.store as store
     import renpy.exports as renpy # we need this so Ren'Py properly handles rollback with classes
@@ -104,6 +103,7 @@ image blood_back='Blood pressure back.png'
 image pointer='needle.png'
 image happy dev ="happy dev.jpg"
 image sad dev = 'sad dev.jpg'
+image hospital='images/Uncle Mugen/hospital.jpg'
 #Characters
 define u1 = Character('?????', color="#0000ff")
 define u2 = Character('?????', color="#00ff00")
@@ -1160,7 +1160,9 @@ label sadman:
         $persistent.Slow_Girl=True
         return
 label slowGirl:
+    
     stop music
+    scene hospital
     if check==False and persistent.checkpoint_3 != None:
         "Where do you want to start?"
         menu:
