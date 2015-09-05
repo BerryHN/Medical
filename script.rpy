@@ -122,6 +122,7 @@ define Bad_f = Character("Mrs. Bad", color="#ffffff")
 define vlad = Character("Dr. Vladd", color="#ffffff")
 define manolo = Character("Sr. Manolo", color="#ffffff")
 define Hedley = Character("Dr. Hedley Quintana", color="#ffffff")
+define Gloria =Character ('Mrs. Gloria', color="#ffff00")
 transform rotatelong:
     xpos 0.5
     ypos 0.3
@@ -1159,6 +1160,7 @@ label sadman:
         $persistent.Slow_Girl=True
         return
 label slowGirl:
+    stop music
     if check==False and persistent.checkpoint_3 != None:
         "Where do you want to start?"
         menu:
@@ -1210,7 +1212,7 @@ label slowGirl:
             manolo "OK"
             Bont "The heart also has {color=#ffff00}rhythmicity{/color}"
             manolo "What is that?"
-            Bont "Manolo, it's also an instrisic property of the heart muscle that related to automatism."
+            Bont "Manolo, {color=#ffff00}rhythmicity{/color} is also an instrisic property of the heart muscle that related to automatism."
             manolo "ah?"
             Bont "It's a cycle of despolarization of heart cells in a regular fashion"
             manolo "So, it means that the heart cells depolarize like a the tic tac of a clock"
@@ -1229,15 +1231,15 @@ label slowGirl:
         label heart2:
             Bont "Indeed, the automatism and the rhythmicity occur in the whole heart"
             manolo "Indeed, it means that in normal conditions, the heart will discharge in a regular fashion"
-            Bont "Yes! the heart normally dies so"
+            Bont "Yes! the heart normally does so"
             manolo 'However, there a problem with that statement! '
             Bont " A bloody damned genius! "
             menu:
-                manolo "If all heary cell are able to discharge in a regular fashion..."
-                "Why does it beat irregularly way in normal people?":
+                manolo "If all heary cell are able to discharge in a regular fashion, but..."
+                "...why does it beat irregularly way in normal people?":
                     Bont "It doesn't happen!"
                     $dr.life_loss()
-                "All cells in the heart may beat in a regular fashion, but it doesn't mean that they have to do in a orderly fashion":
+                "...it doesn't mean that they have to do in a orderly fashion":
                     $dr.current='heart3'                         
         label heart3:
             Bont "Oh! you are correct!"
@@ -1262,8 +1264,9 @@ label slowGirl:
             Bont "So you can take her the pulse and the temperature"
             Alice "I have taken the temperature myself"
             Alice "I have {color=#ff0000}fever{/color}"
+            $International=True
             $temp_init= 38.5
-            if International:
+            if International :
                 $temp=str(temp_init)+"ºC"
             else:
                 $temp_int=32+temp_init*5/9
@@ -1323,10 +1326,10 @@ label slowGirl:
             "5":
                 $dr.life_loss()
     label slow2:
-       manolo "She has 4 pulsewaves 6 seconds"
+        manolo "She has 4 pulsewaves 6 seconds"
         
+        Bont "which means that:"
         menu:
-            Inner "which means that:"
             "She has a myocardial infarction":
                 $dr.life_loss()
             "She has 40 pulsewaves per minute":
@@ -1341,18 +1344,20 @@ label slowGirl:
         Bont "Sorry, but we can wait for that"
         Bont "I need to put a cardiac monitor"
         Alice "But I am a litte tired, that's nothing serious..."
-        Bont "You have pulse frequency of 40 per minute..."
+        manolo "You have pulse frequency of 40 per minute..."
         Alice "What? that's too slow!"
+        Alice "Do you believe this rookie"
+        Bont "Unfortunately he is right!"
     label slow4:
         $dr.current
         Alice "What does it mean?"
+        Bont "Given the current data what will you answer to her?"
         menu:
-            Inner "Given the current data what will you answer"
+            
             "You have a myocardial infarction":
                 $dr.life_loss()
             "I don't know":
-                $dr.current='slow4'
-                #$renpy.jump(dr.current)
+                $dr.current='slow5'
             "You have a severe anemia":
                 $dr.life_loss()
             "You caught a cold":
@@ -1364,7 +1369,7 @@ label slowGirl:
             Bont "How can we know what is going on?"
             "Using a cardiac monitor":
                 $dr.current ="slow6"
-            "Taking a throat culture for bacteria"
+            "Taking a throat culture for bacteria":
                 Bont "It maybe a good idea, but we have more important business"
                 manolo "You are right maestro"
                 $dr.life_loss()
@@ -1373,17 +1378,11 @@ label slowGirl:
                 $dr.life_loss()
     label slow6:
         Bont "I already have the monitor..."
-        Alice "Monitor? I am a bit tired..."
-        Bont "Manolo, did you measure a pulse of 40 per minute..."
-        manolo "Yes, Doctor Bont..."
-        Alice "Do you believe to this noobie?"
-        Bont "Doctor Manuel is a very proficient colleague"
-        manolo "Indeed, I am!"
         Bont "Ok, dear colleague need a monitor, I think we need to continue our talk we go interrupted!"
         manolo "Damned a monitor... but I am a vulgar med student!"
         Bont "Once you finish... You'll become a real doctor to my eyes"
         manolo "Really?..."
-        manolo "...I mean, of course maestro"
+        manolo "...I mean, of course {color=#ffff00}maestro{/color}"
         Bont "Let's see the strip"
         manolo "Let's do this"
         menu:
@@ -1396,160 +1395,176 @@ label slowGirl:
             "Ectopic beats":
                 Bont "Close.. but not at all!"
                 $dr.life_loss()
-       label slow7:
-           Alice "What kind of silly answer is that?"
-           Alice "Hey! I feel better!"
-           manolo "Indeed... It's silly..."
-           Bont "But... you have revealed the beautiful and silly {color=#ffff00}gem of the truth{/color}"
-           Bont "Could you elaborate... what do you mean?"
-           Bont "When you said there were {color=#ffff00}2 hearts{/color}"
-           manolo "It looks to me like {color=#ffff00}2 sets of waves{/color}"
-           Bont "There are {color=#ffff00}2 sets of waves{/color}..."
-           Bont "Before someone interrupt us"
-           Alice "Hey! I am here!"
-           Bont "Sorry! I continue..."
-           Bont "You ponder how if each cell in the heart has {color=#ffff00}automatism{/color} and {color=#ffff00}rhythmicity{/color}"
-           Bont "How the heart doesn't enter in chaos"
-           manolo "It's true... it's like a orchestra with each musician playing whatever they want..."
-           Bont "It doesn't matter how good is each musician..."
-           ""
-           manolo "I think there is some kind of \"director\" who organize ..."
-           Bont "...everything"
-           Bont "Each heart cell has its own speed of discharge..."
-           Bont "However with a {color=#ffff00}natural pacemaker{/color}" 
-           Bont "Therefore the natural pacemaker..."
-           manolo "...coordinates and the fastest cells direct the whole heart"
-           Bont "Exactly"
-           Alice "I feel way better, but what are these cables?"
-           Bont "They a temporary pacemaker..."
-           manolo "I get it!"
-           Bont "She has a complete AV block!"
-           manolo "A new \"director\" has taken "
-           manolo "Should you want me to present the case to a surgeon?"
-           Alice "A surgeon?"
-           Alice "There is no way I allow a surgery!"
-           Bont "I am not talking about surgery at all"
-           manolo "but she has a problem"
-           Bont "That we know nothing about..."
-           Bont "I think we need to know more about what's happened"
-           Alice "Ok ask whatever you want!"
-           Bont "Tell us what happened"
-           Alice "Since yesterday, I had cough, sneezing, runny nose..."
-           Alice "I also was not able to swallow"
-           manolo "Interesting!"
-           Bont "Fascinating... What happened the day before?"
-           Alice "I was working as usual, I felt fine..."
-           manolo "When did the fever started?"
-           Bont "Since yesterday?"
-           Alice "All my symptoms started yesterday"
-           manolo "but it could be rheumatic fever..."
-           Alice "Rheumatic what?"
-           Bont "Oh... someone is studying!"
-           manolo "A pharingeal infection that relates to heart problem"
-           manolo "Can I take a pharingeal swap?"
-           Alice "No way!"
-           Bont "Why not? I think it's a good idea!"
-           manolo "Let's try that!"
-           Alice "Ok..."
-           Alice "Let's try that!"
-           manolo "a pharingeal swap..."
-           Alice "Gah! Gah"
-           Bont "So, what did you found?"
-           manolo "It was negative"
-           manolo "I think it was..."
-           Bont "... something very bad"
-           Alice "What do you mean?"
-           manolo "It means that if you were positive"
-           manolo "it means that we have a clear idea how to treat you"
-           Alice "So, it means..."
-           Bont "...that we need to hear more about your telling"
-           Alice "I don't think I have nothing else to say..."
-           Bont "hmmm"
-           Bont "It means that Dr. Manolo is right"
-           Alice "What do you mean?"
-           manolo "Can I call the surgeon"
-           Alice "..."
-           Alice "Wait... I... I... I have something else to say..."
-           Bont "I think... my ears suddenly opened!"
-           manolo "My ears are also opened"
-           Alice "I bought some acetaminophen pills"
-           Bont "Can I see one of these pills"
-           Bont "What is your opinion colleage Manuel?"
-           #Screen on pills
-           manolo "100 mg?"
-           Bont "Indeed... 100mg sounds very weird!"
-           manolo "Can we see the labels where the pills come from?"
-           manolo "That's weird the ECG looks fine..."
-           label palish:
-               $dr.current('palish')
-               manolo "Alice looks pale..."
-               Bont "I don't think it's ECG, it looks like a juicy secrets... "
-               Alice "Nooo!"
-               Alice "I confess..." 
-               Alice "I took some acetamiphonen pills from the medications banks..."
-               Bont "Sorry, but we beg to differ!"
-               menu:
-                   Bont "My colleague and I think that..."
-                   "...you have not done taken any pill from the bank":
-                       $dr.life_loss()
-                   "...you have not taken acetaminophen pills from the bank":
-                       $dr.current('final1')
-                   "...it's irrelevant if you have taken any pills from the bank":
-                       $dr.life_loss()
-           label final1:
-               manolo "You took something else from the bank"
-               Alice "What is this rookie taking about?"
-               Bont "He is taking about something some pills causing a heart block!"
-               Bont "Mrs Gloria!"
-               Alice "Wait stop that!" 
-               manolo "Don't worry..."
-               manolo "It's a secret among us..."
-               Gloria "Sorry Dr. Bont but I am a bit busy..."
-               Bont "Don't worry! I just want to see the bank of pills"
-               Gloria "Why do you want to do so?"
-               Bont "It's something we have some business to do"
-               Gloria "You are not authorized to..."
-               Bont "... take any medications"
-               Bont "We just want to see take a peek! it's a life or death issue"
-               Gloria "A what?"
-               Bont "just business as usual..."
-               Gloria "OK, but not take anything"
-               Bont "promise Lady Gloria"
-               Gloria "Hummf, do that!"
-              #Screen pill bank!
-               Bont "Miss Gloria, we want to read what this label says"
-               Gloria "It says \"atenolol\""
-               Bont "{color=#ffff00}Atenolol{/color}... so, Dr. De Los Angeles"
-               manolo "are you talking to... sorry, yes sir!"
-               label final2:
-                   menu:
-                   Bont "What do you think is relevant about {color=#ffff00}atelolol{/color}"
-                       "It has a starting dose of 100mg":
-                          $dr.life_loss()
-                       "The pills are white":
-                          $dr.life_loss()
-                       "Mrs. Gloria has a poor handwriting":
-                          $dr.life_loss()
-                       "It may cause complete AV blocks":
-                          $dr.current('final3')
-               label final 3:
-                   Bont "Thank you Mrs. Gloria..."
-                   Gloria "What a waste of time"
-                   Bont "Your cooperation has been more valuable"
-                   Gloria "Go back to see my patients"
-                   Alice "So I took..."
-                   manolo "{color=#ffff00}atenolol{/color} in a very high dose"
-                   Bont "And you naturally developed a complete heart block"
-                   manolo "So you will not need any permanent pacemaker!"
-                   Bont "Because once the body get rid of the drug, you'll be fine"
-                   Bont "So thank you mr... sorry Dr. Manuel De Los Angeles"
-                   Alice "Thanks, Dr. De Los Angeles"
-                   manolo "No! don't call me like that! There is a lot to learn..."
-                   manolo "I need to study more and become a real doctor, like Dr. Bont"
-                   Bont "So be it..."
-                   Bont "I hope we see more patients together!"
-                   manolo "I'll study hard and do my best!"
-                   text "To be continued!"
+        label slow7:
+            Alice "What kind of silly answer is that?"
+            Alice "Hey! I feel better!"
+            manolo "Indeed... It's silly..."
+            Bont "But... you have revealed the beautiful and silly {color=#ffff00}gem of the truth{/color}"
+            Bont "Could you elaborate... what do you mean?"
+            Bont "When you said there were {color=#ffff00}2 hearts{/color}"
+            manolo "It looks to me like {color=#ffff00}2 sets of waves{/color}"
+            Bont "There are {color=#ffff00}2 sets of waves{/color}..."
+            Bont "Before someone interrupt us"
+            Alice "Hey! I am here!"
+            Bont "Sorry! I continue..."
+            Bont "You ponder how if each cell in the heart has {color=#ffff00}automatism{/color} and {color=#ffff00}rhythmicity{/color}"
+            Bont "How the heart doesn't enter in chaos"
+            manolo "It's true... it's like a orchestra with each musician playing whatever they want..."
+            Bont "It doesn't matter how good is each musician..."
+            ""
+            manolo "I think there is some kind of \"director\" who organize ..."
+            Bont "...everything"
+            Bont "Each heart cell has its own speed of discharge..."
+            Bont "However with a {color=#ffff00}natural pacemaker{/color}" 
+            Bont "Therefore the natural pacemaker..."
+            manolo "...coordinates and the fastest cells direct the whole heart"
+            Bont "Exactly"
+            Alice "I feel way better, but what are these cables?"
+            Bont "It's a temporary pacemaker..."
+            Alice "A what?"
+            Bont "Don't pull it out... of you'll feel bad again"
+            
+        label maestro1:
+            $dr.current='maestro'
+            Bont "Let's continue..."
+            Bont "Therefore, she has a complete AV block!"
+            manolo "A new \"director\" has taken the control of the heart"
+            Bont "Indeed a {color=#ffff00}slower{/color} pacemaker, but the old one still beating..."
+            Bont "...but the old {color=#ffff00}director{/color} still there, but it cannot get the message because..."
+            menu:
+                "...it is blocked":
+                    $dr.current='maestro2'
+                "...it is our of control":
+                    $dr.life_loss()
+                "...there is no enough data to say anything":
+                    $dr.life_loss()
+        label maestro2:
+            $dr.current='maestro2'
+            manolo "Should you want me to present the case to a surgeon?"
+            Alice "A surgeon?"
+            Alice "There is no way I allow a surgery!"
+            Bont "I am not talking about surgery at all"
+            manolo "but she has a problem..."
+            Bont "..that we know nothing about..."
+            Bont "I think we need to know more about what's happened"
+            Alice "Ok ask whatever you want!"
+            Bont "Tell us what happened"
+            Alice "Since yesterday, I had cough, sneezing, runny nose..."
+            Alice "I also was not able to swallow"
+            manolo "Interesting!"
+            Bont "Fascinating... What happened the day before?"
+            Alice "I was working as usual, I felt fine..." 
+            manolo "When did the fever started?"
+            Bont "Since yesterday?"
+            Alice "All of the symptoms started yesterday"
+            manolo "but it could be rheumatic fever..."
+            Alice "Rheumatic what?"
+            Bont "Oh... someone is studying!"
+            manolo "A pharingeal infection that relates to heart problem"
+            manolo "Can I take a pharingeal swap?"
+            Alice "No way!"
+            Bont "Why not? I think it's a good idea!"
+            manolo "Let's try that!"
+            Alice "Ok..."
+            Alice "Let's try that!"
+            manolo "a pharingeal swap..."
+            Alice "Gah! Gah"
+            Bont "So, what did you found?"
+            manolo "It was negative"
+            manolo "I think it was..."
+            Bont "... something very bad"
+            Alice "What do you mean?"
+            manolo "It means that if you were positive"
+            manolo "it means that we have a clear idea how to treat you"
+            Alice "So, it means..."
+            Bont "...that we need to hear more about your telling"
+            Alice "I don't think I have nothing else to say..."
+            Bont "hmmm"
+            Bont "It means that Dr. Manolo is right"
+            Alice "What do you mean?"
+            manolo "Can I call the surgeon"
+            Alice "..."
+            Alice "Wait... I... I... I have something else to say..."
+            Bont "I think... my ears suddenly opened!"
+            manolo "My ears are also opened"
+            Alice "I bought some acetaminophen pills"
+            Bont "Can I see one of these pills"
+            Bont "What is your opinion colleage Manuel?"
+            #Screen on pills
+            manolo "100 mg?"
+            Bont "Indeed... 100mg sounds very weird!"
+            manolo "Can we see the labels where the pills come from?"
+            manolo "That's weird the ECG looks fine..."
+            label palish:
+                $dr.current='palish'
+                manolo "Alice looks pale..."
+                Bont "I don't think it's ECG, it looks like juicy secrets... "
+                Alice "Nooo!"
+                Alice "I confess..." 
+                Alice "I took some acetamiphonen pills from the medications banks..."
+                Bont "Sorry, but we beg to differ!"
+                menu:
+                    Bont "My colleague and I think that..."
+                    "...you have not done taken any pill from the bank":
+                        $dr.life_loss()
+                    "...you have not taken acetaminophen pills from the bank":
+                        $dr.current='final1'
+                    "...it's irrelevant if you have taken any pills from the bank":
+                        $dr.life_loss()
+            label final1:
+                manolo "You took something else from the bank"
+                Alice "What is this rookie taking about?"
+                Bont "He is taking about something some pills causing a heart block!"
+                Bont "Mrs Gloria!"
+                Alice "Wait stop that!" 
+                manolo "Don't worry..."
+                manolo "It's a secret among us..."
+                Gloria "Sorry Dr. Bont but I am a bit busy..."
+                Bont "Don't worry! I just want to see the bank of pills"
+                Gloria "Why do you want to do so?"
+                Bont "It's something we have some business to do"
+                Gloria "You are not authorized to..."
+                Bont "... take any medications"
+                Bont "We just want to see take a peek! it's a life or death issue"
+                Gloria "A what?"
+                Bont "just business as usual..."
+                Gloria "OK, but not take anything"
+                Bont "promise Lady Gloria"
+                Gloria "Hummf, do that!"
+               #Screen pill bank!
+                Bont "Miss Gloria, we want to read what this label says"
+                Gloria "It says \"atenolol\""
+                Bont "{color=#ffff00}Atenolol{/color}... so, Dr. De Los Angeles"
+                manolo "are you talking to... sorry, yes sir!"
+                label final2:
+                    Bont "What do you think is relevant about {color=#ffff00}atelolol{/color}"
+                    menu:
+                        "It has a starting dose of 100mg":
+                           $dr.life_loss()
+                        "The pills are white":
+                           $dr.life_loss()
+                        "Mrs. Gloria has a poor handwriting":
+                           $dr.life_loss()
+                        "It may cause complete AV blocks":
+                           $dr.current='final3'
+                label final3:
+                    Bont "Thank you Mrs. Gloria..."
+                    Gloria "What a waste of time"
+                    Bont "Your cooperation has been more valuable"
+                    Gloria "Go back to see my patients"
+                    Alice "So I took..."
+                    manolo "{color=#ffff00}atenolol{/color} in a very high dose"
+                    Bont "And you naturally developed a complete heart block"
+                    manolo "So you will not need any permanent pacemaker!"
+                    Bont "Because once the body get rid of the drug, you'll be fine"
+                    Bont "So thank you mr... sorry Dr. Manuel De Los Angeles"
+                    Alice "Thanks, Dr. De Los Angeles"
+                    manolo "No! don't call me like that! There is a lot to learn..."
+                    manolo "I need to study more and become a real doctor, like Dr. Bont"
+                    Bont "So be it..."
+                    Bont "I hope we see more patients together!"
+                    manolo "I'll study hard and do my best!"
+                    show text "To be continued!"
     return
 label fat1:
     if check==False and persistent.checkpoint_7 != None:
