@@ -1175,6 +1175,8 @@ label slowGirl:
     else:
         $ dr=Player('slowGirl')
     label slow1:
+        stop music
+        play music "mp3/Hackbeat.mp3"
         u4 "Hola! is there someone there?"
         Bont "Excuse me..."
         u4 "Yes..."
@@ -1247,7 +1249,9 @@ label slowGirl:
             manolo "Really? derp... I mean... Of course"
             manolo "I mean... You are a great {color=#ffff00}maestro{/color}"
             manolo "I always knew it"
+            stop music
             Alice "heeeeelp!"
+            play music "mp3/Firebrand.mp3"
             Bont "Alice?"
             Alice "help me!"
             Inner "Alice? a patient"
@@ -1642,7 +1646,7 @@ label fat1:
         Layzee "Have you noticed some new symptoms, besides your infertility problem?"
         FatLady "Well, I have noticed that I have become a bit hungrier in the last week"
         FatLady "Also I have peed a lot amount of water and I drink a lot of water"
-        InnerL "Interesting..."obran evidencias que confirman que aquellos Estados en los que se da prioridad a desarrollar sistemas educativos sólidos, con adecuada formación de maestr
+        InnerL "Interesting..."
         Layzee "Alice! come quick!"
         Alice "Here I am, Grace!"
         Layzee "Are the lab test of Mrs. Wahlee ready?"
@@ -1669,7 +1673,7 @@ label fat1:
                 $ dr.loss_life()
             "Glucose: + Normal(-)":
                 $ dr.current = 'fat4'
-            "Nitrite test: - Normal(-)"
+            "Nitrite test: - Normal(-)":
                 $ dr.loss_life()
         label fat4a:
             Layzee "Damned, what is this?"
@@ -1704,7 +1708,7 @@ label fat1:
             menu:
                 "She is treated by an ObGyn":
                    $dr.current='fat5'
-                "She is treated by an urologist"
+                "She is treated by an urologist":
                     $dr.life_loss()
                 "She is treated by a hematologist":
                     $dr.life_loss()
