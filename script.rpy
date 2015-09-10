@@ -1892,10 +1892,58 @@ label damsel:
 		Bont "Of course, you are a doctor..."
 		Bont "And took a lots of laboratories..."
 		Layzee "... and I found nothing wrong"
-		Layzee "Except anemia (Hg 8 g/dl)"
-		Layzee "leukocytes 15,000/mm3 (Normal value= 4,000-10,000/mm3)"
+		Layzee "except anemia (Hg 8 g/dl),"
+		Layzee "leukocytes 15,000/mm3 (Normal value= 4,000-10,000/mm3),"
 		Layzee "lymphocytes 95% (Normal value 15%-45%)"
-		
+        Inner "I think we need more data"
+		Bont "Can I see your abdomen"
+        Layzee "So you want to continue..."
+        Bont "Of course"
+        #Screen abdomen...
+        Bont "So! it means that you have liquid in your abdomen..."
+        Layzee "Do you want to hear what it means Alice?"
+        Bont "Hold it!"
+        Bont "I need a sample of that liquid..."
+        #Screen ...
+        Bont "Quick, send the liquid to pathology"
+        "..."
+        Alice "Dr. Mortimer want to speak with you..."
+        Alice "Now..."
+        Alice "He said something like {color=#ffff00}ZL{/color} stain"
+        Layzee "A {color=#ffff00}ZL{/color} stain?"
+        Bont "{color=#ffff00}ZL{/color} stain?"
+        Bont "It sounds insteresting... don't you think Dr. Grace Layzee?"
+        Alice "I am scare, what does it mean?"
+        Bont "he he he... Let me talk to him!"
+        Alice "Quick! Alice... He is in the line"
+        Mortimer "Quick! Alice told me that this liquid comes is peritoneal fluid"
+        Mortimer "Are you sure about this?"
+        menu:
+            "Of course, I took it myself...":
+                $dr.current='damsel3'
+            "I don't know":
+                $dr.life_loss()
+            "It comes from the stomach":
+                $dr.life_loss()
+    label damsel3:
+        Bont "Have you do a Papanicolau stain?"
+        Mortimer "I tried that, but it was negative!"
+        Mortimer "I also tried a {color=#ffff00}Ziehl–Neelsen{/color} stain"
+        Mortimer "And it was full of bacteria"
+        Mortimer "you should..."
+        Bont "...stop talking... I am very happy!"
+        Bont "Dr. Mortimer found bacteria with a {color=#ffff00}Ziehl–Neelsen{/color}"
+        Alice "What does it mean?"
+        Bont "I give the honors to Dr. Grace Layzee..."
+        Alice "Grace, what is Dr. Bont talking about"
+        Layzee "I am a fool!"
+        Layzee "I didn't want to worry you... but"
+        Layzee "I thought I was going to die... but"
+        Layzee "After the work made by my colleague Bont"
+        Layzee "I learned that I will be cured"
+        Layzee "I have a positive {color=#ffff00}Ziehl–Neelsen{/color} in peritoneal fluid that means..."
+        Layzee "that I am suffering {color=ffff00}peritoneal tuberculosis{/color}"
+        
     $persistent.Mad_Man=True
     return
 label bigBoy:
