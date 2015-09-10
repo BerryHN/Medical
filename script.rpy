@@ -1820,6 +1820,82 @@ label damsel:
                 $ renpy.jump(persistent.checkpoint_4)
     else:
         $ dr=Player('damsel')
+	Bont "Good Morning, Alice!"
+	Alice "Good Morning, Dr. Bont"
+	Bont "Can we see our first patient?"
+	Alice "Well, the next patient is a bit difficult..."
+	Alice "She is my {color=#ffff00}cousin{/color}"
+	Bont "Oh! your cousin"
+	Inner "There is a saying in the medicine school"
+	Inner 'A "relative" of health professional is a challenge'
+	Alice "I had a very hard time to convince her..."
+	Alice "Grace, you can come in..."
+	Layzee "Good morning, Dr. Bont!"
+	Inner "Are Alice and Dr. Layzee {color=#ffff00}cousins{/color}"
+	Layzee "Alice told me that you are a very proficient..."
+	Layzee "However, I think we can stop taking, I rather prefer dying without needles in my arm..."
+	Alice "Stop that Grace..."
+	Inner "Damned, she is a very proficient{color=#ffff00}colleague{/color}..."
+	Inner "If she says these kind of things... "
+	Inner "It doesn't look good!"
+	Bont "Sorry, Dr. Layzee, but here I am the doctor and now you are just another patient..."
+	Layzee "Ok! ok! Let's turn this down..."
+	Layzee "Let's play your game..."
+	Layzee "Probably a bit of {color=#ffff00}ananmnesis {/color}can turn you down"
+	Alice "What does she mean, Dr. Bont?"
+	Bont "She says that we have to listen her! I agree..."
+	$w=25
+	if international:
+	    $w=25*2.2
+        $peso=str(w)+" kilograms"
+    else:
+        $peso=str(w)+" pounds"	
+	Layzee "I have lost [peso] in 1 month"
+	Bont "Hold it!"
+	Inner "Which follow-up question seems more appropriate?"
+	menu:
+	    "Have you joined a cult":
+		    $dr.life_loss()
+		"Have you following any kind of diet?":
+		    $dr.current='damsel2'
+		"Do you have fever":
+		    $dr.life_loss()
+	label damsel2:
+	    Layzee "Don't insult me!"
+		Layzee "I was not following any kind of diet"
+		Layzee "I didn't want to loss wait!"
+		Alice 'Grace, can you give me the {color=#00ff00}recipe{/color} to loss...'
+		Layzee "No, Alice! I never want something bad happen to you..."
+		Inner "It looks something pretty bad..."
+		Bont "Sorry for the interruption, but we need to continue..."
+		Layzee "I also noticed that I have fever during the afternoons"
+		Alice "Grace! Why you didn't tell me!"
+		Layzee "Alice!"
+		Layzee "I didn't want to worry you!"
+		Bont "Please continue..."
+		Layzee "I also notice that my belly started to grow..."
+		Inner "What?"
+		Layzee "It is what you are imagining..."
+		Inner "It looks like a {color=#ffff00}consumptive disease{/color}"
+		Layzee "I can read it in your face: a {color=#ffff00}consumptive disease{/color}"
+		Alice "What do you mean Grace?"
+		Alice "What does Grace mean Dr. Bont"
+		Inner "There are a lot of {color=#ffff00}consumptive diseases{/color}..."
+		Inner "The most common are the deadliest..."
+		Inner "but..."
+		Bont "So, a {color=#ffff00}consumptive disease{/color}!"
+		Bont "Can you give me a hint about..."
+		Layzee "Sorry, but I am a humble anesthesiologist..."
+		Layzee "I have some ideas in head... but"
+		Alice "But Grace!"
+		Bont "I would like to know more about the ananmnesis..."
+		Bont "Of course, you are a doctor..."
+		Bont "And took a lots of laboratories..."
+		Layzee "... and I found nothing wrong"
+		Layzee "Except anemia (Hg 8 g/dl)"
+		Layzee "leukocytes 15,000/mm3 (Normal value= 4,000-10,000/mm3)"
+		Layzee "lymphocytes 95% (Normal value 15%-45%)"
+		
     $persistent.Mad_Man=True
     return
 label bigBoy:
