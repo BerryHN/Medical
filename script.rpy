@@ -125,6 +125,7 @@ define manolo = Character("Sr. Manolo", color="#ffffff")
 define Hedley = Character("Dr. Hedley Quintana", color="#ffffff")
 define Gloria = Character ('Mrs. Gloria', color="#ffff00")
 define FatLady = Character('Mrs. Wahlee', color='#f0e68c')
+define mom = Character("Mrs. Sweeny", color="#ff0000")
 transform rotatelong:
     xpos 0.5
     ypos 0.3
@@ -1917,7 +1918,7 @@ label damsel:
         Bont "he he he... Let me talk to him!"
         Alice "Quick! Alice... He is in the line"
         Mortimer "Quick! Alice told me that this liquid comes is peritoneal fluid"
-        Mortimer "Are you sure about this?"
+        Mortimer "Are you about the origin of this sample?"
         menu:
             "Of course, I took it myself...":
                 $dr.current='damsel3'
@@ -1926,7 +1927,7 @@ label damsel:
             "It comes from the stomach":
                 $dr.life_loss()
     label damsel3:
-        Bont "Have you do a Papanicolau stain?"
+        Bont "Have you done a Papanicolau stain?"
         Mortimer "I tried that, but it was negative!"
         Mortimer "I also tried a {color=#ffff00}Ziehl–Neelsen{/color} stain"
         Mortimer "And it was full of bacteria"
@@ -1942,8 +1943,12 @@ label damsel:
         Layzee "After the work made by my colleague Bont"
         Layzee "I learned that I will be cured"
         Layzee "I have a positive {color=#ffff00}Ziehl–Neelsen{/color} in peritoneal fluid that means..."
-        Layzee "that I am suffering {color=ffff00}peritoneal tuberculosis{/color}"
-        
+        Layzee "...that I am suffering {color=ffff00}peritoneal tuberculosis{/color}..."
+        Bont "...and you can be treated with oral drugs"
+        Alice "Really?"
+        Bont "I am so happy, Dr. Grace Layzee"
+        Layzee "Thank you! Dr. Bont!"
+        "to be continued..."
     $persistent.Mad_Man=True
     return
 label bigBoy:
@@ -1959,6 +1964,52 @@ label bigBoy:
                 $ renpy.jump(persistent.checkpoint_4)
     else:
         $ dr=Player('bigBoy')
+    label boy1:
+        Bont "Good morning, Dr. De Los Angeles..."
+        manolo "Good morning, Dr. Bont"
+        Alice "Good morning!"
+        Alice "Quick doctors!!"
+        Alice "A new pacient has arrived"
+        Alice "A little boy unable to breathe"
+        Bont "Let's take a look!"
+        u2 "Hello Dr. Bont"
+        manolo "Psst, Dr. Bont..."
+        manolo "Why is she so calm?"
+        Bont "Don't worry, just play along"
+        Bont "Hello Mrs. Sweeny!"
+        mom "Hello, Dr. Bont"
+        Bont "Mrs. Sweeny, I really love the party"
+        mom "Thanks, Dr. Bont, but my son..."
+        Bont "I know... he cannot breathe"
+        Bont "Could you allow my colleague Dr. De Los Angeles to listen to John's lungs?"
+        mom "Whatever..."
+        Bont "Excelent, Dr. De Los Angeles... listen to John's chest!"
+        Bont "Just play along, manolo and listen to his chest"
+        manolo "but..."
+        Bont "Just play along!"
+        Bont "Alice, come quick..."
+        Alice "Yes, Dr. Bont"
+        Bont "Prepare the usual recipe"
+        Alice "Recipe..."
+        manolo "nevermind! John can I listen to your lungs"
+        john "...cannot breathe..."
+        mom "Go John, show the chest to doctor..."
+        manolo "{color=#ff69b4}This is so weird...{/color}"
+        manolo "This is so weird"
+        #Listening lungs
+        Bont "Dr. De Los Angeles, what have you heard?"
+        menu:
+            "Nothing":
+                $dr.life_loss()
+            "Whistles and surreal sounds":
+                $dr.current='boy2'
+            "Drums":
+                $dr.life_loss()
+            "Why are you asking me?":
+                $dr.life_loss()
+    label boy2:
+        Bont "These are called {color=#ffff00}wheezing{/color}"
+        
     $persistent.Slow_Girl=True
     return
 label madman_1:
