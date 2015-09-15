@@ -148,7 +148,7 @@ label start:
     return
 label splashscreen:
     #python:
-    play music 'sound/George Street Shuffle.mp3'
+    play music 'mp3/George Street Shuffle.mp3'
     
     jump main_menu
     return
@@ -163,7 +163,7 @@ label fail:
     return
     
 label death:
-    play music 'music/Penumbra.mp3'
+    play music 'mp3/Penumbra.mp3'
     scene ending with dissolve
     show text '[death_1]'  with Pause(4.5)
     if death_2 != "":
@@ -194,7 +194,7 @@ label hangman:
                 
     
     #call screen aff_screen
-    play music "W.ogg"
+    #play music "W.ogg"
     show text 'WARNING! THIS CHAPTER CONTAINS STRONG IMAGES'with Pause(2.5)
     show text 'This was a real case!'with Pause(2.5)
     stop music
@@ -1821,83 +1821,83 @@ label damsel:
                 $ renpy.jump(persistent.checkpoint_4)
     else:
         $ dr=Player('damsel')
-	Bont "Good Morning, Alice!"
-	Alice "Good Morning, Dr. Bont"
-	Bont "Can we see our first patient?"
-	Alice "Well, the next patient is a bit difficult..."
-	Alice "She is my {color=#ffff00}cousin{/color}"
-	Bont "Oh! your cousin"
-	Inner "There is a saying in the medicine school"
-	Inner 'A "relative" of health professional is a challenge'
-	Alice "I had a very hard time to convince her..."
-	Alice "Grace, you can come in..."
-	Layzee "Good morning, Dr. Bont!"
-	Inner "Are Alice and Dr. Layzee {color=#ffff00}cousins{/color}"
-	Layzee "Alice told me that you are a very proficient..."
-	Layzee "However, I think we can stop taking, I rather prefer dying without needles in my arm..."
-	Alice "Stop that Grace..."
-	Inner "Damned, she is a very proficient{color=#ffff00}colleague{/color}..."
-	Inner "If she says these kind of things... "
-	Inner "It doesn't look good!"
-	Bont "Sorry, Dr. Layzee, but here I am the doctor and now you are just another patient..."
-	Layzee "Ok! ok! Let's turn this down..."
-	Layzee "Let's play your game..."
-	Layzee "Probably a bit of {color=#ffff00}ananmnesis {/color}can turn you down"
-	Alice "What does she mean, Dr. Bont?"
-	Bont "She says that we have to listen her! I agree..."
-	$w=25
-	if international:
-	    $w=25*2.2
+    Bont "Good Morning, Alice!"
+    Alice "Good Morning, Dr. Bont"
+    Bont "Can we see our first patient?"
+    Alice "Well, the next patient is a bit difficult..."
+    Alice "She is my {color=#ffff00}cousin{/color}"
+    Bont "Oh! your cousin"
+    Inner "There is a saying in the medicine school"
+    Inner 'A "relative" of health professional is a challenge'
+    Alice "I had a very hard time to convince her..."
+    Alice "Grace, you can come in..."
+    Layzee "Good morning, Dr. Bont!"
+    Inner "Are Alice and Dr. Layzee {color=#ffff00}cousins{/color}"
+    Layzee "Alice told me that you are a very proficient..."
+    Layzee "However, I think we can stop taking, I rather prefer dying without needles in my arm..."
+    Alice "Stop that Grace..."
+    Inner "Damned, she is a very proficient{color=#ffff00}colleague{/color}..."
+    Inner "If she says these kind of things... "
+    Inner "It doesn't look good!"
+    Bont "Sorry, Dr. Layzee, but here I am the doctor and now you are just another patient..."
+    Layzee "Ok! ok! Let's turn this down..."
+    Layzee "Let's play your game..."
+    Layzee "Probably a bit of {color=#ffff00}ananmnesis {/color}can turn you down"
+    Alice "What does she mean, Dr. Bont?"
+    Bont "She says that we have to listen her! I agree..."
+    $w=25
+    if international:
+        $w=25*2.2
         $peso=str(w)+" kilograms"
     else:
-        $peso=str(w)+" pounds"	
-	Layzee "I have lost [peso] in 1 month"
-	Bont "Hold it!"
-	Inner "Which follow-up question seems more appropriate?"
-	menu:
-	    "Have you joined a cult":
-		    $dr.life_loss()
-		"Have you following any kind of diet?":
-		    $dr.current='damsel2'
-		"Do you have fever":
-		    $dr.life_loss()
-	label damsel2:
-	    Layzee "Don't insult me!"
-		Layzee "I was not following any kind of diet"
-		Layzee "I didn't want to loss wait!"
-		Alice 'Grace, can you give me the {color=#00ff00}recipe{/color} to loss...'
-		Layzee "No, Alice! I never want something bad happen to you..."
-		Inner "It looks something pretty bad..."
-		Bont "Sorry for the interruption, but we need to continue..."
-		Layzee "I also noticed that I have fever during the afternoons"
-		Alice "Grace! Why you didn't tell me!"
-		Layzee "Alice!"
-		Layzee "I didn't want to worry you!"
-		Bont "Please continue..."
-		Layzee "I also notice that my belly started to grow..."
-		Inner "What?"
-		Layzee "It is what you are imagining..."
-		Inner "It looks like a {color=#ffff00}consumptive disease{/color}"
-		Layzee "I can read it in your face: a {color=#ffff00}consumptive disease{/color}"
-		Alice "What do you mean Grace?"
-		Alice "What does Grace mean Dr. Bont"
-		Inner "There are a lot of {color=#ffff00}consumptive diseases{/color}..."
-		Inner "The most common are the deadliest..."
-		Inner "but..."
-		Bont "So, a {color=#ffff00}consumptive disease{/color}!"
-		Bont "Can you give me a hint about..."
-		Layzee "Sorry, but I am a humble anesthesiologist..."
-		Layzee "I have some ideas in head... but"
-		Alice "But Grace!"
-		Bont "I would like to know more about the ananmnesis..."
-		Bont "Of course, you are a doctor..."
-		Bont "And took a lots of laboratories..."
-		Layzee "... and I found nothing wrong"
-		Layzee "except anemia (Hg 8 g/dl),"
-		Layzee "leukocytes 15,000/mm3 (Normal value= 4,000-10,000/mm3),"
-		Layzee "lymphocytes 95% (Normal value 15%-45%)"
+        $peso=str(w)+" pounds"    
+    Layzee "I have lost [peso] in 1 month"
+    Bont "Hold it!"
+    Inner "Which follow-up question seems more appropriate?"
+    menu:
+        "Have you joined a cult":
+            $dr.life_loss()
+        "Have you following any kind of diet?":
+            $dr.current='damsel2'
+        "Do you have fever":
+            $dr.life_loss()
+    label damsel2:
+        Layzee "Don't insult me!"
+        Layzee "I was not following any kind of diet"
+        Layzee "I didn't want to loss wait!"
+        Alice 'Grace, can you give me the {color=#00ff00}recipe{/color} to loss...'
+        Layzee "No, Alice! I never want something bad happen to you..."
+        Inner "It looks something pretty bad..."
+        Bont "Sorry for the interruption, but we need to continue..."
+        Layzee "I also noticed that I have fever during the afternoons"
+        Alice "Grace! Why you didn't tell me!"
+        Layzee "Alice!"
+        Layzee "I didn't want to worry you!"
+        Bont "Please continue..."
+        Layzee "I also notice that my belly started to grow..."
+        Inner "What?"
+        Layzee "It is what you are imagining..."
+        Inner "It looks like a {color=#ffff00}consumptive disease{/color}"
+        Layzee "I can read it in your face: a {color=#ffff00}consumptive disease{/color}"
+        Alice "What do you mean Grace?"
+        Alice "What does Grace mean Dr. Bont"
+        Inner "There are a lot of {color=#ffff00}consumptive diseases{/color}..."
+        Inner "The most common are the deadliest..."
+        Inner "but..."
+        Bont "So, a {color=#ffff00}consumptive disease{/color}!"
+        Bont "Can you give me a hint about..."
+        Layzee "Sorry, but I am a humble anesthesiologist..."
+        Layzee "I have some ideas in head... but"
+        Alice "But Grace!"
+        Bont "I would like to know more about the ananmnesis..."
+        Bont "Of course, you are a doctor..."
+        Bont "And took a lots of laboratories..."
+        Layzee "... and I found nothing wrong"
+        Layzee "except anemia (Hg 8 g/dl),"
+        Layzee "leukocytes 15,000/mm3 (Normal value= 4,000-10,000/mm3),"
+        Layzee "lymphocytes 95% (Normal value 15%-45%)"
         Inner "I think we need more data"
-		Bont "Can I see your abdomen"
+        Bont "Can I see your abdomen"
         Layzee "So you want to continue..."
         Bont "Of course"
         #Screen abdomen...
@@ -2008,8 +2008,44 @@ label bigBoy:
             "Why are you asking me?":
                 $dr.life_loss()
     label boy2:
-        Bont "These are called {color=#ffff00}wheezing{/color}"
-        
+        Bont "These sounds are called {color=#ffff00}wheezing{/color}"
+        manolo "{color=#ffff00}wheezing{/color}?"
+        Bont "Indeed, it represents the obstruction of airways"
+        manolo "It looks like an asthmatic to me!"
+        Bont "You can hear that in a patient with {color=#ffff00}Chronic Pulmonary Obstructive Disease{/color} also known as {color=#ffff00}COPD{/color}."
+        manolo "So, it means that the mechanism behind {color=ffff00}COPD{/color}"
+        menu:
+            "It's similar to asthma":
+                $dr.current='boy3'
+            "It's related to arrhythmias":
+                $dr.life_loss()
+            "It's similar to a pneumonia":
+                $dr.life_loss()
+    label boy3:
+        Bont "Indeed, this poor fella is suffering an {color=#ffff00}asthma attack{/color}"
+        manolo "So you ordered Alice"
+        menu:
+            "To prepare an inhalotherapy":
+                $dr.current='boy4'
+            "Looking for antibiotics":
+                $dr.life_loss()
+            "Calling the police":
+                $dr.life_loss()
+    label boy4:
+        Bont "Are you ready Alice?"
+        Alice "Roger!"
+        manolo "Wao"
+        "30 minutes later..."
+        Alice "Quick! Dr. Bont"
+        Bont "What is it?"
+        Alice "Come!"
+        Bont "Let's go manolo!"
+        manolo "Let's go!"
+        mom "My child!"
+        mom "My child!"
+        mom "he is complaining of stomach ache!"
+        Bont "Damned! stomach ache... "
+        Bont "Let's see his"
     $persistent.Slow_Girl=True
     return
 label madman_1:
@@ -2038,7 +2074,6 @@ label madman_1:
                 $ needle += 16
                 $ pressure += 10
             jump blood_p
-                
         if result_map=='2':
             if deflate > 1000:
                 $ deflate = 120
@@ -2121,7 +2156,7 @@ label madman_1:
             $ renpy.jump(dr.current)
         else:
             $ dr.life_loss()
-    #$persistent.Damsel_Distress =  True
+    $persistent.Damsel_Distress =  True
 label dev:
     scene happy dev
     Hedley "Hello! my name is Hedley Quintana"
