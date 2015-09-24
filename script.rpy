@@ -2049,13 +2049,58 @@ label bigBoy:
         mom "My child"
         Bont "We'll do our best"
         Bont "Dr. De Los Angeles..."
-        Bont ""
+        Bont "Please perform a percusion of the abdomen"
+    label boy5:
         Bont "Listen to the abdomen of the patient"
         manolo "Yes, sir"
         #Listening abdomen
         $ dr. current= 'boy6'
-    label boy5:
-        
+    label boy6:
+        Bont "So it means that the abdomen is {color=#ffff00}distended{/color}, {color=#ffff00}silent{/color} and {color=#ffff00}tympanitic{/color}"
+        manolo "So what it means?"
+        if ("answer1" in locals()) or ("answer1" in locals()):
+            Bont "Yes... I was going to ask that!"
+        else:
+            Bont "This is correct, but there is something else you forget to say!"
+            manolo "What else did I forget to say?"
+            menu:
+                "The intestines are full of air":
+                    if "answer1" in locals():
+                        if "answer2" in locals():
+                            $dr.current='boy7'
+                        else:
+                            jump boy6
+                    else:
+                        $answer1=True
+                "The instestines are not moving":
+                    if "answer2" in locals():
+                        if "answer1" in locals():
+                            $dr.current='boy7'
+                        else:
+                            jump boy6
+                     else:
+                       $answer2==True
+                "The lungs are moved to the abdomen":
+                    Bont "Don't be ridiculous!"
+                    $dr.life_loss()
+        label boy7:
+            Bont "Indeed, the combination of intestines that are filled of air that does not move represent a {color=#ffff00}paralytic ileus{/color}."
+            manolo "A {color=#ffff00}paralytic ileus{/color}?"
+            Bont "There is only one thing we can do now..."
+            #Nasogastric tube
+            manolo "Done!"
+            Bont "We cannot do anything else..."
+            manolo "What?"
+            Bont "So it means that we have to wait that John's body metabolize the drug..."
+            mom "What does it means?"
+            menu:
+                "Your son is going to die!":
+                    $dr.life_loss()
+                "The drug will be transformed by the body":
+                    $dr.current='boy_end'
+                "We need to operate him {color=#ffff00}immediately{/color}":
+                    $dr.life_loss()
+                    
     $persistent.Slow_Girl=True
     return
 label madman_1:
