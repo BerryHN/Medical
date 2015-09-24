@@ -2046,6 +2046,16 @@ label bigBoy:
         mom "he is complaining of stomach ache!"
         Bont "Damned! stomach ache... "
         Bont "Let's see his"
+        mom "My child"
+        Bont "We'll do our best"
+        Bont "Dr. De Los Angeles..."
+        Bont ""
+        Bont "Listen to the abdomen of the patient"
+        manolo "Yes, sir"
+        #Listening abdomen
+        $ dr. current= 'boy6'
+    label boy5:
+        
     $persistent.Slow_Girl=True
     return
 label madman_1:
