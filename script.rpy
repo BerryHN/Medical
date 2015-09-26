@@ -2078,7 +2078,7 @@ label bigBoy:
                             $dr.current='boy7'
                         else:
                             jump boy6
-                     else:
+                    else:
                        $answer2==True
                 "The lungs are moved to the abdomen":
                     Bont "Don't be ridiculous!"
