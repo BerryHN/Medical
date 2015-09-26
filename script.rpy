@@ -2100,7 +2100,7 @@ label bigBoy:
                     $dr.current='boy_end'
                 "We need to operate him {color=#ffff00}immediately{/color}":
                     $dr.life_loss()
-       label boy_end:
+        label boy_end:
            Bont "Indeed doctor, we need to wait"
            manolo '"Amaneceremos y veremos"'
            Bont "What does it means"
