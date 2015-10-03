@@ -104,6 +104,7 @@ image pointer='needle.png'
 image happy dev ="happy dev.jpg"
 image sad dev = 'sad dev.jpg'
 image hospital='images/Uncle Mugen/hospital.jpg'
+image football=im.Scale('soccer_field.jpg',800,600)
 #Characters
 define u1 = Character('?????', color="#0000ff")
 define u2 = Character('?????', color="#00ff00")
@@ -765,8 +766,8 @@ label sadman:
                 $ check=True
                 jump hangman
             "From the an earlier saved game":
-                $ dr=Player(persistent.checkpoint_2)
-                $ renpy.jump(persistent.checkpoint_2)
+                $ dr=Player('')
+                $ renpy.jump(dr.current)
     else:
         $ dr=Player('sadman')
     $ systolic=120
@@ -775,7 +776,8 @@ label sadman:
     $ death_1='{color=#f00}Mr. Bad\'s sister didn\'t allow Dr. Bont to proceed.\n3 days after the consult the patient died.{/color}'
     $ dr=Player('sadman')
     label intro:
-        screen black
+        play music 'mp3/Exhilarate.mp3'
+        scene football
         "???"
         "And the ball moves!"
         Bont "Hey I am alone!"
@@ -789,6 +791,8 @@ label sadman:
         Bont "Patient?"
         Inner "Am I in the hospital"
         scene er_img
+        stop music
+        play music "mp3/George Street Shuffle.mp3"
         Bont "Alice?"
         Alice "..."
         Alice "I am waiting for your orders, Dr. Bont"
@@ -974,12 +978,16 @@ label sadman:
             Alice "The labs are ready..."
             Bont "Hmm"
             #Screen labs...
-            menu:
-                "Do you want to save your progress?"
-                "Yes":
-                    $persistent.checkpoint_2=True
-                "No":
-                    pass
+            
+            if 'persistent.checkpoint_2' not in vars():
+                "Do you want to save your current progress?"
+                menu:
+                    "Yes":
+                        $ persistent.checkpoint_2 = True
+                        $ dr.current = 'sandman_q7x'
+                    "No":
+                        pass
+        label sadman_q7x:
             Bont "It means that he has bled due to low platelets..."
             Alice "What do you think we can do?"
             Bont "Nothing... we need to call the hematologist..."
@@ -989,12 +997,7 @@ label sadman:
             Bont "Please, do that"
             Alice "As your wish"
             "..."
-            menu:
-                "Do you want to save?"
-                "yes":
-                    $persistent.checkpoint_2=True
-                "No":
-                    pass
+            
             Alice "Take the phone..."
             Bont "Hello, Dr Vladd"
             vlad "I am very sleepy..."
