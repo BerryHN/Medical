@@ -68,17 +68,17 @@
             else:
                 renpy.jump('death')
     
-    class Item(store.object):
-        def __init__(self, name, description, image, submitted, symptom=True,  imageneology=False):
-            self.name         = name
-            self.description  = description
-            self.image        = image
-            self.symptom      = symptom
-            self.submitted    = submitted
-            self.imageneology = imageneology
-        def imageneology(self):
-            if self.imageneology:
-                renpy.show_screen(self.imageneology)
+   # class Item(store.object):
+    #    def __init__(self, name, description, image, submitted, symptom=True,  imageneology=False):
+     #       self.name         = name
+      #      self.description  = description
+#            self.image        = image
+ #           self.symptom      = symptom
+  #          self.submitted    = submitted
+   #         self.imageneology = imageneology
+    #    def imageneology(self):
+     #       if self.imageneology:
+      #          renpy.show_screen(self.imageneology)
             
                
 #Images
