@@ -1,8 +1,8 @@
 ﻿init python:
    #s import random from random
-    import renpy.store as store
-    import renpy.exports as renpy # we need this so Ren'Py properly handles rollback with classes
-    from operator import attrgetter # we need this for sorting items
+  #  import renpy.store as store
+ #   import renpy.exports as renpy # we need this so Ren'Py properly handles rollback with classes
+   # from operator import attrgetter # we need this for sorting items
     labs=False
     inv_page = 0 
     #showitems = True
