@@ -114,73 +114,74 @@ translate castellano hangman_e3900474:
 translate castellano hangman_8e7d930f:
 
     # u3 "Miss Alice, a week here and I have nothing to do"
-    u3 ""
+    u3 "Enfermera Alice, tengo una semana aquí y nada que hacer"
 
 # /home/hedley/script.rpyc:220
 translate castellano hangman_b12e2dc3:
 
     # Alice "Tell me your orders Dr. Bont"
-    Alice ""
+    Alice "Necesito sus órdenes, Dr. Bont"
 
 # /home/hedley/script.rpyc:223
 translate castellano hangman_54ee0606:
 
     # Bont "Orders?"
-    Bont ""
+    Bont "¿órdenes?"
 
 # /home/hedley/script.rpyc:226
 translate castellano hangman_c4e1f638:
 
     # Alice "We have a new patient!"
-    Alice ""
+    Alice "Tenemos un nuevo paciente"
 
 # /home/hedley/script.rpyc:229
 translate castellano hangman_bbb6f34c:
 
     # Bont "A new patient?"
-    Bont ""
+    Bont "¿Un nuevo paciente?"
 
 # /home/hedley/script.rpyc:232
 translate castellano hangman_e268c6be:
 
     # Alice "Yes this is the chart"
-    Alice ""
+    Alice "Sí, aquí le tengo la cuadrícula"
 
 # /home/hedley/script.rpyc:235
 translate castellano hangman_67abc1b8:
 
     # Bont "What?"
-    Bont ""
+    Bont "¿Qué?"
 
 # /home/hedley/script.rpyc:238
 translate castellano hangman_30b9891b:
 
     # Bont "Let me read that..."
-    Bont ""
+    Bont "Déjame leerla"
 
 # /home/hedley/script.rpyc:248
 translate castellano hangman_5100d44a:
 
     # l "We saw Mr. Agnus Bolt a 54 years old"
-    l ""
+    l "Vimos al señor Agnus Bold"
+    l "un varón de 54 años"
 
 # /home/hedley/script.rpyc:249
 translate castellano hangman_a2d38fae:
 
     # l "Trying to kill him hanging with his belt"
-    l ""
+    l "tratando de ahorcarse con su cinturón"
 
 # /home/hedley/script.rpyc:250
 translate castellano hangman_6a3d249e:
 
     # l "My subordinate and I took action"
-    l ""
+    l "My subordinado y yo tomamos medidas"
 
 # /home/hedley/script.rpyc:251
 translate castellano hangman_4c1d7eeb:
 
     # l "We seize him, called ER and we proces… I mean submit you for medical treatment"
-    l ""
+    l "Capturamos al sujeto para proces... digo que reciba tratamiento médico"
 
 # /home/hedley/script.rpyc:255
 translate castellano hangman_0ae9bcd0:
@@ -192,37 +193,37 @@ translate castellano hangman_0ae9bcd0:
 translate castellano hangman_c689e3ab:
 
     # Inner "Grr! Dr Layzee… I hate that woman!"
-    Inner ""
+    Inner "Grr! Dra. Layzee, como la odio"
 
 # /home/hedley/script.rpyc:259
 translate castellano hangman_12cefafc:
 
     # Layzee "Male 54 years old"
-    Layzee ""
+    Layzee "Varón de 54 años"
 
 # /home/hedley/script.rpyc:260
 translate castellano hangman_1882a02b:
 
     # Layzee "Deeply depressed"
-    Layzee ""
+    Layzee "Sumamente deprimido"
 
 # /home/hedley/script.rpyc:261
 translate castellano hangman_1667cb33:
 
     # Inner "Interesting"
-    Inner ""
+    Inner "interesante..."
 
 # /home/hedley/script.rpyc:262
 translate castellano hangman_4135ab50:
 
     # Layzee "Systolic blood pressure 120"
-    Layzee ""
+    Layzee "Presión sistólica 120"
 
 # /home/hedley/script.rpyc:263
 translate castellano hangman_d19b333f:
 
     # Inner "That’s normal"
-    Inner ""
+    Inner "Eso es normal"
 
 # /home/hedley/script.rpyc:264
 translate castellano hangman_ebfd953b:
