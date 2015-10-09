@@ -86,9 +86,9 @@ image city = "first bg.jpg"
 image w = "ward.jpeg"
 image garage ="garage.png"
 image black= "#000000"
-image bont = "oslor0001t.png"
+image bont normal = "images/Bont normal.png"
 image layzee = 'layzee0001.png'
-image bontw = "oslor0001t.png"
+image bont normalw = "oslor0001t.png"
 image bolt ='bolt closed0001.png'
 image bolt_f ='bolt open0001.png'
 image Alice = 'Alice_normal0001.png'
@@ -156,11 +156,11 @@ label splashscreen:
     
     
 label fail:
-    show bontw
+    show bont normalw
     
     show text 'Easy! I have to be careful!' with Pause(1.0)
     show text 'Easy! I have to be careful!\nyou have [dr.life] point of life' with Pause(1.0)
-    hide bontw
+    hide bont normalw
     return
     
 label death:
@@ -238,28 +238,28 @@ label hangman:
     play music "amb.mp3"
     show text "General hospital, Psychiatry Ward" with Pause(2.5)
     scene w
-    show bont
+    show bont normal
     u3 "Miss Alice, a week here and I have nothing to do"
-    hide bont
+    hide bont normal
     show Alice
     Alice "Tell me your orders Dr. Bont"
     hide Alice
-    show bont
+    show bont normal
     Bont "Orders?"
-    hide bont
+    hide bont normal
     show Alice
     Alice "We have a new patient!"
     hide Alice
-    show bont
+    show bont normal
     Bont "A new patient?"
-    hide bont
+    hide bont normal
     show Alice
     Alice "Yes this is the chart"
     hide Alice
-    show bont
+    show bont normal
     Bont "What?"
     hide Alice
-    show bont
+    show bont normal
     Bont "Let me read that..."
     hide w
     scene black 
@@ -303,7 +303,7 @@ label hangman:
     label hang_q1:
         show screen health_bar
         scene w
-        show bont
+        show bont normal
         'What happened?'
         $ dr.current='hang_q1'
         $ dr.music='amb.mp3'
@@ -316,7 +316,7 @@ label hangman:
                 jump hang_q2
     label hang_q2:
         scene w
-        show bont
+        show bont normal
         $ dr.current = 'hang_q2'
         Inner "Well this a psychiatric ward, after all"
         Inner "A patient with a failed suicide diagnosis get hospitalized here!"
@@ -336,7 +336,7 @@ label hangman:
                 $ dr.life_loss()
     label hang_q3:
         scene w
-        show bont
+        show bont normal
         $ dr.current = 'hang_q3'
         Inner "Disease never sleeps!"
         Inner "The war never ends..."
@@ -355,7 +355,7 @@ label hangman:
                 $ dr.life_loss()
     label hang_q4:
         scene w
-        show bont
+        show bont normal
         $ dr.current = 'hang_q4'
         "Given the current data why is Mr. Bolt depressed?"
         menu:
@@ -371,7 +371,7 @@ label hangman:
                 $ dr.life_loss()
     label hang_q5:
         scene w
-        show bont
+        show bont normal
         $ dr.current = 'hang_q5'
         "How can I learn further about Mr. Bolt problems?"
         menu:
@@ -385,22 +385,22 @@ label hangman:
                 jump hang_q6
     label hang_q6:
         scene w
-        show bont
+        show bont normal
         $ dr.current = 'hang_q6'
         Bont "It seems that as usual, we need a long talk with Mr. Bolt, don't you think so Alice?" 
-        hide bont
+        hide bont normal
         show Alice
         Alice "The patient is ready, what are your orders?" 
         hide Alice
-        show bont
+        show bont normal
         Bont "No Alice, I need to speak with patient first... no injection needed (c)" 
         Bolt "..."
     label hang_q7:
         scene w
-        show bont
+        show bont normal
         $ dr.current = 'hang_q7'
         "How can we follow?"
-        hide bont
+        hide bont normal
         show bolt
         menu:
             "Good morning Mr. Bolt, how can I help you?":
@@ -411,11 +411,11 @@ label hangman:
                 jump hang_q8a
     label hang_q8a:
         scene w
-        hide bont
+        hide bont normal
         hide bolt
         show Alice
         Alice "Have you requested a shot"
-        show bont
+        show bont normal
         hide Alice
         Bont "No! get back to your business, Alice"
         jump hang_q8
@@ -425,23 +425,23 @@ label hangman:
         show bolt
         Bolt "I can see your kind intentions, but I have a problem you cannot solve" 
         hide bolt
-        show bont
+        show bont normal
         Bont "What's your problem?" 
         show bolt
-        hide bont
+        hide bont normal
         Bolt "My garage is having normal clients as usual"
         Bolt "You know, the city is quite small" 
         Bolt "My employees are young and require guidance" 
         Bolt "But I don't like they take care of me" 
         Bolt "I am too old..." 
         hide bolt
-        show bont
+        show bont normal
         $ question_1 = "Which of the following statements seems to contradict each other? and they may point out Mr. Bolt’s problem?"
         $ correct_a=False
         $ correct_b=False
         label menu_1:
             scene w
-            show bont
+            show bont normal
             "[question_1]"
             menu:
                 "My garage is having normal clients as usual":
@@ -470,27 +470,27 @@ label hangman:
     label hang_q9:
         $ dr.current='hang_q9'
         scene w
-        show bont
+        show bont normal
         Bont "So it means that you are old and experience person"
         Bont "It doesn’t make sense to me that your employees require guidance" 
         Bont 'And they have to "take care" of you'
-        hide bont
+        hide bont normal
         show bolt
         Bolt "Because I am too old..."
         Bolt "I am not able to identify the tools and the car parts"
         hide bolt
-        show bont
+        show bont normal
         Bont "That’s sounds horrible… but…"
-        hide bont
+        hide bont normal
         show bolt
         Bolt "What?"
         hide bolt
-        show bont
+        show bont normal
         Bont 'Why are you not able to do such do such "trivial" tasks'
-        hide bont
+        hide bont normal
         show bolt
         Bolt "Because, I cannot see"
-        hide bont
+        hide bont normal
         show bolt
         "Given the current information what part of the body is urgent to examine?"
         hide bolt
@@ -517,11 +517,11 @@ label hangman:
                 "No":
                     pass
         scene w
-        show bont
+        show bont normal
         Inner "Indeed I have to look as his eyes"
         Inner "It seems a very complicated situation"
         Inner "Let's take a look of his left eye"
-        hide bont
+        hide bont normal
         "Click in the area causing the visual loss"
         $ result_LE = renpy.imagemap('pterigion-3.jpg', 'pterigion-3.jpg', 
             [(291,235,343,290, 'correct'),
@@ -541,12 +541,12 @@ label hangman:
         $ dr.current='hang_q11'
     label hang_q11:
         scene selected_LE
-        show bont at right
+        show bont normal at right
         Inner "So it means that Mr Bolt is cannot see in his left eye"
         Inner "So it means that Mr Bolt is cannot see in his left eye"
         Inner "But, what's going on in the other eye?"
         "Click in the area causing the visual loss"
-        hide bont
+        hide bont normal
         $ result_RE = renpy.imagemap('R_eye.png', 'R_eye.png', 
             [(441,220,511,303, 'correct'),
             (0,0,441,220,'a'),
@@ -565,25 +565,25 @@ label hangman:
         $ dr.current='hang_q12'
         $ dr.music = 'conga.mp3'
         scene w
-        show bont
+        show bont normal
         Inner "So this poor fella is indeed blind!"
         Bont "Alice! Quick!"
         show Alice
-        hide bont
+        hide bont normal
         Alice "Gimme your orders, Dr. Bont!"
         hide Alice
-        show bont
+        show bont normal
         Bont "Could you give the form BA-27F"
         show Alice
-        hide bont
+        hide bont normal
         Alice "What kind of order is that?"
         Alice "The patient has just been admitted due to suicide attempt!"
         Alice "Do you know what does the form does?"
         hide Alice
-        show bont
+        show bont normal
         Bont "I am ordering it! I know what it does!"
         'What do you think the form BA-27F does?'
-        hide bont
+        hide bont normal
         menu:
             "Discharge the patient":
                 jump hang_q13
@@ -606,19 +606,19 @@ label hangman:
         $ dr.current='hang_q13'
         scene w
         hide Alice
-        show bont
+        show bont normal
         Bont "This ward has nothing to offer to this patient"
         show Alice
-        hide bont
+        hide bont normal
         Alice "I cannot obey such order"
         Alice "We are responsible for his safety"
         Alice "I can be sued if he tries to kill himself"
         hide Alice
-        show bont
+        show bont normal
         Bont "He cannot kill himself if he listen to me first"
         Bont "If he listen what to what I say!"
         "Mr Bolt was deeply depressed because..."
-        hide bont
+        hide bont normal
         menu:
             "...he cheated her wife":
                 $dr.life_loss()
@@ -630,9 +630,9 @@ label hangman:
         $ dr.current='hang_q14'
         scene w
         #hide Alice
-        show bont
+        show bont normal
         Bont "The reason he could not do such activities is because ..."
-        hide bont
+        hide bont normal
         menu:
             "...he was unable to hold the car parts":
                 $dr.life_loss()
@@ -645,9 +645,9 @@ label hangman:
     label hang_q15:
         $ dr.current='hang_q15'
         scene w
-        show bont
+        show bont normal
         Bont "So the real reason behind his problem is..."
-        hide bont
+        hide bont normal
         menu:
             "...that he was not able to see":
                 jump hang_q16
@@ -660,12 +660,12 @@ label hangman:
     label hang_q16:
         $ dr.current='hang_q16'
         scene w
-        show bont
+        show bont normal
         Bont "He lost his sight"
         Bont "so, he wanted to kill himself"
         Bont "I can guess he tried glasses without success"
         Bont "So decided to kill himself by hanging because..."
-        hide bont
+        hide bont normal
         menu:
             "...he thought he was too old":
                 $dr.life_loss()
@@ -679,21 +679,21 @@ label hangman:
         $ dr.current='hang_q17'
         scene w
         show Alice
-        hide bont
+        hide bont normal
         Alice "Really!"
         hide Alice
         show bolt
         Bolt "Is as the doctor says"
         Bolt "I am too old and my blindness is incurable"
-        show bont
+        show bont normal
         hide bolt
         Bont "He he he"
         show Alice
-        hide bont
+        hide bont normal
         Alice "Why are you laughing to that poor soul?"
         
         Alice "You are so mean"
-        show bont
+        show bont normal
         hide Alice
         
         Bont "And you are so naïve, Miss Alice!"
@@ -701,7 +701,7 @@ label hangman:
         play music "conga.mp3"
         Bont "Mr. Bolt is indeed wrong!"
         Bont "He is not able to see menu because..."
-        hide bont
+        hide bont normal
         menu:
             "... he has a retina disease":
                 $dr.life_loss()
@@ -712,7 +712,7 @@ label hangman:
             "... he has cataracts":
                 $dr.life_loss()
     label hang_q18:
-        show bont
+        show bont normal
         scene eye_enf
         Bont "He as an opaque film covering his pupils"
         Bont "It is located in his corneas"
@@ -724,21 +724,21 @@ label hangman:
         Bont "and with a magic scalpel of my colleague Dr. Light"
         scene eye_cured
         Bont "So he is able to see..."
-        hide bont
+        hide bont normal
         show bolt
         scene w
         Bolt "So it means that..."
-        show bont
+        show bont normal
         hide bolt
         Bont "you were going to kill yourself for a problem"
         Bont "That can be easily cured with a simple surgery"
-        hide bont
+        hide bont normal
         show Alice
         Alice "So..."
         hide Alice
-        show bont
+        show bont normal
         Bont "So Alice, can I have the forms?"
-        hide bont
+        hide bont normal
         show Alice
         Alice "You are a very good doctor!"
         hide Alice
