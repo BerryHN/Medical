@@ -175,7 +175,7 @@ label death:
 
 label hangman:
     $ chart= []
-    show screen chart_button
+    #show screen chart_button
     stop music
     $ death_1='{color=#fff}So Mr. Bolt refused your help.{/color}'
     $ death_2= '{color=#fff}6 hours later, you learned that Mr. Bolt jumped thru the window on the 9th floor of the ward.{/color}'

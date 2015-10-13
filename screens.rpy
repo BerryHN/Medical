@@ -630,18 +630,18 @@ screen gauge:
             hotspot(146,0,300,24) clicked Return('4')
         add "pointer" at rotating
         
-screen chart_button:
-    textbutton "Show Chart" action [ Show("chart_screen"), Hide("chart_button")] align (.95,.04)
-screen chart_screen:
-    modal True
-    $ rows=len(chart)
-    $ remain=chart % 3
-    if remain > 0 and len(chart) > 3:
-        $rows += 1
-    $ ui.grid(3, rows)
+#screen chart_button:
+ #   textbutton "Show Chart" action [ Show("chart_screen"), Hide("chart_button")] align (.95,.04)
+#screen chart_screen:
+ #   modal True
+  #  $ rows=len(chart)
+   # $ remain=chart % 3
+    #if remain > 0 and len(chart) > 3:
+    #    $rows += 1
+#    $ ui.grid(3, rows)
     #for item in chart:
      #   imagebutton item.image action item.action
-    $ ui.close()
+ #   $ ui.close()
         
         
 
