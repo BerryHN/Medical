@@ -211,10 +211,10 @@ screen chapter_list:
         hotspot(120,549,320,575) action ShowMenu("preferences")
         #hotspot(237,535,315,584) action ShowMenu("save")
         #hotspot(390,535,446,584) action ShowMenu("load")
-        hotspot(471,549,542,575) action Quit()
+        hotspot(470,549,542,575) action Quit()
             
         
-        alpha False
+        alpha True
         
         if persistent.Sadman:
             hotspot(50,305,200,360) action ShowMenu('sadman')
@@ -223,7 +223,7 @@ screen chapter_list:
         if persistent.Fat_Lady_2:
             hotspot(488,423,649,476) action ShowMenu('fat2')
         if persistent.Damsel_Distress:
-            hotspot(218,356,469,410) action ShowMenu('damsel')
+            hotspot(218,350,370,400) action ShowMenu('damsel')
         if persistent.Mad_Man:
             hotspot(484,48,634,104) action ShowMenu('madman')
         if persistent.Big_belly_boy:

@@ -1,11 +1,15 @@
 ﻿init python:
-   #s import random from random
-  #  import renpy.store as store
- #   import renpy.exports as renpy # we need this so Ren'Py properly handles rollback with classes
-   # from operator import attrgetter # we need this for sorting items
+    persistent.Fat_Lady=False
+    persistent.Fat_Lady_1 =False
+    persistent.Big_belly_boy =False
+    persistent.Mad_Man =False
+    persistent.Damsel_Distress =False
+    persistent.Slow_Girl =False
+    persistent.Sadman =False
+    
+
     labs=False
     inv_page = 0 
-    #showitems = True
     check=False
     deflate=10000
     pressure = 0
@@ -41,16 +45,6 @@
         ui.timer(0.9,press,repeat=True)
     
     overriding_on = None
-        
-   # def overriding_overlay():
-        #if not overriding_on:
-        #    return
-       # ui.keymap(mousedown_1=ui.returns(None))
-      #  ui.keymap(mouseup_1=ui.returns(None))
-     #   ui.keymap(I=ui.returns('False'))
-        
-
-    #config.overlay_functions.append(overriding_overlay) 
 
     class Player:
         def __init__(self, current, music=''):
@@ -67,25 +61,23 @@
                     renpy.play(self.music, channel='music')
             else:
                 renpy.jump('death')
-    
-   # class Item(store.object):
-    #    def __init__(self, name, description, image, submitted, symptom=True,  imageneology=False):
-     #       self.name         = name
-      #      self.description  = description
-#            self.image        = image
- #           self.symptom      = symptom
-  #          self.submitted    = submitted
-   #         self.imageneology = imageneology
-    #    def imageneology(self):
-     #       if self.imageneology:
-      #          renpy.show_screen(self.imageneology)
-            
+  
                
-#Images
+#Image Background
 image city = "first bg.jpg"
 image w = "ward.jpeg"
 image garage ="garage.png"
+image hospital='images/Uncle Mugen/hospital.jpg'
+image ending = 'end.jpeg'
+image happy dev ="happy dev.jpg"
+image sad dev = 'sad dev.jpg'
+image er_img = "ER_medium.jpg"
+image football=im.Scale('soccer_field.jpg',800,600)
+
+#Image color
 image black= "#000000"
+
+#Characters
 image bont normal = "images/Bont normal.png"
 image layzee = 'layzee0001.png'
 image bont normalw = "oslor0001t.png"
@@ -93,18 +85,16 @@ image bolt ='bolt closed0001.png'
 image bolt_f ='bolt open0001.png'
 image Alice = 'Alice_normal0001.png'
 image Alice angry = 'Alice_angry.png'
-image er_img = "ER_medium.jpg"
-image ending = 'end.jpeg'
+
+#Medical Images
 image eye_n ='eye1.jpg'
 image eye_enf ='eye2.jpg'
 image eye_cured ='eye3.jpg'
 image selected_LE ='Left selected.jpg'
 image blood_back='Blood pressure back.png'
 image pointer='needle.png'
-image happy dev ="happy dev.jpg"
-image sad dev = 'sad dev.jpg'
-image hospital='images/Uncle Mugen/hospital.jpg'
-image football=im.Scale('soccer_field.jpg',800,600)
+
+
 #Characters
 define u1 = Character('?????', color="#0000ff")
 define u2 = Character('?????', color="#00ff00")
@@ -524,15 +514,8 @@ label hangman:
         hide bont normal
         "Click in the area causing the visual loss"
         $ result_LE = renpy.imagemap('pterigion-3.jpg', 'pterigion-3.jpg', 
-            [(291,235,343,290, 'correct'),
-            (0,0,291,235,'a'),
-            (0,235,291,290,'b'),
-            (0,800,291,290,'c'),
-            (291,0,343,235,'d'),
-            (291,290,343,800,'e'),
-            (343,0,800,290,'f'),
-            (343,235,800,290,'g'),
-            (343,235,800,600,'h')])
+            [(291,200,600,350, 'correct')
+            ])
       
         if result_LE == 'correct':
             jump hang_q11
@@ -548,15 +531,8 @@ label hangman:
         "Click in the area causing the visual loss"
         hide bont normal
         $ result_RE = renpy.imagemap('R_eye.png', 'R_eye.png', 
-            [(441,220,511,303, 'correct'),
-            (0,0,441,220,'a'),
-            (0,220,441,302,'b'),
-            (0,800,441,302,'c'),
-            (441,0,511,220,'d'),
-            (441,302,511,800,'e'),
-            (511,0,800,302,'f'),
-            (511,220,800,302,'g'),
-            (511,220,800,600,'h')])
+            [(183,200,472,400, 'correct')
+            ])
         if result_RE == 'correct':
             jump hang_q12
         else:
@@ -700,7 +676,7 @@ label hangman:
         stop music 
         play music "conga.mp3"
         Bont "Mr. Bolt is indeed wrong!"
-        Bont "He is not able to see menu because..."
+        Bont "He is not able to see because..."
         hide bont normal
         menu:
             "... he has a retina disease":
