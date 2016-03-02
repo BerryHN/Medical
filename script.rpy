@@ -64,7 +64,7 @@
   
                
 #Image Background
-image city = "first bg.jpg"
+#image city = "first bg.jpg"
 image w = "ward.jpeg"
 image garage ="garage.png"
 image hospital='images/Uncle Mugen/hospital.jpg'
@@ -514,8 +514,10 @@ label hangman:
         hide bont normal
         "Click in the area causing the visual loss"
         $ result_LE = renpy.imagemap('pterigion-3.jpg', 'pterigion-3.jpg', 
-            [(291,200,600,350, 'correct')
-            ])
+            [(356, 193,496, 301, 'correct'),
+             #(304, 277,491, 362,'correct'),
+             #(498, 229, 550, 352,'correct')
+             ])
       
         if result_LE == 'correct':
             jump hang_q11
@@ -531,8 +533,10 @@ label hangman:
         "Click in the area causing the visual loss"
         hide bont normal
         $ result_RE = renpy.imagemap('R_eye.png', 'R_eye.png', 
-            [(183,200,472,400, 'correct')
-            ])
+            [(342, 227,494, 271, 'correct'),
+             #(229, 257,401, 327, 'correct'),
+             #(286, 341,426, 396, 'correct')
+             ])
         if result_RE == 'correct':
             jump hang_q12
         else:
