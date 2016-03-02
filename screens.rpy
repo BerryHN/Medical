@@ -238,14 +238,20 @@ screen chapter_list:
         if persistent.Slow_Girl:
             hotspot(56,395,210,450) action ShowMenu('slowGirl')
         hotspot(56,46,235,101) action ShowMenu('hangman')
-        hotspot(120,549,320,575) action ShowMenu('preferences')
-        #hotspot(237,535,315,584) action ShowMenu("save")
-        #hotspot(390,535,446,584) action ShowMenu("load")
-        hotspot(470,549,542,575) action Quit()
+        frame:
+            style_group "gm_nav"
+            xalign .5
+            yalign .98
+
+            has hbox
+            
+            textbutton _("Preferences") action ShowMenu("preferences")
+            textbutton _("Quit") action Quit(False)
 #init -2 python:
     #style.gm_nav_button.size_group= "gm_nav"
      #This ensures that any other menu screen is replaced.
-    
+label preference_screen:
+    call screen preferences()
 
 
 ##############################################################################
