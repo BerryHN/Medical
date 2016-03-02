@@ -184,7 +184,7 @@ label main_menu:
 #label main_menu:
     
 screen chapter_list:
-    #tag menu
+    tag menu
     window:
         style "gm_root"
     
@@ -193,29 +193,36 @@ screen chapter_list:
     imagemap:
         if persistent.Fat_Lady_2:
             ground "Menu Idle.png"
+            hover "Menu Idle.png"
+            idle "Menu Idle.png"
         elif persistent.Fat_Lady_1:
             ground "Menu Fat_Lady_1.png"
+            hover "Menu Fat_Lady_1.png"
+            idle "Menu Fat_Lady_1.png"
         elif persistent.Big_belly_boy:
             ground "Menu Big_belly_boy.png"
+            hover "Menu Big_belly_boy.png"
+            idle "Menu Big_belly_boy.png"
         elif persistent.Mad_Man:
             ground "Menu Mad_Man.png"
+            hover "Menu Mad_Man.png"
+            idle "Menu Mad_Man.png"
         elif persistent.Damsel_Distress:
             ground "Menu Damsel_Distress.png"
+            hover "Menu Damsel_Distress.png"
+            idle "Menu Damsel_Distress.png"
         elif persistent.Slow_Girl:
             ground "Menu Slow_Girl.png"
+            hover "Menu Slow_Girl.png"
+            idle "Menu Slow_Girl.png"
         elif persistent.Sadman:
             ground "Menu Sadman.png"
+            hover "Menu Sadman.png"
+            idle "Menu Sadman.png"
         else:
             ground "Menu hagman.png"
-        hotspot(56,46,235,101) action ShowMenu('hangman')
-        hotspot(120,549,320,575) action ShowMenu("preferences")
-        #hotspot(237,535,315,584) action ShowMenu("save")
-        #hotspot(390,535,446,584) action ShowMenu("load")
-        hotspot(470,549,542,575) action Quit()
-            
-        
-        alpha True
-        
+            hover "Menu hagman.png"
+            idle "Menu hagman.png"
         if persistent.Sadman:
             hotspot(50,305,200,360) action ShowMenu('sadman')
         if persistent.Fat_Lady_1:
@@ -230,8 +237,13 @@ screen chapter_list:
             hotspot(482,128,690,188) action ShowMenu('bigBoy')
         if persistent.Slow_Girl:
             hotspot(56,395,210,450) action ShowMenu('slowGirl')
-init -2 python:
-    style.gm_nav_button.size_group= "gm_nav"
+        hotspot(56,46,235,101) action ShowMenu('hangman')
+        hotspot(120,549,320,575) action ShowMenu('preferences')
+        #hotspot(237,535,315,584) action ShowMenu("save")
+        #hotspot(390,535,446,584) action ShowMenu("load")
+        hotspot(470,549,542,575) action Quit()
+#init -2 python:
+    #style.gm_nav_button.size_group= "gm_nav"
      #This ensures that any other menu screen is replaced.
     
 
