@@ -64,7 +64,7 @@
   
                
 #Image Background
-#image city = "first bg.jpg"
+image city = "first bg.jpg"
 image w = "ward.jpeg"
 image garage ="garage.png"
 image hospital='images/Uncle Mugen/hospital.jpg'
