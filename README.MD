@@ -6,15 +6,15 @@ In this interactive graphic novel, you must take decisions that lead each of the
 
 Image of the start menu
 ![Start menu]
-(http://postimg.org/image/sq8gpv86n/)
+("http://postimg.org/image/sq8gpv86n/")
 
 A gameplay image
 ![gameplay1]
-(http://postimg.org/image/w5ekhpbjx/)
+("http://postimg.org/image/w5ekhpbjx/")
 
 Another gameplay image
 ![gameplay2]
-(http://postimg.org/image/npsev1mxj/)
+("http://postimg.org/image/npsev1mxj/")
 
 #About this project
 Please be free to clone this repository and compile it using Ren'py.
