@@ -612,9 +612,14 @@ init -2:
 #Health bar
 screen health_bar:
     hbox:
-         xalign 0.0 yalign 0.0
-         text _("Karma: [dr.life] points")
-         bar value AnimatedValue(dr.life, range=7.0)
+        python:
+            if persistent.promo:
+                max_range=4.
+            else:
+                max_range=7.
+        xalign 0.0 yalign 0.0
+        text _("Karma: [dr.life] points")
+        bar value AnimatedValue(dr.life, range=max_range)
 
 
 transform rotating:
