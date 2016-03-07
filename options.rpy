@@ -13,7 +13,7 @@ init -1 python hide:
     ## set to False before the game is released, so the user can't
     ## cheat using developer tools.
 
-    config.developer = True
+    config.developer = False
     
 
     ## These control the width and height of the screen.
@@ -300,7 +300,7 @@ init python:
     ## The name that's uses for executables - the program that users will run
     ## to start the game. For example, if this is 'mygame', then on Windows,
     ## users can click 'mygame.exe' to start the game.
-    build.executable_name = "MedicalDectectiveVer2Eng.exe"
+    build.executable_name = "MedicalDectectiveVer2Eng"
 
     ## If True, Ren'Py will include update information into packages. This
     ## allows the updater to run.

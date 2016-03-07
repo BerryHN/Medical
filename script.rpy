@@ -67,7 +67,7 @@
   
                
 #Image Background
-#image city = "first bg.jpg"
+image city = "first bg.jpg"
 image w = "ward.jpeg"
 image garage ="garage.png"
 image hospital='images/Uncle Mugen/hospital.jpg'
@@ -168,7 +168,6 @@ label death:
 
 label hangman:
     $ chart= []
-    #show screen chart_button
     stop music
     $ death_1='{color=#fff}So Mr. Bolt refused your help.{/color}'
     $ death_2= '{color=#fff}6 hours later, you learned that Mr. Bolt jumped thru the window on the 9th floor of the ward.{/color}'
@@ -185,10 +184,6 @@ label hangman:
                 $ renpy.jump(persistent.checkpoint_1)
     else:
         $ dr=Player('hangman')
-                
-    
-    #call screen aff_screen
-    #play music "W.ogg"
     show text 'WARNING! THIS CHAPTER CONTAINS STRONG IMAGES'with Pause(2.5)
     show text 'This was a real case!'with Pause(2.5)
     stop music
@@ -196,9 +191,7 @@ label hangman:
     show text 'Case 1\nThe Sadman' with Pause(2.5)
     show text "Location: ?????\nDate: ????" with Pause(3.5)
     scene black with dissolve
-    scene city 
-   
-    
+    scene city
     play music 'Grillo.mp3'
     u1 "Sir, do you think I’m got get a raise?"
     u2 "I am not sure, you need more experience"
@@ -266,7 +259,7 @@ label hangman:
     l "We saw Mr. Agnus Bolt a 54 years old"
     l "Trying to kill him hanging with his belt"
     l "My subordinate and I took action"
-    l "We seize him, called ER and we proces… I mean submit you for medical  treatment"
+    l "We seize him, called ER and we book… I mean submit you for medical  treatment"
     scene black
     show text 'ER chart "Physical examination"' with Pause(2.5)
     show text 'ER chart "Physical examination"\n"Inform by Dr. Layzee"' with Pause(2.5)
