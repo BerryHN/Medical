@@ -48,7 +48,10 @@
 
     class Player:
         def __init__(self, current, music=''):
-            self.life=7
+            if persistent.promo:
+                self.life=4
+            else:
+                self.life=7
             self.current=current
             if music!='':
                 self.music=music
