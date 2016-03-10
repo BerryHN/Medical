@@ -103,8 +103,8 @@ define u1 = Character('?????', color="#0000ff")
 define u2 = Character('?????', color="#00ff00")
 define u3 = Character('?????', color="#00ffa5")
 define u4 = Character('?????', color="#12ffa5")
-define l = Character("Liutenant", color="#0000ff")
-define s = Character("Sargent", color="#00ff00")
+define l = Character("Lieutenant", color="#0000ff")
+define s = Character("Sergeant", color="#00ff00")
 define Layzee = Character("Dr Layzee", color="#de64da")
 define InnerL= Character("Dr. Layzee Inner",color="#5f9ea0")
 define Bont = Character("Dr. John Bont", color="#ffffff")
@@ -200,7 +200,7 @@ label hangman:
     u2  "Sorry, let’s hurry Lieutenant" 
     scene city
     play sound 'gun.mp3'
-    l "That sound suspicious, let's take a look, Sargent... be quiet!"
+    l "That sound suspicious, let's take a look, Sergeant... be quiet!"
     l "Shhh… let’s take a look!"
     
     stop music
@@ -259,14 +259,14 @@ label hangman:
     l "We saw Mr. Agnus Bolt a 54 years old"
     l "Trying to kill him hanging with his belt"
     l "My subordinate and I took action"
-    l "We seize him, called ER and we book… I mean submit you for medical  treatment"
+    l "We seize him, called ER and we book… I mean submit you for medical treatment"
     scene black
     show text 'ER chart "Physical examination"' with Pause(2.5)
     show text 'ER chart "Physical examination"\n"Inform by Dr. Layzee"' with Pause(2.5)
     ""
     Inner "Grr! Dr Layzee… I hate that woman!"
     scene er_img
-    show layzee at  right
+    show layzee at right
     Layzee "Male 54 years old"
     Layzee "Deeply depressed"
     Inner "Interesting"
