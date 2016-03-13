@@ -157,7 +157,7 @@ label fail:
     return
     
 label death:
-    play music 'mp3/Penumbra.mp3'
+    play music 'bad ending.mp3'
     scene ending with dissolve
     show text '[death_1]'  with Pause(4.5)
     if death_2 != "":
@@ -422,37 +422,39 @@ label hangman:
         Bolt "I am too old..." 
         hide bolt
         show bont normal
-        $ question_1 = "Which of the following statements seems to contradict each other? and they may point out Mr. Bolt’s problem?"
-        $ correct_a=False
-        $ correct_b=False
+        python:
+            question_1 = "Which of the following statements seems to contradict each other? and they may point out Mr. Bolt’s problem?"
+            options= ["My garage is having normal clients as usual", "You know, the city is quite small",
+                "My employees are young and require guidance", "But I don't like they take care of me"]
+            correct=sorted(options[2:])
+            selected_option=[]
         label menu_1:
+            if selected_option:
+                if len(selected_option) == 1:
+                    $ question_1 += "\nYou have selected\n{color=ff0}"+selected_option[0] + "{/color}"
+                else:
+                    $ selected_option = sorted(selected_option)
+                    if selected_option == correct:
+                        jump hang_q9
+                    else:
+                        $ dr.life_loss()
+                        jump menu_1
             scene w
             show bont normal
             "[question_1]"
             menu:
-                "My garage is having normal clients as usual":
-                    if correct_a or correct_b:
-                        $ dr.life_loss()
-                    else:
-                        jump test_1
-                "You know, the city is quite small":
-                    if correct_a or correct_b:
-                        $ dr.life_loss()
-                    else:
-                        jump test_1
-                "My employees are young and require guidance":
-                    $ correct_a=True
-                    jump test_1
-                "But I don't like they take care of me":
-                    $ correct_b=True
-                    jump test_1
-    label test_1:
-        if correct_a and correct_b:
-            $ dr.current='hang_q9'
-            jump hang_q9
-        else:
-            $ question_1 ="You need to select another statement"
-            jump menu_1
+                "[options[0]]" if not options[0] in selected_option:
+                    $ selected_option.append(options[0])
+                    jump menu_1
+                "[options[1]]" if not options[1] in selected_option:
+                    $ selected_option.append(options[1])
+                    jump menu_1
+                "[options[2]]" if not options[2] in selected_option:
+                    $ selected_option.append(options[2])
+                    jump menu_1
+                "[options[3]]" if not options[3] in selected_option:
+                    $ selected_option.append(options[3])
+                    jump menu_1
     label hang_q9:
         $ dr.current='hang_q9'
         scene w
@@ -510,13 +512,17 @@ label hangman:
         hide bont normal
         "Click in the area causing the visual loss"
         $ result_LE = renpy.imagemap('pterigion-3.jpg', 'pterigion-3.jpg', 
-            [(356, 193,496, 301, 'correct'),
-             #(304, 277,491, 362,'correct'),
-             #(498, 229, 550, 352,'correct')
+            [(304, 263,394, 303, 'correct'),
+             (356, 193,496, 301, 'correct'),
+             (388, 294,596, 250,'correct'),
+             (0, 0, 304, 600,'incorrect'),
+             (315, 0, 800, 199,'incorrect'),
+             (315, 418, 800, 600,'incorrect')
              ])
       
         if result_LE == 'correct':
             jump hang_q11
+            
         else:
             $dr.life_loss()
         $ dr.current='hang_q11'
@@ -529,9 +535,10 @@ label hangman:
         "Click in the area causing the visual loss"
         hide bont normal
         $ result_RE = renpy.imagemap('R_eye.png', 'R_eye.png', 
-            [(342, 227,494, 271, 'correct'),
-             #(229, 257,401, 327, 'correct'),
-             #(286, 341,426, 396, 'correct')
+            [(361, 209,506,355, 'correct'),
+             (0,0, 800, 209, "incorrect"),
+             (0,600, 361, 209,"incorrect")
+             (506,355, 800, 600,"incorrect")
              ])
         if result_RE == 'correct':
             jump hang_q12
