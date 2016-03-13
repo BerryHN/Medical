@@ -47,7 +47,7 @@
     overriding_on = None
 
     class Player:
-        def __init__(self, current, music=''):
+        def __init__(self, current, music='', press=""):
             if persistent.promo:
                 self.life=4
             else:
@@ -59,9 +59,12 @@
             if self.life >= 1:
                 self.life -= 1
                 renpy.play('wrong.mp3', channel='sound')
-                renpy.jump(self.current)
                 if self.sound!='':
                     renpy.play(self.music, channel='music')
+                if press:
+                    renpy.jump(self.press)
+                else:
+                    renpy.jump(self.current)
             else:
                 renpy.jump('death')
   
@@ -537,7 +540,7 @@ label hangman:
         $ result_RE = renpy.imagemap('R_eye.png', 'R_eye.png', 
             [(361, 209,506,355, 'correct'),
              (0,0, 800, 209, "incorrect"),
-             (0,600, 361, 209,"incorrect")
+             (0,600, 361, 209,"incorrect"),
              (506,355, 800, 600,"incorrect")
              ])
         if result_RE == 'correct':
@@ -2138,71 +2141,48 @@ label madman_1:
         if result_map=='4':
             jump calculate
         jump blood_p
-        
-    label calculate:
+        $ diastolic_pressure = ""
+        $ dr.press = "calculate"
         hide screen gauge
-        #$ config.overlay_functions.remove(ticker)
-        $ dr.current='calculate bp'
-        "Enter diastolic pressure (The highest value where you stop hearing after deflating\nthe Korokoff noises)"
-        menu:
-            "60":
-                $dia_res=60
-                jump dia
-            '80':
-                $dia_res=80
-                jump dia
-            "90":
-                $dia_res=90
-                jump dia
-            "100":
-                $dia_res=100
-                jump dia
-            "110":
-                $dia_res=110
-                jump dia
-            "120":
-                $dia_res=120
-                jump dia
-            "130":
-                $dia_res=130
-                jump dia
-    label dia:
-        if dia_res==diastolic:
-            jump calculate_syst
-        else:
-            "Enter the correct value"
-            $ dr.life_loss()
+    label calculate:
+        
+        if diastolic_pressure:
+            if re.match("\d{1,3}",diastolic_pressure):
+                if diastolic == diastolic_pressure:
+                    "The value [diastolic_pressure] is correct!" 
+                    "Now measure the systolic pressure"
+                    $ dr.press= "calculate_syst"
+                    jump calculate_syst
+                else:
+                    $ dr.life_loss()
+            else:
+                "Please, give a valid value"
+                $ dr.life_loss()
+        python:
+            import re
+            diastolic_pressure=renpy.input("Enter diastolic pressure (The highest value where you stop hearing after deflating\nthe Korokoff noises)")
+            diastolic_pressure.strip()
+            renpy.jump("calculate")
+        
     label calculate_syst:
-        "Enter systolic pressure (The highest value where you start hearing after deflating\nthe Korokoff noises)"
-        menu:
-            "110":
-                $syst_res=110
-                jump syst
-            '120':
-                $syst_res=120
-                jump syst
-            "130":
-                $syst_res=130
-                jump syst
-            "140":
-                $syst_res=140
-                jump syst
-            "150":
-                $syst_res=150
-                jump syst
-            "160":
-                $syst_res=160
-                jump syst
-            "170":
-                $syst_res=170
-                jump syst
-        #$persistent.Big_belly_boy=True
+        if sys_pressure:
+            if re.match("\d{1,3}",sys_pressure):
+                if diastolic == sys_pressure:
+                    "The value [sys_pressure] is correct!" 
+                    $ renpy.jump(dr.current)
+                else:
+                    $ dr.life_loss()
+                    $ renpy.jump("calculate_syst")
+            else:
+                "Please, give a valid value"
+                $ dr.life_loss()
+        python:
+            import re
+            #dr.current='calculate bp'
+            sys_pressure=renpy.input("Enter systolic pressure (The lowest value where you stop hearing after deflating\nthe Korokoff noises)")
+            sys_pressure.strip()
+            renpy.jump("calculate")
         #return
-    label syst:
-        if syst_res==systolic:
-            $ renpy.jump(dr.current)
-        else:
-            $ dr.life_loss()
     $persistent.Damsel_Distress =  True
 label dev:
     scene happy dev
