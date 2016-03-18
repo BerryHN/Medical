@@ -59,12 +59,9 @@
             if self.life >= 1:
                 self.life -= 1
                 renpy.play('wrong.mp3', channel='sound')
-                if self.sound!='':
+                if self.music=='':
                     renpy.play(self.music, channel='music')
-                if press:
-                    renpy.jump(self.press)
-                else:
-                    renpy.jump(self.current)
+                renpy.jump(self.current)
             else:
                 renpy.jump('death')
   
@@ -290,6 +287,7 @@ label hangman:
     play music 'amb.mp3'
     
     label hang_q1:
+        $ dr.current = "hang_q1"
         show screen health_bar
         scene w
         show bont normal
