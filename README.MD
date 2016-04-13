@@ -4,6 +4,9 @@ I am a medical doctor. I am pasionate with technology. I try to tell some of the
 This is an *interactive graphic novel* developed using **Ren'py** (a graphic novel framework for *Python*). 
 In this interactive graphic novel, you must take decisions that lead each of the simulated patients to go back home... or just *die*!
 
+#Installation
+Click in the Distros folder and follow the intructions from the readme.md after you open it!
+
 ###Image of the start menu
 ![Start menu](http://s11.postimg.org/wmlslut6b/Start.png)
 
