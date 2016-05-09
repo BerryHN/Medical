@@ -195,34 +195,34 @@ screen chapter_list:
             ground "Menu Idle.png"
             hover "Menu Idle.png"
             idle "Menu Idle.png"
-        elif persistent.Fat_Lady_1:
+        if persistent.Fat_Lady_1:
             ground "Menu Fat_Lady_1.png"
             hover "Menu Fat_Lady_1.png"
             idle "Menu Fat_Lady_1.png"
-        elif persistent.Big_belly_boy:
+        if persistent.Big_belly_boy:
             ground "Menu Big_belly_boy.png"
             hover "Menu Big_belly_boy.png"
             idle "Menu Big_belly_boy.png"
-        elif persistent.Mad_Man:
+        if persistent.Mad_Man:
             ground "Menu Mad_Man.png"
             hover "Menu Mad_Man.png"
             idle "Menu Mad_Man.png"
-        elif persistent.Damsel_Distress:
+        if persistent.Damsel_Distress:
             ground "Menu Damsel_Distress.png"
             hover "Menu Damsel_Distress.png"
             idle "Menu Damsel_Distress.png"
-        elif persistent.Slow_Girl:
+        if persistent.Slow_Girl:
             ground "Menu Slow_Girl.png"
             hover "Menu Slow_Girl.png"
             idle "Menu Slow_Girl.png"
-        elif persistent.Sadman:
+        if persistent.Sadman:
             ground "Menu Sadman.png"
             hover "Menu Sadman.png"
             idle "Menu Sadman.png"
-        else:
-            ground "Menu hagman.png"
-            hover "Menu hagman.png"
-            idle "Menu hagman.png"
+        
+        ground "Menu hagman.png"
+        hover "Menu hagman.png"
+        idle "Menu hagman.png"
         if persistent.Sadman:
             hotspot(50,305,200,360) action ShowMenu('sadman')
         if persistent.Fat_Lady_1:

@@ -180,7 +180,13 @@ init -1600 python:
 
     config.help = None
 
+    config.help_screen = "help"
+
     def _help(help=None):
+
+        if config.help_screen and renpy.has_screen(config.help_screen):
+            renpy.run(ShowMenu(config.help_screen))
+            return
 
         if help is None:
             help = config.help

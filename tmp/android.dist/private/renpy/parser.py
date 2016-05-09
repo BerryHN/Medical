@@ -491,10 +491,13 @@ class Lexer(object):
     sub-lexers to lex sub-blocks.
     """
 
-    def __init__(self, block, init=False):
+    def __init__(self, block, init=False, init_offset=0):
 
         # Are we underneath an init block?
         self.init = init
+
+        # The priority of auto-defined init statements.
+        self.init_offset = init_offset
 
         self.block = block
         self.eob = False
@@ -510,6 +513,7 @@ class Lexer(object):
         self.word_cache_pos = -1
         self.word_cache_newpos = -1
         self.word_cache = ""
+
 
 
     def advance(self):
@@ -649,7 +653,7 @@ class Lexer(object):
 
         init = self.init or init
 
-        return Lexer(self.subblock, init=init)
+        return Lexer(self.subblock, init=init, init_offset=self.init_offset)
 
     def string(self):
         """
@@ -1074,26 +1078,43 @@ class Lexer(object):
         process(self.subblock, '')
         return ''.join(rv)
 
-def parse_image_name(l, string=False):
+def parse_image_name(l, string=False, nodash=False):
     """
     This parses an image name, and returns it as a tuple. It requires
     that the image name be present.
     """
 
+    points = [ l.checkpoint() ]
     rv = [ l.require(l.image_name_component) ]
 
     while True:
+
+        points.append(l.checkpoint())
+
         n = l.image_name_component()
+
         if not n:
+            points.pop()
             break
 
         rv.append(n.strip())
 
     if string:
+        points.append(l.checkpoint())
+
         s = l.simple_expression()
 
         if s is not None:
             rv.append(unicode(s))
+        else:
+            points.pop()
+
+    if nodash:
+        for i, p in zip(rv, points):
+            if i and i[0] == '-':
+                l.revert(p)
+                l.skip_whitespace()
+                l.error("image name components may not begin with a '-'.")
 
     return tuple(rv)
 
@@ -1760,7 +1781,7 @@ def with_statement(l, loc):
 
 @statement("image")
 def image_statement(l, loc):
-    name = parse_image_name(l)
+    name = parse_image_name(l, nodash=True)
 
     if l.match(':'):
         l.expect_eol()
@@ -1780,7 +1801,7 @@ def image_statement(l, loc):
     rv = ast.Image(loc, name, expr, atl)
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], 990)
+        rv = ast.Init(loc, [ rv ], 500 + l.init_offset)
 
     l.advance()
 
@@ -1814,7 +1835,7 @@ def define_statement(l, loc):
     rv = ast.Define(loc, store, name, expr)
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], priority)
+        rv = ast.Init(loc, [ rv ], priority + l.init_offset)
 
     l.advance()
 
@@ -1848,7 +1869,7 @@ def default_statement(l, loc):
     rv = ast.Default(loc, store, name, expr)
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], priority)
+        rv = ast.Init(loc, [ rv ], priority + l.init_offset)
 
     l.advance()
 
@@ -1878,7 +1899,7 @@ def transform_statement(l, loc):
     rv = ast.Transform(loc, name, atl, parameters)
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], priority)
+        rv = ast.Init(loc, [ rv ], priority + l.init_offset)
 
     l.advance()
 
@@ -1947,6 +1968,19 @@ def label_statement(l, loc, init=False):
     l.advance()
     return ast.Label(loc, name, block, parameters, hide=hide)
 
+@statement("init offset")
+def init_offset_statement(l, loc):
+
+    l.require('=')
+    offset = l.require(l.integer)
+
+    l.expect_eol()
+    l.expect_noblock('init offset statement')
+    l.advance()
+
+    l.init_offset = int(offset)
+    return [ ]
+
 @statement("init label")
 def init_label_statement(l, loc):
     return label_statement(l, loc, init=True)
@@ -1981,7 +2015,7 @@ def init_statement(l, loc):
         finally:
             l.init = old_init
 
-    return ast.Init(loc, block, priority)
+    return ast.Init(loc, block, priority + l.init_offset)
 
 
 def screen1_statement(l, loc):
@@ -1998,7 +2032,7 @@ def screen1_statement(l, loc):
     rv = ast.Screen(loc, screen)
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], -500)
+        rv = ast.Init(loc, [ rv ], -500 + l.init_offset)
 
     return rv
 
@@ -2014,7 +2048,7 @@ def screen2_statement(l, loc):
     rv = ast.Screen(loc, screen)
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], -500)
+        rv = ast.Init(loc, [ rv ], -500 + l.init_offset)
 
     return rv
 
@@ -2052,7 +2086,7 @@ def testcase_statement(l, loc):
     rv = ast.Testcase(loc, name, test)
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], 500)
+        rv = ast.Init(loc, [ rv ], 500 + l.init_offset)
 
     return rv
 
@@ -2112,7 +2146,7 @@ def translate_strings(init_loc, language, l):
     if l.init:
         return block
 
-    return ast.Init(init_loc, block, 0)
+    return ast.Init(init_loc, block, l.init_offset)
 
 @statement("translate")
 def translate_statement(l, loc):
@@ -2243,7 +2277,7 @@ def style_statement(l, loc):
             ll.expect_eol()
 
     if not l.init:
-        rv = ast.Init(loc, [ rv ], 0)
+        rv = ast.Init(loc, [ rv ], l.init_offset)
 
     l.advance()
 
