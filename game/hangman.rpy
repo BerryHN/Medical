@@ -573,6 +573,8 @@ label hangman:
                 $ persistent.Sadman=True
             else:
                 jump dev
-        else:
+        elif persistent.promo:
             jump dev
+        else:
+            $ persistent.Sadman=True
         return
