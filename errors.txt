@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 290: expected statement.
-    dr.current = "hang_q1"
-               ^
+File "game/google_keys.rpy", line 1: expected 'image_name_component' not found.
+    init -5 hide:
+                ^
 
-Ren'Py Version: Ren'Py 6.99.9.1168
+Ren'Py Version: Ren'Py 6.99.10.1227

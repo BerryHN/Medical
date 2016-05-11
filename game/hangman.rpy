@@ -568,8 +568,11 @@ label hangman:
         hide bolt_f 
         scene w
         "Final diagnosis:\n1-Suicide attempt\n2-Secondary to blindness\n3-Secondary to bilateral pterigion"
-        if persistent.promo:
+        if renpy.android:
+            if iap.has_purchased("fullgame"):    
+                $ persistent.Sadman=True
+            else:
+                jump dev
+        else:
             jump dev
-        else:    
-            $ persistent.Sadman=True
-            return
+        return
