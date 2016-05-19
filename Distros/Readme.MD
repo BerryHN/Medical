@@ -1,20 +1,33 @@
-#Installation for Windows, Mac and Linux
+#Windows
+1. Click the link "MedicalDectectiveVer2Eng-1.0-win.zip"
 
-1. Click the link "MedicalDectectiveVer2Eng-1.0-all.zip"
+2. Click "View Raw" to download the file "MedicalDectectiveVer2Eng-1.0-win.zip"
 
-2. Click "View Raw" to download the file "MedicalDectectiveVer2Eng-1.0-all.zip"
+3. Extract the folder inside the file "MedicalDectectiveVer2Eng-1.0-win.zip" anywhere in your computer
 
-3. Extract the folder inside the file "MedicalDectectiveVer2Eng-1.0-all.zip" anywhere in your computer
-
-##Windows
-
-1. Open the folder "MedicalDectectiveVer2Eng-1.0-all" 
+1. Open the folder "MedicalDectectiveVer2Eng-1.0-win" 
 
 2. Run "MedicalDectectiveVer2Eng.exe"
 
-##Mac & Linux
+#Mac 
+1. Click the link "MedicalDectectiveVer2Eng-1.0-mac.zip"
+ 
+2. Click "View Raw" to download the file "MedicalDectectiveVer2Eng-1.0-mac.zip"
 
-1. Open the folder "MedicalDectectiveVer2Eng-1.0-all" 
+3. Extract the folder inside the file "MedicalDectectiveVer2Eng-1.0-mac.zip" anywhere in your computer
+
+1. Open the folder "MedicalDectectiveVer2Eng-1.0-mac" 
+
+2. Run "MedicalDectectiveVer2Eng.app" 
+
+#Linux 
+1. Click the link "MedicalDectectiveVer2Eng-1.0-linux.tar.bz2"
+ 
+2. Click "View Raw" to download the file "MedicalDectectiveVer2Eng-1.0-linux.tar.bz2"
+
+3. Extract the folder inside the file "MedicalDectectiveVer2Eng-1.0-linux.tar.bz2" anywhere in your computer
+
+1. Open the folder "MedicalDectectiveVer2Eng-1.0-linux" 
 
 2. Run "MedicalDectectiveVer2Eng.sh" 
 
