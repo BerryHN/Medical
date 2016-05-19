@@ -64,6 +64,12 @@
                 renpy.jump(self.current)
             else:
                 renpy.jump('death')
+    class Item:
+        def __init__(self, name, image, description):
+            self.name=name
+            self.image=image
+            self.description=description
+    inventoryList=[]
   
                
 #Image Background
@@ -165,7 +171,3 @@ label death:
     show text '{color=#f00}The patient died{/color}' with Pause(2.5)
     jump splashscreen
     return
-
-
-
-
