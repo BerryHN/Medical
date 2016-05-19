@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Thu May 12 18:34:13 2016
 Linux-4.4.0-22-generic-x86_64-with-debian-stretch-sid
 Ren'Py 6.99.10.1227
@@ -206,3 +207,36 @@ Total time until interface ready: 1.65133500099s
 - Frame drawn at 0.064819 seconds.
 - Frame drawn at 0.080586 seconds.
 - 0.080586 seconds to render 5 frames.
+=======
+Thu May 19 14:00:11 2016
+Windows-7-6.1.7601-SP1
+Ren'Py 6.99.9.1168
+ 
+
+Bootstrap to the start of init.init took 0.14s
+Early init took 0.02s
+Loader init took 0.05s
+Loading error handling took 0.19s
+Loading script took 4.49s
+Loading persistent took 0.02s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.24s
+Loading analysis data took 0.00s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\hequin\\AppData\\Roaming/RenPy/backups\\Medical':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.04s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.06s
+Prepare screens took 0.12s
+Save pyanalysis. took 0.06s
+Save bytecode. took 0.07s
+>>>>>>> 8d4ddae7d9dfe59a81b34840a13b974b50c1ed74
