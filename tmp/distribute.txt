@@ -29,6 +29,7 @@ game/Menu Mad_Man.png matches ** ([u'all']).
 game/slow.rpy matches ** ([u'all']).
 game/chapter_list.rpyc matches ** ([u'all']).
 game/Menu Sadman.png matches ** ([u'all']).
+game/google_keys.rpyc matches ** ([u'all']).
 game/fat1.rpy matches ** ([u'all']).
 game/soccer_field.jpg matches ** ([u'all']).
 game/fat2.rpyc matches ** ([u'all']).
@@ -107,9 +108,11 @@ game/first bg.jpg matches ** ([u'all']).
 game/saves/ matches game/saves/ (None).
 game/bolt closed0001.png matches ** ([u'all']).
 game/screens.rpyc matches ** ([u'all']).
+game/google_keys.rpy matches ** ([u'all']).
 game/options.rpyc matches ** ([u'all']).
 game/bad.file matches ** ([u'all']).
 tmp/ matches tmp/ (None).
+project.json matches project.json (None).
 .git/ matches **/.** (None).
 log.txt matches log.txt (None).
 saves/ matches ** ([u'all']).

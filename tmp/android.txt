@@ -265,11 +265,11 @@ release:
       [dex] Using Pre-Dexed amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar <- /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
       [dex] Found modified input file
       [dex] Converting compiled files and external libraries into /home/hedley/Documents/renpy/rapt/bin/classes.dex...
-       [dx] Merged dex #1 (76 defs/90.2KiB)
+       [dx] Merged dex #1 (76 defs/90.6KiB)
        [dx] Merged dex #2 (90 defs/79.8KiB)
        [dx] Merged dex #3 (25 defs/35.5KiB)
        [dx] Merged dex #4 (47 defs/87.9KiB)
-       [dx] Result is 238 defs/345.3KiB. Took 2.4s
+       [dx] Result is 238 defs/345.7KiB. Took 4.3s
 
 -crunch:
    [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/res
@@ -306,7 +306,7 @@ release:
 release:
 
 BUILD SUCCESSFUL
-Total time: 52 seconds
+Total time: 47 seconds
 
 
 
