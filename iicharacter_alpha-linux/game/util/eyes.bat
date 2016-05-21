@@ -1,0 +1,5 @@
+for /D %%i in ( *.1 ) do mkdir "%%~ni.B"
+for /D %%i in ( *.1 ) do for %%j in ( "%%~ni.1\*.png" ) do cp "%%j" "%%~ni.B\eyes.SI.1.SC.5.SP.1000.SD.1.SD.2.png"
+for /D %%i in ( *.1 ) do for %%j in ( "%%~ni.2\*.png" ) do cp "%%j" "%%~ni.B\eyes.S.2.SD.3.S.6.SD.1.png"
+for /D %%i in ( *.1 ) do for %%j in ( "%%~ni.3\*.png" ) do cp "%%j" "%%~ni.B\eyes.S.3.SD.4.S.5.SD.6.png"
+for /D %%i in ( *.1 ) do for %%j in ( "%%~ni.4\*.png" ) do cp "%%j" "%%~ni.B\eyes.S.4.SD.5.png"
