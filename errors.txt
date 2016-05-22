@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/inventory.rpy", line 4: invalid syntax
-        def __init__(names, description, type, image)
+File "game/inventory.rpy", line 27: invalid syntax
+            blanks.append(Item(name='',description='',type=''))s
+                                                                ^
     
 
-Ren'Py Version: Ren'Py 6.99.9.1168
+Ren'Py Version: Ren'Py 6.99.10.1227

@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-screen inventario:
-    pass
-    '''
-    if len(inventoryList) > 0:
-        vbox xalign 0 yalign0:
-            text "The chart is empty"
-    else:
-        frame:
-            for i in inventoryList:
-                text
-    '''
-=======
 init -25:
     python:
         class Item:
@@ -30,21 +17,11 @@ init -25:
 
 
 #screen inventory:
- #   python:
-  #      rows_inventory=len(inventory)/3
-#        remainder=len(inventory) % 3
-#        if remainder !=0:
-#            rows_inventory += 1
-#            blanks_data=[]
-#            for i in range(remainder):
-#                blanks.append(Item(name='',description='',type=''))
-        
-            
-        
- #   frame:
-  #      xpos=1
-   #     ypos=0
-    #    grid 3 rows_inventory:
-     #       for j in inventory:
-                
->>>>>>> 8d4ddae7d9dfe59a81b34840a13b974b50c1ed74
+ #  python:
+  #    rows_inventory=len(inventory)/3
+   #   remainder=len(inventory) % 3
+    #  if remainder !=0:
+      #     rows_inventory += 1
+     #      blanks_data=[]
+       #    for i in range(remainder):
+        #       blanks.append(Item(name='',description='',type=''))
