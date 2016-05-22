@@ -1,1 +1,0 @@
-Shoujo boy v 1.00

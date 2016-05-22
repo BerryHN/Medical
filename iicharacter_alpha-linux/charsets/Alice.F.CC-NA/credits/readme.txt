@@ -1,1 +1,0 @@
-Alice01 was created by Rio. The license is currently unknown.

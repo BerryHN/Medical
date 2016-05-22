@@ -1,0 +1,100 @@
+﻿
+Ren'Py 6.99.10.1227 lint report, generated at: Sun May 22 15:46:14 2016
+
+/home/hedley/00definitions.rpyc:333 'define fade' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:334 'define dissolve' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:335 'define pixellate' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:338 'define wiperight' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:339 'define wipeleft' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:340 'define wipeup' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:341 'define wipedown' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:343 'define slideright' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:344 'define slideleft' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:345 'define slideup' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:346 'define slidedown' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:348 'define slideawayright' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:349 'define slideawayleft' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:350 'define slideawayup' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:351 'define slideawaydown' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:353 'define irisout' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:354 'define irisin' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:357 'define pushright' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:358 'define pushleft' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:359 'define pushup' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:360 'define pushdown' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:363 'define zoomin' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:364 'define zoomout' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:365 'define zoominout' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:369 'define vpunch' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:370 'define hpunch' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:373 'define blinds' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:374 'define squares' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/00definitions.rpyc:377 'define _narrator' replaces a Ren'Py built-in name, which may cause problems.
+
+/home/hedley/damsel.rpyc:88 Unterminated string format code '% (Normal value 15%-45%)' (in 'lymphocytes 95% (Normal value 15%-45%)')
+
+/home/hedley/damsel.rpyc:110 Could not evaluate 'Mortimer' in the who part of a say statement.
+Perhaps you forgot to define a character?
+
+/home/hedley/damsel.rpyc:111 Could not evaluate 'Mortimer' in the who part of a say statement.
+
+/home/hedley/damsel.rpyc:121 Could not evaluate 'Mortimer' in the who part of a say statement.
+
+/home/hedley/damsel.rpyc:122 Could not evaluate 'Mortimer' in the who part of a say statement.
+
+/home/hedley/damsel.rpyc:123 Could not evaluate 'Mortimer' in the who part of a say statement.
+
+/home/hedley/damsel.rpyc:124 Could not evaluate 'Mortimer' in the who part of a say statement.
+
+/home/hedley/hangman.rpyc:27 'mp3/sGrillo.mp3' is not loadable
+
+/home/hedley/hangman.rpyc:146 unable to evaluate filename u'dr.music'
+
+/home/hedley/script.rpyc:93 The image named 'bont normalw' was not declared.
+
+/home/hedley/slow.rpyc:4 The image named 'hospital' was not declared.
+
+/home/hedley/tl/castellano/script.rpyc:1498 Could not evaluate 'bad_f' in the who part of a say statement.
+
+
+Statistics:
+
+The game contains 983 dialogue blocks, containing 6,025 words and 32,665
+characters, for an average of 6.1 words and 33 characters per block.
+
+The castellano translation contains 325 dialogue blocks, containing 194 words
+and 1,133 characters, for an average of 0.6 words and 3 characters per block.
+
+The game contains 62 menus, 24 images, and 33 screens.
+
+
+Lint is not a substitute for thorough testing. Remember to update Ren'Py
+before releasing. New releases fix bugs and improve compatibility.

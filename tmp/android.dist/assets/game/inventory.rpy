@@ -17,20 +17,11 @@ init -25:
 
 
 #screen inventory:
- #   python:
-  #      rows_inventory=len(inventory)/3
-#        remainder=len(inventory) % 3
-#        if remainder !=0:
-#            rows_inventory += 1
-#            blanks_data=[]
-#            for i in range(remainder):
-#                blanks.append(Item(name='',description='',type=''))
-        
-            
-        
- #   frame:
-  #      xpos=1
-   #     ypos=0
-    #    grid 3 rows_inventory:
-     #       for j in inventory:
-                
+ #  python:
+  #    rows_inventory=len(inventory)/3
+   #   remainder=len(inventory) % 3
+    #  if remainder !=0:
+      #     rows_inventory += 1
+     #      blanks_data=[]
+       #    for i in range(remainder):
+        #       blanks.append(Item(name='',description='',type=''))

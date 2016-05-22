@@ -24,23 +24,23 @@ label hangman:
     show text "Location: ?????\nDate: ????" with Pause(3.5)
     scene black with dissolve
     scene city
-    play music 'Grillo.mp3'
+    play music 'mp3/sGrillo.mp3'
     u1 "Sir, do you think I’m got get a raise?"
     u2 "I am not sure, you need more experience"
     u1 "what do you mean?"
     u2 "You are not attentive, take a look at Mr. Bolt garage, there is something suspicious and you have not noticed it sergeant!"
     u2  "Sorry, let’s hurry Lieutenant" 
     scene city
-    play sound 'gun.mp3'
+    play sound 'mp3/gun.mp3'
     l "That sound suspicious, let's take a look, Sergeant... be quiet!"
     l "Shhh… let’s take a look!"
     
     stop music
-    play music 'su.mp3'
+    play music 'mp3/su.mp3'
     scene black
     s "Freez…. Lieutenant look!"
     stop music
-    play music 'action.mp3'
+    play music 'mp3/action.mp3'
     l "Hurry!"
     l "Hurry!"
     scene garage
@@ -53,7 +53,7 @@ label hangman:
     l "I’ve already called ER!"
     l "They have a new patient"
     stop music
-    play music "amb.mp3"
+    play music "mp3/amb.mp3"
     show text "General hospital, Psychiatry Ward" with Pause(2.5)
     scene w
     show bont normal
@@ -87,7 +87,7 @@ label hangman:
     show text 'ER chart "Anamnesis"'with Pause (2.5)
     show text 'ER chart "Anamnesis"\nInform by Dr. Layzee'with Pause (2.5)
     scene er_img
-    play music "conga.mp3"
+    play music "mp3/conga.mp3"
     l "We saw Mr. Agnus Bolt a 54 years old"
     l "Trying to kill him hanging with his belt"
     l "My subordinate and I took action"
@@ -116,7 +116,7 @@ label hangman:
     Layzee "Workup diagnosis: Failed Suicide attempt"
     hide layzee
     stop music
-    play music 'amb.mp3'
+    play music 'mp3/amb.mp3'
     
     label hang_q1:
         $ dr.current = "hang_q1"
@@ -125,7 +125,7 @@ label hangman:
         show bont normal
         'What happened?'
         $ dr.current='hang_q1'
-        $ dr.music='amb.mp3'
+        $ dr.music='mp3/amb.mp3'
         menu:
             "Mr Bolt had a heart attack":
                 $ dr.life_loss()
@@ -140,7 +140,7 @@ label hangman:
         Inner "Well this a psychiatric ward, after all"
         Inner "A patient with a failed suicide diagnosis get hospitalized here!"
         Inner "The succesfull ones"
-        play music 'bad ending.mp3'
+        play music 'mp3/bad ending.mp3'
         Inner "..."
         stop music
         play music dr.music
@@ -379,7 +379,7 @@ label hangman:
             $dr.life_loss()
     label hang_q12:
         $ dr.current='hang_q12'
-        $ dr.music = 'conga.mp3'
+        $ dr.music = 'mp3/conga.mp3'
         scene w
         show bont normal
         Inner "So this poor fella is indeed blind!"
@@ -514,7 +514,7 @@ label hangman:
         
         Bont "And you are so naïve, Miss Alice!"
         stop music 
-        play music "conga.mp3"
+        play music "mp3/conga.mp3"
         Bont "Mr. Bolt is indeed wrong!"
         Bont "He is not able to see because..."
         hide bont normal

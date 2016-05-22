@@ -205,7 +205,7 @@ label fat1:
             Alice "Here are the blood test you requested..."
             Layzee "I don't think I need it anymore..."
             Alice "But Grace..."
-            Layze "It seems that Dr. Bont seems to be more interested in them..."
+            Layzee "It seems that Dr. Bont seems to be more interested in them..."
             Bont "Alice, are these labs taken while fasting?"
             Alice "Indeed, Dr. Bont... you look pale!"
             FatLady "so it means"

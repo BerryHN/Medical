@@ -24,7 +24,7 @@ label hangman:
     show text "Location: ?????\nDate: ????" with Pause(3.5)
     scene black with dissolve
     scene city
-    play music 'Grillo.mp3'
+    play music 'mp3/sGrillo.mp3'
     u1 "Sir, do you think I’m got get a raise?"
     u2 "I am not sure, you need more experience"
     u1 "what do you mean?"
