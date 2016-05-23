@@ -15,7 +15,7 @@ init -25:
                     self.icon ='icons/lab.png'
                 else:
                     self.icon ='#000'
-        Inventory=[Item("Salami", "Delicious", "lab", "")]
+        Inventory=[Item("Salami", "Delicious", "lab", ""), Item("Peperoni", "Delicious", "lab", "")]
         from_inventory=False
 
 
@@ -24,6 +24,7 @@ screen inventory_button:
         textbutton "Inventory" action ui.callsinnewcontext("inventory_label")
 
 label inventory_label:
+    $from_inventory=True
     image icon =    "icons/lab.png"
     call screen inventory
     return
@@ -36,31 +37,39 @@ screen item_inventory:
     
 screen inventory:
     
-    frame:
-        vbox xalign 0 yalign 0:
-            if len(Inventory) > 0:
-                python:
-                    
-                    if from_inventory==False:
-                        rows_inventory=len(Inventory)/3
-                        remainder=len(Inventory) % 3
-                        if remainder !=0:
-                            rows_inventory += 1
-                            blanks_data=[]
-                        for i in range(remainder+1):
-                            blanks_data.append(Item(name='',description='',type='', image=""))
-                        Inventory.extend(blanks_data)
+    #frame:
+    vbox xalign 0 yalign 0:
+        if len(Inventory) > 0:
+            python:
                 
-                grid 3 rows_inventory:
-                    for i in Inventory:
-                        vbox:
-                            text "[i.name]"
-                            imagebutton:
-                                idle i.icon
-                                hover i.icon
-                                action ui.callsinnewcontext("item_inventory")
+                if from_inventory==False:
+         
+                    rows_inventory=len(Inventory)/3
+                    remainder=len(Inventory) % 3
+                    if remainder != 0:
+                        blanks=[]
+                        
+                        for i in range(remainder):
                             
+                            blanks.append(Item(name='[remainder]',description='',type='', image=""))
+                        Inventory.extend(blanks)
+                        from_inventory=True
+            
+            #grid 3 rows_inventory:
+            for i in Inventory:
+                text "[i.name]"
+                #    vbox xalign config.screen_width yalign 0:
+                 #       text "[i.name]"
+                  #      imagebutton xmaximum 40 ymaximum 40:
+                   #         idle i.icon
+                    #        hover i.icon
+                     #       action ui.callsinnewcontext("item_inventory")
                 
-            else:
-                text "The chart is empty!"
+            textbutton "Return" action Return()
+                #textbutton "Return" action Return()
+                #textbutton "Return" action Return()
+                        
+                
+        else:
+            text "The chart is empty!"
             textbutton "Return" action Return()
