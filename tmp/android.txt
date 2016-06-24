@@ -1,0 +1,22 @@
+
+I'm compiling a short test program, to see if you have a working JDK on your
+system.
+
+
+
+
+
+The JDK is present and working. Good!
+
+Apache ANT has already been unpacked.
+
+The Android SDK has already been unpacked.
+
+I'm about to download and install the required Android packages. This might take a while.
+SWT folder '/usr/share/games/renpy/rapt/android-sdk-r24.4.1/tools/lib/arm' does not exist.
+Please export ANDROID_SWT to point to the folder containing swt.jar for your platform.
+
+
+
+
+I was unable to install the required Android packages.
