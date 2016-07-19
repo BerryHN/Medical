@@ -35,6 +35,7 @@ define u1 = Character('?????', color="#0000ff")
 define u2 = Character('?????', color="#00ff00")
 define u3 = Character('?????', color="#00ffa5")
 define u4 = Character('?????', color="#12ffa5")
+define u5 = Character('?????', color="#35ac3a")
 define l = Character("Lieutenant", color="#0000ff")
 define s = Character("Sergeant", color="#00ff00")
 define Layzee = Character("Dr Layzee", color="#de64da")
@@ -54,6 +55,7 @@ define FatLady = Character('Mrs. Wahlee', color='#f0e68c')
 define mom = Character("Mrs. Sweeny", color="#ff0000")
 define john = Character("John", color="#ff0dca")
 define mortimer= Character("Dr. Mortimer",color="#fff")
+
 transform rotatelong:
     xpos 0.5
     ypos 0.3
