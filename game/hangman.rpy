@@ -24,8 +24,12 @@ label hangman:
     show text "Location: ?????\nDate: ????" with Pause(3.5)
     scene black with dissolve
     scene city
+<<<<<<< HEAD
     play music 'mp3/sGrillo.mp3'
     #call screen inventory_button
+=======
+    play music 'mp3/Grillo.mp3'
+>>>>>>> ab145e86bbc035f57d9c427fef59134dd97b1872
     u1 "Sir, do you think I’m got get a raise?"
     u2 "I am not sure, you need more experience"
     u1 "what do you mean?"

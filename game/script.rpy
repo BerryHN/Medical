@@ -1,11 +1,11 @@
 ﻿init python:
-    persistent.Fat_Lady=False
-    persistent.Fat_Lady_1 =False
-    persistent.Big_belly_boy =False
-    persistent.Mad_Man =False
-    persistent.Damsel_Distress =False
-    persistent.Slow_Girl =False
-    persistent.Sadman =False
+    if 'persistent.Fat_Lady' not in globals(): persistent.Fat_Lady=False
+    if 'persistent.Fat_Lady_1' not in globals(): persistent.Fat_Lady_1 =False
+    if 'persistent.Big_belly_boy' not in globals(): persistent.Big_belly_boy =False
+    if 'persistent.Mad_Man' not in globals(): persistent.Mad_Man =False
+    if 'persistent.Damsel_Distress'  not in globals(): persistent.Damsel_Distress =False
+    if 'persistent.Slow_Girl'  not in globals(): persistent.Slow_Girl =False
+    if 'persistent.Sadman'  not in globals(): persistent.Sadman =False
     
 
     labs=False
