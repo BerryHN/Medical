@@ -2,8 +2,20 @@
 errors listed below, and try again.
 
 
-File "game/hangman.rpy", line 28: end of line expected.
-    call screen inventory_button:
-                                ^
+File "game/fat2.rpy", line 28: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Because volume of fluids is reduced"
+                                         ^
+
+File "game/hangman.rpy", line 27: expected statement.
+    <<<<<<< HEAD
+                ^
+
+File "game/hangman.rpy", line 30: expected statement.
+    =======
+          ^
+
+File "game/hangman.rpy", line 32: expected statement.
+    >>>>>>> ab145e86bbc035f57d9c427fef59134dd97b1872
+                                                    ^
 
 Ren'Py Version: Ren'Py 6.99.9.1168

@@ -25,7 +25,7 @@ label fat2_q1:
         "Because she tried to kill herself":
             "There is no enough evidence to assess that!"
             $ dr.life_loss()
-        "Because volume of fluids is reduced"
+        "Because volume of fluids is reduced":
             $ dr.current('fat2_2')
         "There is no enough information to assess that!":
             "There is enough data to assess that!"
@@ -39,9 +39,35 @@ label fat2_2:
             Alice "That poor woman is barely able to speak, I don't think she is able to drink\nThis is nonsense"
             $ dr.life_loss()
         "Open an intravenous line in her right arm! QUICK":
+
             $ dr.current('fat2_3')
         "Give a her a can of soda!":
             Alice "That poor woman is barely able to speak, I don't think she is able to drink\nThis is nonsense"
             $ dr.life_loss() 
+label fatal2_3:
+    Alice "Done! which medication show I pass?"
+    menu:
+        "1 liter of Saline solution within 15 min":
+            $ dr.current('fat2_3')
+            
+        "1 liter of Saline solution within 1 hour":
+            Alice "This poor woman is dehydrated! It's too slow"
+            $ dr.life_loss() 
+        "1 liter of Saline solution within 8 hours":
+            Alice "This poor woman is dehydrated! It's too slow"
+            $ dr.life_loss() 
+label fat2_3:
+    Alice "Immediately!"
+    Inner "Why is this woman so dehydrated?"
+    Inner "There are no visible wounds, her skin is dry ..."
+    Bont "Excuse me do you have diarrhea?"
+    u5 "No, I am hungry!! I'm thirsty!!!"
+    Inner 'Did she say {color=#ffff00}hungry{/color}?\nthat gives me a clue'
+    Bont "Alice, put a urinary sound to the patient, quick"
+    Alice "Done.... but"
+    Bont "What happened?"
+    Alice "I just put and the urine bag is full..."
+    Bont "What? change the bag!"
+    Alice "Done, but the bag is full again"
     $persistent.Slow_Girl=True
     return
