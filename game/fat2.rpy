@@ -63,11 +63,29 @@ label fat2_3:
     Bont "Excuse me do you have diarrhea?"
     u5 "No, I am hungry!! I'm thirsty!!!"
     Inner 'Did she say {color=#ffff00}hungry{/color}?\nthat gives me a clue'
+label fat2_3q:
+    $ dr.current('fat2_3q')
     Bont "Alice, put a urinary sound to the patient, quick"
     Alice "Done.... but"
     Bont "What happened?"
     Alice "I just put and the urine bag is full..."
     Bont "What? change the bag!"
-    Alice "Done, but the bag is full again"
+    Alice "Done, but the urine bag is full again"
+    "Given the information you get from the nurse, what you can conclude"
+
+    menu:
+        "I have no idea what it means!":
+            Inner "Please try a bit harder"
+            $ dr. life_loss()
+        "She is losing fluid, because she is peeing it!":
+            $ dr. current('fat2_4')
+        "She has a hidden hemorrage":
+            Inner "There is no evidence of that!"
+            $ dr. life_loss()
+label fat2_4:
+    u5 "Alice!! call Grace!!!"
+    Bont "Grace? What is this? Ms. Alice"
+    Alice "I now remember! Grace and I met her before... she has..."
+
     $persistent.Slow_Girl=True
     return
