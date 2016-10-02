@@ -203,7 +203,7 @@ screen navigation():
         style_group "gm_nav"
         xalign .98
         yalign .98
-
+   
         has vbox
 
         textbutton _("Return") action Return()
@@ -600,4 +600,12 @@ screen gauge:
         
         
 
-        
+screen normal_heart:
+    textbutton "Back to patient's chest examination" action [Show ("patient_chest"), Hide("normal_heart")] align (.95, .04)
+    #Button normal heart
+screen normal_lungs:
+    textbutton "Back to patient's chest examination" action [Show ("patient_chest"), Hide("normal_lungs")] align (.95, .04)
+    #Button normal heart
+screen normal_abdomen:
+    textbutton "Back to patient's abdomen examination" action [Show ("patient_abdomen"), Hide("normal_abdomen")] align (.95, .04)
+    #Button normal heart

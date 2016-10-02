@@ -12,12 +12,13 @@ label bigBoy:
     else:
         $ dr=Player('bigBoy')
     label boy1:
-        Bont "Good morning, Dr. De Los Angeles..."
-        manolo "Good morning, Dr. Bont"
+        
+        u2 "Good morning, Dr. Bont"
+        Bont "Good morning, Dr. Manuel De Los Angeles..."
         Alice "Good morning!"
         Alice "Quick doctors!!"
         Alice "A new pacient has arrived"
-        Alice "A little boy unable to breathe"
+        Alice "A little boy unable to breathe.."
         Bont "Let's take a look!"
         u2 "Hello Dr. Bont"
         manolo "Psst, Dr. Bont..."
@@ -72,13 +73,16 @@ label bigBoy:
         Bont "Indeed, this poor fella is suffering an {color=#ffff00}asthma attack{/color}"
         manolo "So you ordered Alice"
         menu:
-            "To prepare an inhalotherapy":
+            "To prepare an inhalotherapy to release the obstruction in the airways":
                 $dr.current='boy4'
             "Looking for antibiotics":
                 $dr.life_loss()
             "Calling the police":
                 $dr.life_loss()
     label boy4:
+        Bont "Indeed, Dr. De Los Angeles"
+        manolo "Don't do that, just call me Manolo"
+        Bont "I can't do that with one of my colleagues"
         Bont "Are you ready Alice?"
         Alice "Roger!"
         manolo "Wao"
@@ -91,6 +95,7 @@ label bigBoy:
         mom "My child!"
         mom "My child!"
         mom "he is complaining of stomach ache!"
+        mom "And his tummy has grown big!"
         Bont "Damned! stomach ache... "
         Bont "Let's see his"
         mom "My child"
