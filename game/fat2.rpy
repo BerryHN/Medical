@@ -85,7 +85,19 @@ label fat2_3q:
 label fat2_4:
     u5 "Alice!! call Grace!!!"
     Bont "Grace? What is this? Ms. Alice"
-    Alice "I now remember! Grace and I met her before... she has..."
-
+    Alice "I have met that womab before!\nThere is no time to talk, please Dr. Bont, pay attention!"
+    Bont "OK"
+    Inner "So she is peeing fluid"
+    Inner "This is diabetes!"
+    menu:
+        Alice "What is the priority, Dr. Bont?"
+        "Secure the airways!":
+            $dr.life_loss()
+            Alice "The airways looks fine!\nconcentrate"
+        "Supply more intravenous fluid":
+            pass
+        "Carry an ECG":
+            $dr.life_loss()
+            Alice "The heart looks fine, Dr Bont!\nconcentrate"
     $persistent.Slow_Girl=True
     return
