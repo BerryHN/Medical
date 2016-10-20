@@ -1,4 +1,4 @@
-#What is this about?
+﻿#What is this about?
 I am a medical doctor. I am pasionate with technology. I try to tell some of the cases I attened when I was an intern in Chitré. 
 
 This is an *interactive graphic novel* developed using **Ren'py** (a graphic novel framework for *Python*). 
@@ -18,4 +18,10 @@ Click in the Distros folder and follow the intructions from the readme.md after 
 
 #About this project
 Please be free to clone this repository and compile it using Ren'py *(but need to delete the Distros folder fist)*
+
+#Assets attributions
+##Backgrounds.
+ -Mr Mugen (later add link to lemma)
+ -rinmarugames
+ -Music :
 
