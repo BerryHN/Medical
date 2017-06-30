@@ -25,7 +25,7 @@ label hangman:
     scene black with dissolve
     scene city
 
-    play music 'mp3/sGrillo.mp3'
+    play music 'mp3/Grillo.mp3'
     #call screen inventory_button
 
     u1 "Sir, do you think I’m got get a raise?"
